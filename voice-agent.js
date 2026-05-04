@@ -18,7 +18,7 @@
   // Locally: leave empty → uses relative /api/* paths via voice_server.py
   // On GitHub Pages: set to your Cloudflare Worker URL, e.g.:
   //   'https://kne-api.YOUR-SUBDOMAIN.workers.dev'
-  const API_BASE = '';
+  const API_BASE = 'https://karlsen-nordseth.j-tidemann.workers.dev';
 
   // INGEN VERKTØY — kun ren tale for nå. Ingen rull, ingen fremheving,
   // ingen søkefyll. Holder ting enkelt slik at modellen bare svarer.
