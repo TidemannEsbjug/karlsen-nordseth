@@ -14,6 +14,12 @@
 (() => {
   'use strict';
 
+  // ── API base URL ───────────────────────────────────────────────────────
+  // Locally: leave empty → uses relative /api/* paths via voice_server.py
+  // On GitHub Pages: set to your Cloudflare Worker URL, e.g.:
+  //   'https://kne-api.YOUR-SUBDOMAIN.workers.dev'
+  const API_BASE = '';
+
   // INGEN VERKTØY — kun ren tale for nå. Ingen rull, ingen fremheving,
   // ingen søkefyll. Holder ting enkelt slik at modellen bare svarer.
   const TOOLS = [];
@@ -145,7 +151,7 @@ REGLER:
 • HUSK SAMTALEN — IKKE GJENTA DEG SELV: Du har full historikk over hva du nettopp har sagt. Når brukeren ber om "mer", "utdyp" e.l., bygg VIDERE — ikke re-introduser fakta du allerede har gitt. Behandle forrige svar som etablert kontekst og gå dypere inn i et nytt aspekt.
 • Hvis du ikke vet noe, si "Det har jeg ikke fått trent inn ennå" og foreslå at de ringer 67 07 38 30 eller sender e-post.`;
 
-  const TOKEN_ENDPOINT = '/api/voice-token';
+  const TOKEN_ENDPOINT = `${API_BASE}/api/voice-token`;
   const REALTIME_URL = 'wss://api.x.ai/v1/realtime?model=grok-voice-think-fast-1.0';
   // xAI realtime stemmer (alle amerikanske, per docs):
   //   eve — kvinne, energisk og engasjert (default)
@@ -512,7 +518,7 @@ ${loc.langInstructionChat}`;
         { role: 'system', content: buildChatInstructions(curLang) },
         ...chatHistory,
       ];
-      const res = await fetch('/api/chat', {
+      const res = await fetch(`${API_BASE}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages }),
