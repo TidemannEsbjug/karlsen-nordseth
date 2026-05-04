@@ -3,9 +3,6 @@
 *.env
 .env.*
 
-# Large videos (exceed GitHub 100MB limit)
-assets/om-oss/videos/hero.mp4
-
 # macOS
 .DS_Store
 **/.DS_Store
