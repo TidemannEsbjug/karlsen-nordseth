@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mangfold og likestilling — Karlsen &amp; Nordseth Entreprenør</title>
+<meta name="description" content="Mangfold og likestilling i KNE — like muligheter, inkluderende rekruttering, og en arbeidsplass der over halvparten av de ansatte har innvandrerbakgrunn.">
+<meta property="og:title" content="Mangfold | Karlsen &amp; Nordseth">
+<meta property="og:image" content="assets/baerekraft/inklusivitet.png">
+<link rel="icon" href="assets/logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/project.css?v=2">
+
+<style>
+.intro-band{padding:96px 0 56px;background:var(--paper)}
+.intro-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:start}
+.intro-grid h2 em{color:var(--orange-2);font-style:italic}
+.intro-grid .lede{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.2rem,1.5vw,1.5rem);line-height:1.45;color:var(--ink);max-width:42ch}
+.intro-grid p{color:var(--ink-2);font-size:1.02rem;line-height:1.7;margin:18px 0 0;max-width:54ch}
+.intro-grid p em{font-style:italic;color:var(--orange-2)}
+@media (max-width:920px){.intro-grid{grid-template-columns:1fr;gap:36px}}
+
+.principles-band{padding:96px 0;background:var(--paper);border-top:1px solid var(--line)}
+.principles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.principle-card{padding:36px 32px;background:#fff;border-radius:var(--r-md);border:1px solid var(--line);transition:transform .35s ease, box-shadow .35s ease}
+.principle-card:hover{transform:translateY(-2px);box-shadow:0 22px 48px -22px rgba(0,0,0,.18)}
+.principle-card .v-num{font-family:var(--serif);font-style:italic;color:var(--orange);font-size:1.05rem;margin-bottom:14px}
+.principle-card h4{font-size:1.3rem}
+.principle-card h4 em{color:var(--orange-2);font-style:italic}
+.principle-card p{color:var(--muted);font-size:.98rem;line-height:1.6;margin:14px 0 0}
+@media (max-width:920px){.principles-grid{grid-template-columns:1fr;gap:14px}}
+
+.followup-band{padding:96px 0;background:#0E2238;color:rgba(244,239,232,.96)}
+.followup-band h2{color:#fff}
+.followup-band h2 em{color:#FFA663;font-style:italic}
+.followup-band .lede{color:rgba(244,239,232,.96);font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.4vw,1.4rem);line-height:1.45;max-width:50ch;margin-top:18px}
+.followup-list{margin-top:48px;display:flex;flex-direction:column;gap:0}
+.followup-row{display:grid;grid-template-columns:80px 1fr;gap:32px;padding:24px 0;border-top:1px solid rgba(255,255,255,.12);align-items:start}
+.followup-row:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
+.followup-row .num{font-family:var(--serif);font-style:italic;color:var(--orange);font-size:1.1rem}
+.followup-row p{color:#E8E1D3;font-size:1.05rem;line-height:1.65;margin:0;max-width:62ch}
+.followup-row p em{font-style:italic;color:var(--sand)}
+@media (max-width:760px){.followup-row{grid-template-columns:1fr;gap:6px;padding:18px 0}}
+
+.docs-band{padding:96px 0;background:var(--paper);border-top:1px solid var(--line)}
+.docs-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start;margin-top:48px}
+.docs-text p{font-size:1.02rem;line-height:1.7;color:var(--ink-2);margin:0 0 16px;max-width:54ch}
+.docs-card{padding:36px 36px;background:#0E2238;color:rgba(244,239,232,.96);border-radius:var(--r-md);display:flex;flex-direction:column;gap:18px}
+.docs-card h3{color:#fff;font-size:1.4rem;font-weight:500}
+.docs-card h3 em{color:#FFA663;font-style:italic}
+.docs-card .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.12)}
+.docs-card .row:first-of-type{border-top:0;padding-top:4px}
+.docs-card .lbl{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#fff}
+.docs-card .dl{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:500;border:1px solid rgba(255,166,99,.55);padding:7px 14px;border-radius:999px;transition:background .25s, color .25s}
+.docs-card .dl:hover{background:var(--orange);color:#fff}
+@media (max-width:920px){.docs-grid{grid-template-columns:1fr;gap:36px}}
+
+.page-hero{position:relative;isolation:isolate;min-height:min(72vh, 720px);display:grid;color:#fff;padding:140px 0 56px;overflow:hidden;background:#0F1B2E}
+.page-hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url('assets/baerekraft/inklusivitet-hero.webp') center 35%/cover no-repeat}
+.page-hero::after{
+ content:"";position:absolute;inset:0;z-index:-1;
+ background:
+   linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.22) 22%, rgba(0,0,0,.04) 40%, rgba(0,0,0,.40) 75%, rgba(0,0,0,.85) 92%, rgba(0,0,0,.95) 100%),
+   linear-gradient(95deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.45) 35%, rgba(0,0,0,.10) 65%, rgba(0,0,0,0) 90%);
+}
+.page-hero .crumbs{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(255,255,255,.78);display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.page-hero .crumbs a{color:inherit;border-bottom:1px solid transparent;transition:border-color .2s}
+.page-hero .crumbs a:hover{border-color:rgba(255,255,255,.6)}
+.page-hero .crumbs .sep{opacity:.5}
+.page-hero h1{max-width:20ch;color:#fff;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.page-hero h1 em{font-style:italic;font-weight:500}
+.page-hero .lede{max-width:54ch;color:rgba(255,255,255,.86);font-size:clamp(1rem,1.15vw,1.13rem);line-height:1.55;margin-top:24px}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Hopp til innhold</a>
+
+<header class="site-header" id="siteHeader">
+ <div class="wrap nav">
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo brand-logo--dark" src="assets/logo-white.png" alt="Karlsen &amp; Nordseth Entreprenør">
+ <img class="brand-logo brand-logo--light" src="assets/logo.png" alt="" aria-hidden="true">
+ </a>
+ <nav class="nav-links" aria-label="Hovedmeny">
+ <div class="drawer-header">
+ <button class="drawer-close" type="button" aria-label="Lukk meny">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+ <line x1="6" y1="6" x2="18" y2="18"/>
+ <line x1="6" y1="18" x2="18" y2="6"/>
+ </svg>
+ </button>
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo" src="assets/logo.png" alt="Karlsen &amp; Nordseth Entreprenør" draggable="false">
+ </a>
+ <span class="drawer-spacer" aria-hidden="true"></span>
+ </div>
+ <a href="index.html">Hjem</a>
+ <a href="prosjekter.html">Prosjekter</a>
+ <a href="om-oss.html">Om oss</a>
+ <a href="baerekraft.html" class="is-current">Bærekraft</a>
+ <a href="etikkogansvar.html">Etikk og ansvar</a>
+ <a href="stillinger.html">Stillinger</a>
+ </nav>
+ <div class="nav-cta">
+ <a class="nav-phone" href="tel:+4767073830">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ +47 67 07 38 30
+ </a>
+ <a class="btn" href="index.html#kontakt">Kontakt <span class="arrow">→</span></a>
+ <button class="menu-btn" aria-label="Åpne meny">Meny</button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- HERO -->
+ <section class="page-hero" data-theme="dark">
+ <div class="wrap">
+ <div class="crumbs">
+ <a href="index.html">Hjem</a><span class="sep">·</span>
+ <a href="baerekraft.html">Bærekraft</a><span class="sep">·</span>
+ <span>Mangfold</span>
+ </div>
+ <span class="eyebrow" style="color:rgba(255,255,255,.78)">Mangfold &amp; likestilling</span>
+ <h1 style="margin-top:18px">Mangfold og likestilling <em>i KNE</em>.</h1>
+ <p class="lede">
+   Vi tror på <em>like muligheter</em> for alle.
+ </p>
+ </div>
+ </section>
+
+ <!-- INTRO -->
+ <section class="intro-band" data-theme="light">
+ <div class="wrap">
+ <div class="intro-grid reveal">
+ <div>
+ <span class="eyebrow">Vårt utgangspunkt</span>
+ <h2 style="margin-top:14px">Et arbeidsmiljø <em>uten forutsetninger</em>.</h2>
+ </div>
+ <div>
+ <p class="lede">
+   Hos Karlsen &amp; Nordseth Entreprenør AS skal arbeidsmiljøet være attraktivt, utviklende
+   og inkluderende — uavhengig av <em>kjønn, etnisitet, funksjonsevne, religion, seksuell
+   orientering eller alder</em>.
+ </p>
+ <p>
+   Vi arbeider målrettet for å fremme likestilling, mangfold og ikke-diskriminering på
+   alle nivåer i organisasjonen.
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- HOVEDPRINSIPPER -->
+ <section class="principles-band" data-theme="light">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow">Våre hovedprinsipper</span>
+ <h2 style="margin-top:14px">Seks prinsipper, <em>én arbeidsplass</em>.</h2>
+ </div>
+
+ <div class="principles-grid reveal">
+ <div class="principle-card">
+ <div class="v-num">— 01</div>
+ <h4>Like <em>muligheter</em>.</h4>
+ <p>
+   Alle ansatte skal ha lik tilgang til kompetanseutvikling og karrieremuligheter.
+ </p>
+ </div>
+ <div class="principle-card">
+ <div class="v-num">— 02</div>
+ <h4>Mangfold i <em>praksis</em>.</h4>
+ <p>
+   Over halvparten av våre ansatte har <em>innvandrerbakgrunn</em>.
+ </p>
+ </div>
+ <div class="principle-card">
+ <div class="v-num">— 03</div>
+ <h4>Inkluderende <em>rekruttering</em>.</h4>
+ <p>
+   Vi oppfordrer kvinner og søkere fra underrepresenterte grupper til å søke — og gir
+   fortrinn ved like kvalifikasjoner.
+ </p>
+ </div>
+ <div class="principle-card">
+ <div class="v-num">— 04</div>
+ <h4><em>Tilrettelegging</em>.</h4>
+ <p>
+   Vi tilrettelegger for ansatte med funksjonsnedsettelser og tilbyr norskopplæring til
+   fremmedspråklige.
+ </p>
+ </div>
+ <div class="principle-card">
+ <div class="v-num">— 05</div>
+ <h4>Balansen <em>arbeid–familie</em>.</h4>
+ <p>
+   Gjennom fleksibel arbeidstid og tilrettelegging støtter vi ansatte med omsorgsansvar
+   og gravide medarbeidere.
+ </p>
+ </div>
+ <div class="principle-card">
+ <div class="v-num">— 06</div>
+ <h4>Trygt <em>arbeidsmiljø</em>.</h4>
+ <p>
+   Vi har nulltoleranse for trakassering og diskriminering, og tydelige varslingsrutiner.
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- HVORDAN VI FØLGER OPP -->
+ <section class="followup-band" data-theme="dark">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow" style="color:rgba(244,239,232,.55)">Oppfølging</span>
+ <h2 style="margin-top:14px">Hvordan vi <em>følger opp</em>.</h2>
+ </div>
+
+ <div class="followup-list reveal">
+ <div class="followup-row">
+ <div class="num">— 01</div>
+ <p>Årlige <em>statusrapporter</em> om bemanning og kjønnsbalanse.</p>
+ </div>
+ <div class="followup-row">
+ <div class="num">— 02</div>
+ <p>Jevnlige <em>medarbeiderundersøkelser</em> og medarbeidersamtaler.</p>
+ </div>
+ <div class="followup-row">
+ <div class="num">— 03</div>
+ <p>Aktiv bruk av lovpålagte krav i <em>Arbeidsmiljøloven</em> og <em>Likestillings- og diskrimineringsloven</em>.</p>
+ </div>
+ <div class="followup-row">
+ <div class="num">— 04</div>
+ <p>Ansvar for oppfølging ligger hos både <em>ledere, tillitsvalgte og verneombud</em>.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- DOKUMENTER -->
+ <section class="docs-band" data-theme="light">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow">Vil du vite mer?</span>
+ <h2 style="margin-top:14px">Les hele vår <em>likestillingspolicy</em>.</h2>
+ </div>
+ <div class="docs-grid reveal">
+ <div class="docs-text">
+ <p>
+   Les hele vår likestillingspolicy
+   <a class="inline" href="mailto:post@karlsen-nordseth.no?subject=Forespørsel%20om%20likestillingspolicy" style="color:var(--ink);border-bottom:1px solid var(--orange)">her</a>.
+ </p>
+ </div>
+ <div class="docs-card">
+ <h3>Likestillings­<em>redegjørelse</em>.</h3>
+ <div class="row">
+ <span class="lbl">Likestillings­redegjørelse 2024</span>
+ <a class="dl" href="mailto:post@karlsen-nordseth.no?subject=Forespørsel%20om%20likestillingsredegjørelse%202024">Last ned</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="cta-band" id="kontakt">
+ <div class="wrap cta-grid">
+ <div>
+ <span class="eyebrow" style="color:rgba(244,239,232,.55)">Kontakt oss</span>
+ <h2 style="margin-top:14px">Har dere <em>innspill</em> til oss?</h2>
+ <p>
+   Send forslag til <a href="mailto:post@karlsen-nordseth.no" style="color:var(--orange);border-bottom:1px solid rgba(248,128,56,.4)">post@karlsen-nordseth.no</a>.
+ </p>
+ <div class="actions" style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap">
+ <a class="btn btn--orange" href="stillinger.html">Se stillinger <span class="arrow">→</span></a>
+ <a class="btn" style="background:#fff;color:var(--ink)" href="index.html#kontakt">Ta kontakt <span class="arrow">→</span></a>
+ </div>
+ </div>
+ <div class="meta">
+ <div class="row"><span class="lbl">Telefon</span><span class="val"><a href="tel:+4767073830">+47 67 07 38 30</a></span></div>
+ <div class="row"><span class="lbl">E-post</span><span class="val"><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></span></div>
+ <div class="row"><span class="lbl">Org.nr.</span><span class="val">985 214 034</span></div>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="wrap">
+ <div class="top">
+ <div class="col">
+ <div class="brandlogo">
+ <img src="assets/logo-white.png" alt="">
+ <span class="brand-name" style="color:#fff"><b>Karlsen</b> &amp; Nordseth</span>
+ </div>
+ <div class="pitch">Antikvarisk håndverk siden <em>1992</em> — i Oslo og på Østlandet.</div>
+ </div>
+ <div class="col">
+ <h5>Selskapet</h5>
+ <ul>
+ <li><a href="om-oss.html">Om oss</a></li>
+ <li><a href="prosjekter.html">Prosjekter</a></li>
+ <li><a href="stillinger.html">Stillinger</a></li>
+ <li><a href="baerekraft.html">Bærekraft</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Ansvar</h5>
+ <ul>
+ <li><a href="miljoarbeid.html">Miljøarbeid</a></li>
+ <li><a href="mangfold.html">Mangfold</a></li>
+ <li><a href="apenhetsloven.html">Åpenhetsloven</a></li>
+ <li><a href="etikkogansvar.html">Etikk og ansvar</a></li>
+ <li><a href="personvernerklaering.html">Personvernerklæring</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Kontakt</h5>
+ <ul>
+ <li><a href="tel:+4767073830">+47 67 07 38 30</a></li>
+ <li><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></li>
+ <li>Org.nr. 985 214 034</li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom">
+ <span>© <span id="yr"></span> Karlsen &amp; Nordseth Entreprenør AS</span>
+ <div class="socials" aria-label="Sosiale medier">
+ <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/project.js" defer></script>
+<script>
+(function(){
+ var btn=document.querySelector(".menu-btn");
+ var header=document.getElementById("siteHeader");
+ if(!btn||!header)return;
+ btn.setAttribute("aria-expanded","false");
+ var closeMenu=function(){
+  header.classList.remove("is-menu-open");
+  document.body.classList.remove("is-menu-open");
+  btn.setAttribute("aria-expanded","false");
+ };
+ var toggleMenu=function(){
+  var isOpen=header.classList.toggle("is-menu-open");
+  document.body.classList.toggle("is-menu-open",isOpen);
+  btn.setAttribute("aria-expanded",isOpen?"true":"false");
+ };
+ btn.addEventListener("click",function(e){e.stopPropagation();toggleMenu();});
+ document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",closeMenu);});
+ document.querySelectorAll(".drawer-close").forEach(function(b){b.addEventListener("click",closeMenu);});
+ document.addEventListener("click",function(e){if(!header.contains(e.target))closeMenu();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});
+ window.addEventListener("resize",function(){if(window.innerWidth>920)closeMenu();});
+})();
+</script>
+</body>
+</html>

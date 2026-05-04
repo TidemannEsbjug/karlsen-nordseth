@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bærekraft — Karlsen &amp; Nordseth Entreprenør</title>
+<meta name="description" content="Bærekraft og ansvarlig næringsliv hos Karlsen &amp; Nordseth — sosialt, økonomisk og miljømessig ansvar, OECD- og ILO-konvensjoner, og 6 av FNs bærekraftsmål.">
+<meta property="og:title" content="Bærekraft | Karlsen &amp; Nordseth">
+<meta property="og:image" content="assets/baerekraft/hero.jpg">
+<link rel="icon" href="assets/logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/project.css?v=2">
+
+<style>
+.values-band{padding:96px 0;background:var(--paper)}
+.values-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;
+}
+.value-card{
+ padding:36px 32px;background:#fff;border-radius:var(--r-md);border:1px solid var(--line);
+ transition:transform .35s ease, box-shadow .35s ease;
+}
+.value-card:hover{transform:translateY(-2px);box-shadow:0 22px 48px -22px rgba(0,0,0,.18)}
+.value-card .v-num{font-family:var(--serif);font-style:italic;color:var(--orange);font-size:1.05rem;margin-bottom:14px}
+.value-card h4{font-size:1.45rem}
+.value-card h4 em{color:var(--orange-2);font-style:italic}
+.value-card p{color:var(--muted);font-size:.95rem;line-height:1.6;margin:14px 0 0}
+@media (max-width:920px){.values-grid{grid-template-columns:1fr;gap:14px}}
+
+/* Warm-cream editorial band — replaces dark+orange treatment for less "heavy" rhythm */
+.policy-band{padding:96px 0;background:#0F1B2E;color:var(--paper)}
+.policy-band h2{color:var(--paper)}
+.policy-band h2 em{color:var(--orange-2);font-style:italic}
+.policy-band .eyebrow{color:rgba(244,239,232,.7)}
+.policy-band .eyebrow::before{background:rgba(244,239,232,.6)}
+.policy-band .lede{color:rgba(244,239,232,.85);font-family:var(--serif);font-style:italic;
+ font-size:clamp(1.15rem,1.4vw,1.4rem);line-height:1.45;max-width:50ch;margin-top:18px}
+.policy-rows{margin-top:64px;display:flex;flex-direction:column;gap:0}
+.policy-row{
+ display:grid;grid-template-columns:240px 1fr;gap:48px;
+ padding:36px 0;border-top:1px solid rgba(244,239,232,.16);align-items:start;
+}
+.policy-row:last-child{border-bottom:1px solid rgba(244,239,232,.16)}
+.policy-row .p-label{
+ font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+ color:rgba(244,239,232,.7);
+}
+.policy-row .p-h{font-family:var(--serif);font-size:1.6rem;font-weight:500;color:var(--paper);line-height:1.15;margin:0 0 14px}
+.policy-row .p-h em{color:var(--orange-2);font-style:italic}
+.policy-row p{color:rgba(244,239,232,.85);font-size:1.02rem;line-height:1.7;margin:0;max-width:62ch}
+.policy-row p em{font-style:italic;color:var(--orange-2)}
+@media (max-width:920px){.policy-row{grid-template-columns:1fr;gap:14px;padding:24px 0}}
+
+.targets-band{padding:96px 0;background:var(--paper)}
+.targets-grid{
+ display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:48px;
+}
+.target-tile{
+ position:relative;display:block;padding:0;border-radius:var(--r-md);overflow:hidden;
+ background:#0F1B2E;color:#fff;aspect-ratio:5/3;isolation:isolate;
+ transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+}
+.target-tile:hover{transform:translateY(-2px);box-shadow:0 24px 48px -22px rgba(0,0,0,.45)}
+.target-tile img{
+ position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+ transition:transform .9s cubic-bezier(.2,.8,.2,1), filter .35s;
+}
+.target-tile:hover img{transform:scale(1.05);filter:saturate(1.1)}
+.target-tile::before{
+ content:"";position:absolute;inset:0;z-index:1;
+ background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.85) 100%);
+}
+.target-tile .body{position:absolute;inset:auto 0 0 0;z-index:2;padding:28px 30px}
+.target-tile .meta{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);font-weight:500;margin-bottom:8px}
+.target-tile h4{color:#fff;font-size:1.5rem;font-weight:500}
+.target-tile h4 em{color:var(--orange);font-style:italic}
+@media (max-width:760px){.targets-grid{grid-template-columns:1fr}}
+
+.un-cta{
+ display:inline-flex;align-items:center;gap:10px;
+ padding:13px 22px;border-radius:999px;
+ background:transparent;color:var(--ink);border:1px solid var(--ink);
+ font-family:var(--serif);font-style:italic;font-size:1rem;
+ transition:background .25s, color .25s, transform .25s;
+}
+.un-cta:hover{background:#0F1B2E;color:var(--paper);transform:translateY(-1px)}
+
+.fundament-band{padding:96px 0 56px;background:var(--paper)}
+.fundament-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:start}
+.fundament-grid h2 em{color:var(--orange-2);font-style:italic}
+.fundament-grid blockquote{
+ font-family:var(--serif);font-style:italic;font-weight:300;
+ font-size:clamp(1.2rem,1.5vw,1.5rem);line-height:1.45;color:var(--ink);max-width:42ch;
+ margin:32px 0 0;padding:0 0 0 24px;border-left:3px solid var(--orange);
+}
+.fundament-grid blockquote em{color:var(--orange-2)}
+.fundament-grid p{color:var(--ink-2);font-size:1.02rem;line-height:1.7;margin:18px 0 0;max-width:54ch}
+.fundament-grid p em{font-style:italic;color:var(--orange-2)}
+@media (max-width:920px){.fundament-grid{grid-template-columns:1fr;gap:36px}}
+
+/* Page-hero variant for non-project pages */
+.page-hero{
+ position:relative;isolation:isolate;
+ min-height:min(72vh, 720px);
+ display:grid;color:#fff;padding:140px 0 56px;
+ overflow:hidden;background:#0F1B2E;
+}
+.page-hero::before{
+ content:"";position:absolute;inset:0;z-index:-2;
+ background:url('assets/baerekraft/hero-hero.webp') center 35%/cover no-repeat;
+ /* image is already moody — just tame the bright sunburst behind the worker */
+ filter:brightness(.88) contrast(1.04);
+}
+.page-hero::after{
+ content:"";position:absolute;inset:0;z-index:-1;
+ background:
+   /* horizontal: stronger left vignette where the headline + lede sit */
+   linear-gradient(95deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.50) 32%, rgba(0,0,0,.15) 62%, rgba(0,0,0,0) 92%),
+   /* vertical: dark top for nav, soft mid lets the worker stay prominent, dark bottom for the seam */
+   linear-gradient(180deg, rgba(0,0,0,.50) 0%, rgba(0,0,0,.18) 22%, rgba(0,0,0,.06) 45%, rgba(0,0,0,.42) 78%, rgba(0,0,0,.88) 100%);
+}
+.page-hero .crumbs{
+ font-family:var(--serif);font-style:italic;font-size:1rem;
+ color:rgba(255,255,255,.78);display:flex;gap:10px;align-items:center;margin-bottom:18px;
+}
+.page-hero .crumbs a{color:inherit;border-bottom:1px solid transparent;transition:border-color .2s}
+.page-hero .crumbs a:hover{border-color:rgba(255,255,255,.6)}
+.page-hero .crumbs .sep{opacity:.5}
+.page-hero h1{max-width:18ch;color:#fff;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.page-hero h1 em{font-style:italic;font-weight:500}
+.page-hero .lede{
+ max-width:60ch;color:rgba(255,255,255,.86);
+ font-size:clamp(1rem,1.15vw,1.13rem);line-height:1.55;margin-top:24px;
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Hopp til innhold</a>
+
+<header class="site-header" id="siteHeader">
+ <div class="wrap nav">
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo brand-logo--dark" src="assets/logo-white.png" alt="Karlsen &amp; Nordseth Entreprenør">
+ <img class="brand-logo brand-logo--light" src="assets/logo.png" alt="" aria-hidden="true">
+ </a>
+ <nav class="nav-links" aria-label="Hovedmeny">
+ <div class="drawer-header">
+ <button class="drawer-close" type="button" aria-label="Lukk meny">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+ <line x1="6" y1="6" x2="18" y2="18"/>
+ <line x1="6" y1="18" x2="18" y2="6"/>
+ </svg>
+ </button>
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo" src="assets/logo.png" alt="Karlsen &amp; Nordseth Entreprenør" draggable="false">
+ </a>
+ <span class="drawer-spacer" aria-hidden="true"></span>
+ </div>
+ <a href="index.html">Hjem</a>
+ <a href="prosjekter.html">Prosjekter</a>
+ <a href="om-oss.html">Om oss</a>
+ <a href="baerekraft.html" class="is-current">Bærekraft</a>
+ <a href="etikkogansvar.html">Etikk og ansvar</a>
+ <a href="stillinger.html">Stillinger</a>
+ </nav>
+ <div class="nav-cta">
+ <a class="nav-phone" href="tel:+4767073830">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ +47 67 07 38 30
+ </a>
+ <a class="btn" href="index.html#kontakt">Kontakt <span class="arrow">→</span></a>
+ <button class="menu-btn" aria-label="Åpne meny">Meny</button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- HERO -->
+ <section class="page-hero" data-theme="dark">
+ <div class="wrap">
+ <div class="crumbs">
+ <a href="index.html">Hjem</a><span class="sep">·</span>
+ <span>Bærekraft</span>
+ </div>
+ <span class="eyebrow" style="color:rgba(255,255,255,.78)">Bærekraft</span>
+ <h1 style="margin-top:18px">Bærekraft og <em>ansvarlig næringsliv</em>.</h1>
+ <p class="lede">
+   Denne policyen reflekterer vårt engasjement for å bidra positivt til samfunnet og
+   miljøet, samtidig som vi skaper verdier for våre <em>kunder, ansatte og eiere</em>.
+ </p>
+ </div>
+ </section>
+
+ <!-- FUNDAMENT -->
+ <section class="fundament-band" data-theme="light">
+ <div class="wrap">
+ <div class="fundament-grid reveal">
+ <div>
+ <span class="eyebrow">FN-definisjonen, 1987</span>
+ <h2 style="margin-top:14px">Tre verdiområder, <em>ett fundament</em>.</h2>
+ <blockquote>
+   En utvikling som imøtekommer dagens behov uten å ødelegge mulighetene for at
+   <em>kommende generasjoner</em> skal få dekket sine behov.
+ </blockquote>
+ </div>
+ <div>
+ <p>
+   I 1987 beskrev FN bærekraft på denne måten. Bærekraft omfatter tre verdiområder;
+   <em>sosialt, økonomisk og miljømessig</em>. Alle tre områdene må være tilstede for
+   å oppnå bærekraft.
+ </p>
+ <p>
+   Denne definisjonen står som et fundament for vårt bærekraftsarbeid. For å lykkes må
+   vi derfor balansere tre avgjørende verdiområder: sosialt, økonomisk og miljømessig.
+   Alle tre er nødvendige for å skape en bærekraftig fremtid.
+ </p>
+ <p>
+   Vårt arbeide bygger på OECD sine retningslinjer for flernasjonale selskaper, FN-
+   og ILO-konvensjoner og nasjonalt regelverk. Vi har identifisert <em>seks av FNs
+   bærekraftsmål</em> som er mest relevant for vår virksomhet og som reflekterer de
+   tre verdiområdene.
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- VALUES — three-pillar framing -->
+ <section class="values-band" data-theme="light">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow">Tre verdiområder</span>
+ <h2 style="margin-top:14px">Sosialt, økonomisk og <em>miljømessig</em>.</h2>
+ <p style="color:var(--muted);margin-top:18px;max-width:60ch;font-size:1.02rem;line-height:1.7">
+   Vi jobber sammen mot felles mål for å skape et mer bærekraftig selskap, både internt
+   og med nye og eksisterende samarbeidspartnere.
+ </p>
+ </div>
+
+ <div class="values-grid reveal">
+ <div class="value-card">
+ <div class="v-num">— 01</div>
+ <h4>Sosialt — <em>folk</em>.</h4>
+ <p>
+   Trygge arbeidsplasser, kontinuerlig opplæring og en helsefremmende arbeidsplass for
+   alle ansatte. Mangfold, likestilling og respekt for den enkeltes rettigheter står
+   sentralt — forankret i en egen likestillingspolicy.
+ </p>
+ </div>
+ <div class="value-card">
+ <div class="v-num">— 02</div>
+ <h4>Økonomisk — <em>ansvarlig</em>.</h4>
+ <p>
+   En solid forretningsmodell som skaper verdier på en ansvarlig og transparent måte —
+   effektiv ressursbruk, investering i innovasjon og teknologi, og ansvarlig økonomisk
+   styring som sikrer nye arbeidsplasser uten å skade miljøet.
+ </p>
+ </div>
+ <div class="value-card">
+ <div class="v-num">— 03</div>
+ <h4>Miljømessig — <em>målbart</em>.</h4>
+ <p>
+   Klimaavtrykk måles via Miljøfyrtårn-rapportering. Mål om fossilfri bilpark innen
+   <em>2030</em>, leverandør med opprinnelsesgaranti på strøm, og investering i fornybar
+   energi i driftslokaler.
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- POLICY ROWS — full live text -->
+ <section class="policy-band" data-theme="dark">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow">Policy &amp; rammeverk</span>
+ <h2 style="margin-top:14px">Slik <em>jobber vi</em>.</h2>
+ <p class="lede">
+   Vårt arbeide bygger på OECDs retningslinjer for flernasjonale selskaper, FN- og
+   ILO-konvensjoner og nasjonalt regelverk.
+ </p>
+ </div>
+
+ <div class="policy-rows reveal">
+ <div class="policy-row">
+ <div>
+ <div class="p-label">Arbeidsmiljø</div>
+ </div>
+ <div>
+ <div class="p-h">Trygge og <em>helsefremmende</em> arbeidsplasser.</div>
+ <p>
+   Vi jobber kontinuerlig for å sikre gode arbeidsvilkår, opplæring og en helsefremmende
+   arbeidsplass for alle ansatte. Våre arbeidsplasser skal være trygge og sikre samt at
+   vi skal ha en positiv arbeidskultur. <em>Det oppmuntres til fysisk aktivitet</em>.
+ </p>
+ </div>
+ </div>
+
+ <div class="policy-row">
+ <div>
+ <div class="p-label">Mangfold &amp; likestilling</div>
+ </div>
+ <div>
+ <div class="p-h">Et <em>attraktivt</em> og utviklende arbeidsmiljø.</div>
+ <p>
+   Vi har vi som mål å være en arbeidsplass der arbeidsmiljøet skal være <em>attraktivt og
+   utviklende</em> og hvor mangfold, likestilling og respekt for den enkeltes rettigheter
+   står sentralt. Vi har utarbeidet en egen likestillingspolicy for å ivareta dette.
+ </p>
+ </div>
+ </div>
+
+ <div class="policy-row">
+ <div>
+ <div class="p-label">Verdikjede &amp; etikk</div>
+ </div>
+ <div>
+ <div class="p-h">Aktivt arbeid mot <em>sosial dumping</em>.</div>
+ <p>
+   Vi skal ikke ha forekomst av sosial dumping i våre prosjekter og vi jobber aktivt
+   for å bidra til anstendige arbeidsforhold og rettferdig arbeidsmiljø nedover i
+   verdikjeden. Vi skal overholde gjeldende lovgivning og har i tillegg utarbeidet
+   <em>egne etiske retningslinjer</em> som alle ansatte og samarbeidspartnere blir
+   gjort kjent med.
+ </p>
+ </div>
+ </div>
+
+ <div class="policy-row">
+ <div>
+ <div class="p-label">Økonomisk ansvar</div>
+ </div>
+ <div>
+ <div class="p-h"><em>Solid</em> og transparent forretningsmodell.</div>
+ <p>
+   Vårt fokus er å bygge en solid forretningsmodell som skaper verdier på en
+   <em>ansvarlig og transparent måte</em> for å fremme langsiktig økonomisk vekst samt
+   sikre og skape nye arbeidsplasser uten å skade miljøet. Dette inkluderer effektiv
+   ressursbruk, investering i innovasjon og teknologi, samt ansvarlig økonomisk styring.
+ </p>
+ </div>
+ </div>
+
+ <div class="policy-row">
+ <div>
+ <div class="p-label">Klima &amp; energi</div>
+ </div>
+ <div>
+ <div class="p-h"><em>Fossilfri bilpark</em> innen 2030.</div>
+ <p>
+   Vi måler vårt klimaavtrykk gjennom rapporteringsverktøyet i Miljøfyrtårn. Vi har som
+   mål å ha fossilfrie kjøretøy innen <em>2030</em> og være fokuserte når vi velger
+   hvordan transport foregår. Vi skal ha en leverandør med <em>opprinnelsesgaranti</em>
+   på kjøp av strøm samt investere i fornybar energi i våre driftslokaler.
+ </p>
+ </div>
+ </div>
+ </div>
+
+ <div style="margin-top:48px">
+ <a class="un-cta" href="https://fn.no/om-fn/fns-baerekraftsmaal" target="_blank" rel="noopener">
+   Les om FNs bærekraftsmål <span class="arrow">→</span>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- THEMED TILES -->
+ <section class="targets-band" data-theme="light">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow">Områder vi jobber med</span>
+ <h2 style="margin-top:14px">Konkret arbeid, <em>ikke bare ord</em>.</h2>
+ </div>
+ <div class="targets-grid reveal">
+ <a class="target-tile" href="miljoarbeid.html" aria-label="Miljøarbeid">
+ <img src="assets/baerekraft/miljofyrtarn-preview.webp" alt="Miljøarbeid">
+ <div class="body">
+ <div class="meta">— 01 Miljøarbeid</div>
+ <h4><em>Miljøfyrtårn</em>, fornybar strøm,<br>fossilfri bilpark 2030.</h4>
+ </div>
+ </a>
+ <a class="target-tile" href="apenhetsloven.html" aria-label="Åpenhetsloven">
+ <img src="assets/baerekraft/lov-preview.webp" alt="Åpenhetsloven">
+ <div class="body">
+ <div class="meta">— 02 Åpenhetsloven</div>
+ <h4>Aktsomhetsvurderinger og<br><em>menneskerettighetsarbeid</em>.</h4>
+ </div>
+ </a>
+ <a class="target-tile" href="mangfold.html" aria-label="Mangfold">
+ <img src="assets/baerekraft/inklusivitet-preview.webp" alt="Mangfold">
+ <div class="body">
+ <div class="meta">— 03 Mangfold</div>
+ <h4>Over halvparten har <em>innvandrerbakgrunn</em>.</h4>
+ </div>
+ </a>
+ <a class="target-tile" href="etikkogansvar.html" aria-label="Etikk og ansvar">
+ <img src="assets/etikkogansvar/hero-preview.webp" alt="Etikk og ansvar">
+ <div class="body">
+ <div class="meta">— 04 Etikk &amp; ansvar</div>
+ <h4>Egne <em>etiske retningslinjer</em><br>i hele virksomheten.</h4>
+ </div>
+ </a>
+ <a class="target-tile" href="personvernerklaering.html" aria-label="Personvernerklæring">
+ <img src="assets/baerekraft/privacy-preview.webp" alt="Personvernerklæring">
+ <div class="body">
+ <div class="meta">— 05 Personvern</div>
+ <h4>Hvordan vi <em>håndterer</em><br>personopplysninger.</h4>
+ </div>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="cta-band" id="kontakt">
+ <div class="wrap cta-grid">
+ <div>
+ <span class="eyebrow" style="color:rgba(244,239,232,.55)">Kontakt</span>
+ <h2 style="margin-top:14px">Lyst til å vite <em>mer</em>?</h2>
+ <p>
+   Vi deler gjerne mer om hvordan vi jobber med bærekraft i konkrete prosjekter,
+   og hvordan dette kan bidra på ditt bygg.
+ </p>
+ <div class="actions" style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap">
+ <a class="btn btn--orange" href="index.html#kontakt">Ta kontakt <span class="arrow">→</span></a>
+ <a class="btn" style="background:#fff;color:var(--ink)" href="prosjekter.html">Se prosjekter <span class="arrow">→</span></a>
+ </div>
+ </div>
+ <div class="meta">
+ <div class="row"><span class="lbl">Telefon</span><span class="val"><a href="tel:+4767073830">+47 67 07 38 30</a></span></div>
+ <div class="row"><span class="lbl">E-post</span><span class="val"><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></span></div>
+ <div class="row"><span class="lbl">Org.nr.</span><span class="val">985 214 034</span></div>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="wrap">
+ <div class="top">
+ <div class="col">
+ <div class="brandlogo">
+ <img src="assets/logo-white.png" alt="">
+ <span class="brand-name" style="color:#fff"><b>Karlsen</b> &amp; Nordseth</span>
+ </div>
+ <div class="pitch">Antikvarisk håndverk siden <em>1992</em> — i Oslo og på Østlandet.</div>
+ </div>
+ <div class="col">
+ <h5>Selskapet</h5>
+ <ul>
+ <li><a href="om-oss.html">Om oss</a></li>
+ <li><a href="prosjekter.html">Prosjekter</a></li>
+ <li><a href="stillinger.html">Stillinger</a></li>
+ <li><a href="baerekraft.html">Bærekraft</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Ansvar</h5>
+ <ul>
+ <li><a href="miljoarbeid.html">Miljøarbeid</a></li>
+ <li><a href="mangfold.html">Mangfold</a></li>
+ <li><a href="apenhetsloven.html">Åpenhetsloven</a></li>
+ <li><a href="etikkogansvar.html">Etikk og ansvar</a></li>
+ <li><a href="personvernerklaering.html">Personvernerklæring</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Kontakt</h5>
+ <ul>
+ <li><a href="tel:+4767073830">+47 67 07 38 30</a></li>
+ <li><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></li>
+ <li>Org.nr. 985 214 034</li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom">
+ <span>© <span id="yr"></span> Karlsen &amp; Nordseth Entreprenør AS</span>
+ <div class="socials" aria-label="Sosiale medier">
+ <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/project.js" defer></script>
+<script>
+(function(){
+ var btn=document.querySelector(".menu-btn");
+ var header=document.getElementById("siteHeader");
+ if(!btn||!header)return;
+ btn.setAttribute("aria-expanded","false");
+ var closeMenu=function(){
+  header.classList.remove("is-menu-open");
+  document.body.classList.remove("is-menu-open");
+  btn.setAttribute("aria-expanded","false");
+ };
+ var toggleMenu=function(){
+  var isOpen=header.classList.toggle("is-menu-open");
+  document.body.classList.toggle("is-menu-open",isOpen);
+  btn.setAttribute("aria-expanded",isOpen?"true":"false");
+ };
+ btn.addEventListener("click",function(e){e.stopPropagation();toggleMenu();});
+ document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",closeMenu);});
+ document.querySelectorAll(".drawer-close").forEach(function(b){b.addEventListener("click",closeMenu);});
+ document.addEventListener("click",function(e){if(!header.contains(e.target))closeMenu();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});
+ window.addEventListener("resize",function(){if(window.innerWidth>920)closeMenu();});
+})();
+</script>
+</body>
+</html>

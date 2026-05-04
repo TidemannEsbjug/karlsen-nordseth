@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Etikk og ansvar — Karlsen &amp; Nordseth Entreprenør</title>
+<meta name="description" content="Etiske retningslinjer for ansatte og leverandører hos Karlsen &amp; Nordseth, ansvarlighet i leverandørkjeden, og varslingsrutiner for trygg rapportering.">
+<meta property="og:title" content="Etikk og ansvar | Karlsen &amp; Nordseth">
+<meta property="og:image" content="assets/etikkogansvar/hero.jpg">
+<link rel="icon" href="assets/logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/project.css?v=2">
+
+<style>
+.intro-band{padding:96px 0 56px;background:var(--paper)}
+.intro-band h2 em{color:var(--orange-2);font-style:italic}
+.intro-band .lede{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.2rem,1.5vw,1.5rem);line-height:1.45;color:var(--ink);max-width:46ch;margin-top:24px}
+
+.docs-band{padding:64px 0 96px;background:var(--paper)}
+.docs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.doc-card{
+ padding:36px 32px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
+ display:flex;flex-direction:column;gap:14px;
+ transition:transform .35s ease, box-shadow .35s ease;
+}
+.doc-card:hover{transform:translateY(-2px);box-shadow:0 22px 48px -22px rgba(0,0,0,.18)}
+.doc-card .v-num{font-family:var(--serif);font-style:italic;color:var(--orange);font-size:1.05rem}
+.doc-card h4{font-size:1.3rem}
+.doc-card h4 em{color:var(--orange-2);font-style:italic}
+.doc-card p{color:var(--muted);font-size:.98rem;line-height:1.6;margin:0}
+.doc-card .dl{align-self:flex-start;margin-top:auto;padding:11px 18px;background:#0E2238;color:#fff;border-radius:999px;font-size:.85rem;letter-spacing:.04em;display:inline-flex;gap:8px;align-items:center;transition:background .25s, transform .25s}
+.doc-card .dl:hover{background:var(--orange);transform:translateY(-1px)}
+.doc-card .arrow{transition:transform .3s}
+.doc-card .dl:hover .arrow{transform:translateX(3px)}
+.doc-card .ref{font-family:var(--serif);font-style:italic;color:var(--orange-2);font-size:.95rem;display:inline-flex;gap:6px;align-items:center}
+.doc-card .ref:hover{text-decoration:underline}
+@media (max-width:920px){.docs-grid{grid-template-columns:1fr;gap:14px}}
+
+.varsling-band{padding:96px 0;background:#0E2238;color:rgba(244,239,232,.96)}
+.varsling-band h2{color:#fff}
+.varsling-band h2 em{color:#FFA663;font-style:italic}
+.varsling-band .lede{color:rgba(244,239,232,.96);font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.4vw,1.4rem);line-height:1.45;max-width:50ch;margin-top:18px}
+
+.faq-rows{margin-top:48px;display:flex;flex-direction:column;gap:0}
+.faq-row{
+ display:grid;grid-template-columns:300px 1fr;gap:48px;
+ padding:36px 0;border-top:1px solid rgba(255,255,255,.12);align-items:start;
+}
+.faq-row:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
+.faq-row .q{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:#fff;line-height:1.2}
+.faq-row .q em{color:#FFA663;font-style:italic}
+.faq-row p{color:#E8E1D3;font-size:1.02rem;line-height:1.7;margin:0 0 14px;max-width:62ch}
+.faq-row p:last-child{margin-bottom:0}
+.faq-row p em{font-style:italic;color:var(--sand)}
+@media (max-width:920px){.faq-row{grid-template-columns:1fr;gap:14px;padding:28px 0}}
+
+.send-band{padding:96px 0;background:var(--paper);border-top:1px solid var(--line)}
+.send-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:start;margin-top:48px}
+.send-text p{font-size:1.02rem;line-height:1.7;color:var(--ink-2);margin:0 0 16px;max-width:54ch}
+.send-text p em{font-style:italic;color:var(--orange-2)}
+.send-card{padding:36px 36px;background:#0E2238;color:rgba(244,239,232,.96);border-radius:var(--r-md);display:flex;flex-direction:column;gap:14px}
+.send-card h3{color:#fff;font-size:1.4rem;font-weight:500}
+.send-card h3 em{color:#FFA663;font-style:italic}
+.send-card .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.12)}
+.send-card .row:first-of-type{border-top:0;padding-top:4px}
+.send-card .lbl{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#fff}
+.send-card .dl{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:500;border:1px solid rgba(255,166,99,.55);padding:7px 14px;border-radius:999px;transition:background .25s, color .25s}
+.send-card .dl:hover{background:var(--orange);color:#fff}
+.send-card .btn{margin-top:8px;align-self:flex-start;background:var(--orange);color:#fff;border:0}
+.send-card .btn:hover{background:var(--orange-2)}
+@media (max-width:920px){.send-grid{grid-template-columns:1fr;gap:36px}}
+
+.page-hero{position:relative;isolation:isolate;min-height:min(72vh, 720px);display:grid;color:#fff;padding:140px 0 56px;overflow:hidden;background:#0F1B2E}
+.page-hero::before{
+ content:"";position:absolute;inset:0;z-index:-2;
+ background:url('assets/etikkogansvar/hero-hero.webp') center 35%/cover no-repeat;
+ /* the watercolor is very light — pull it down so white text reads cleanly */
+ filter:brightness(.72) contrast(1.06) saturate(.95);
+}
+.page-hero::after{
+ content:"";position:absolute;inset:0;z-index:-1;
+ background:
+   /* horizontal: strong left-anchored vignette where the headline + lede sit */
+   linear-gradient(95deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 32%, rgba(0,0,0,.22) 62%, rgba(0,0,0,0) 92%),
+   /* vertical: dark top for nav legibility, soft mid, dark bottom for the section seam */
+   linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.20) 22%, rgba(0,0,0,.12) 50%, rgba(0,0,0,.45) 80%, rgba(0,0,0,.88) 100%);
+}
+.page-hero .crumbs{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(255,255,255,.78);display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.page-hero .crumbs a{color:inherit;border-bottom:1px solid transparent;transition:border-color .2s}
+.page-hero .crumbs a:hover{border-color:rgba(255,255,255,.6)}
+.page-hero .crumbs .sep{opacity:.5}
+.page-hero h1{max-width:18ch;color:#fff;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.page-hero h1 em{font-style:italic;font-weight:500}
+.page-hero .lede{max-width:60ch;color:rgba(255,255,255,.86);font-size:clamp(1rem,1.15vw,1.13rem);line-height:1.55;margin-top:24px}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Hopp til innhold</a>
+
+<header class="site-header" id="siteHeader">
+ <div class="wrap nav">
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo brand-logo--dark" src="assets/logo-white.png" alt="Karlsen &amp; Nordseth Entreprenør">
+ <img class="brand-logo brand-logo--light" src="assets/logo.png" alt="" aria-hidden="true">
+ </a>
+ <nav class="nav-links" aria-label="Hovedmeny">
+ <div class="drawer-header">
+ <button class="drawer-close" type="button" aria-label="Lukk meny">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+ <line x1="6" y1="6" x2="18" y2="18"/>
+ <line x1="6" y1="18" x2="18" y2="6"/>
+ </svg>
+ </button>
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo" src="assets/logo.png" alt="Karlsen &amp; Nordseth Entreprenør" draggable="false">
+ </a>
+ <span class="drawer-spacer" aria-hidden="true"></span>
+ </div>
+ <a href="index.html">Hjem</a>
+ <a href="prosjekter.html">Prosjekter</a>
+ <a href="om-oss.html">Om oss</a>
+ <a href="baerekraft.html">Bærekraft</a>
+ <a href="etikkogansvar.html" class="is-current">Etikk og ansvar</a>
+ <a href="stillinger.html">Stillinger</a>
+ </nav>
+ <div class="nav-cta">
+ <a class="nav-phone" href="tel:+4767073830">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ +47 67 07 38 30
+ </a>
+ <a class="btn" href="index.html#kontakt">Kontakt <span class="arrow">→</span></a>
+ <button class="menu-btn" aria-label="Åpne meny">Meny</button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- HERO -->
+ <section class="page-hero" data-theme="dark">
+ <div class="wrap">
+ <div class="crumbs">
+ <a href="index.html">Hjem</a><span class="sep">·</span>
+ <span>Etikk og ansvar</span>
+ </div>
+ <span class="eyebrow" style="color:rgba(255,255,255,.78)">Etikk og ansvar</span>
+ <h1 style="margin-top:18px">Etikk og <em>ansvar</em>.</h1>
+ <p class="lede">
+   KNE driver virksomheten i tråd med høye krav til <em>etikk, seriøsitet og åpenhet</em>.
+   Våre etiske retningslinjer legger føringer for hvordan vi forventer at både ansatte,
+   leverandører og samarbeidspartnere opptrer i tråd med våre verdier og gjeldende
+   lover og regler.
+ </p>
+ </div>
+ </section>
+
+ <!-- INTRO -->
+ <section class="intro-band" data-theme="light">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow">Våre etiske dokumenter</span>
+ <h2 style="margin-top:14px">Tre hjørnesteiner — og <em>åpne kanaler</em>.</h2>
+ <p class="lede">
+   Her finner du våre etiske dokumenter og rutiner for varsling.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- DOKUMENTER -->
+ <section class="docs-band" data-theme="light">
+ <div class="wrap">
+ <div class="docs-grid reveal">
+ <div class="doc-card">
+ <div class="v-num">— 01</div>
+ <h4>Etiske retningslinjer for <em>leverandører</em>.</h4>
+ <p>
+   Dokumentet tydeliggjør kravene vi stiller til våre leverandører og deres
+   underleverandører. Retningslinjene omfatter <em>menneskerettigheter, arbeidsforhold,
+   HMS, miljø, antikorrupsjon</em> og ansvarlighet i hele leverandørkjeden. Alle
+   leverandører plikter å gjøre seg kjent med innholdet.
+ </p>
+ <a class="dl" href="mailto:post@karlsen-nordseth.no?subject=Etiske%20retningslinjer%20for%20leverandører">Last ned <span class="arrow">→</span></a>
+ </div>
+
+ <div class="doc-card">
+ <div class="v-num">— 02</div>
+ <h4>Etiske retningslinjer for <em>ansatte</em>.</h4>
+ <p>
+   Vår interne etikkpolicy beskriver hvordan ansatte skal opptre i møte med kollegaer,
+   kunder, leverandører og omverdenen. Den omfatter krav til <em>integritet, habilitet,
+   bruk av ressurser, HMS, likestilling, arbeidsmiljø</em> og forebygging av korrupsjon.
+ </p>
+ <a class="dl" href="mailto:post@karlsen-nordseth.no?subject=Etiske%20retningslinjer%20for%20ansatte">Last ned <span class="arrow">→</span></a>
+ </div>
+
+ <div class="doc-card">
+ <div class="v-num">— 03</div>
+ <h4>Ansvarlighet i <em>leverandørkjeden</em>.</h4>
+ <p>
+   For å sikre trygg og ansvarlig drift stiller vi krav til seriøsitet, HMS, miljø og
+   arbeidsforhold hos alle våre leverandører og underleverandører. Informasjon om våre
+   <em>aktsomhetsvurderinger</em> finnes under fanen «Åpenhetsloven».
+ </p>
+ <a class="ref" href="apenhetsloven.html">Les mer om åpenhetsloven og våre aktsomhetsvurderinger →</a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- VARSLING — FAQ -->
+ <section class="varsling-band" id="varsling" data-theme="dark">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow" style="color:rgba(244,239,232,.55)">Varslingsrutiner</span>
+ <h2 style="margin-top:14px">Trygg <em>rapportering</em>.</h2>
+ <p class="lede">
+   KNE har en tydelig og uavhengig varslingsordning der ansatte, leverandører,
+   samarbeidspartnere og andre kan melde fra om kritikkverdige forhold. Varsling kan
+   gjøres <em>anonymt</em>, og det er ikke tillatt med represalier mot personer som
+   varsler i god tro.
+ </p>
+ </div>
+
+ <div class="faq-rows reveal">
+
+ <div class="faq-row">
+ <div class="q">Hva kan <em>varsles</em>?</div>
+ <div>
+ <p>
+   Varsling gjelder forhold som er kritikkverdige, og som kan ha betydning for
+   arbeidsmiljø, sikkerhet, etikk eller lovlighet i virksomheten. Eksempler er <em>brudd
+   på lover og forskrifter, fare for liv og helse, diskriminering eller trakassering,
+   økonomiske misligheter, korrupsjon, alvorlige brudd på HMS-rutiner</em>, eller annen
+   uetisk adferd.
+ </p>
+ <p>
+   Uenighet om faglige vurderinger eller ordinære personalsaker regnes normalt ikke
+   som varsling.
+ </p>
+ </div>
+ </div>
+
+ <div class="faq-row">
+ <div class="q">Hvordan <em>behandler</em> vi varsler?</div>
+ <div>
+ <p>
+   Alle varsler behandles <em>konfidensielt, objektivt og så raskt som mulig</em>, i
+   tråd med våre interne rutiner og arbeidsmiljølovens krav. Varslet vurderes først for
+   å avklare om det faller inn under ordningen. Deretter gjennomføres nødvendige
+   undersøkelser, som kan inkludere samtaler, dokumentinnhenting og faktasjekk.
+ </p>
+ <p>
+   Varsleren skal ikke oppleve negative følger, og saken håndteres med respekt for
+   både varsler og den eller de varselet gjelder.
+ </p>
+ </div>
+ </div>
+
+ <div class="faq-row">
+ <div class="q">Hvem <em>mottar</em> varselet?</div>
+ <div>
+ <p>
+   Varsler kan sendes til <em>nærmeste leder, HR-funksjon eller daglig leder</em>,
+   avhengig av hva varselet gjelder. Dersom saken gjør det vanskelig å varsle i linjen,
+   kan du sende varsel direkte via vårt varslings­skjema nederst på denne siden.
+ </p>
+ <p>
+   Skjemaet går til en dedikert varslings­mottaker som sikrer at saken håndteres
+   konfidensielt og i tråd med våre rutiner. Mottaker vurderer varselet, igangsetter
+   nødvendige undersøkelser og sørger for videre oppfølging.
+ </p>
+ </div>
+ </div>
+
+ <div class="faq-row">
+ <div class="q">Hvor raskt får man <em>tilbakemelding</em>?</div>
+ <div>
+ <p>
+   Varsler får en <em>bekreftelse på mottak innen få dager</em> etter at varselet er
+   sendt. Innen rimelig tid gis også en overordnet orientering om hvordan saken vil
+   følges opp, og hvem som behandler den.
+ </p>
+ <p>
+   Varsleren får informasjon når saken er avsluttet, så langt det er mulig uten å gå
+   på bekostning av <em>taushetsplikt</em> eller andre involvertes personvern.
+ </p>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- VARSLE — handling -->
+ <section class="send-band" id="kontakt" data-theme="light">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow">Varsle</span>
+ <h2 style="margin-top:14px">Slik <em>varsler du</em>.</h2>
+ </div>
+ <div class="send-grid reveal">
+ <div class="send-text">
+ <p>
+   Dersom du ønsker å varsle til oss kan du last ned vår <em>varslingsmal</em> under
+   og sende denne til
+   <a href="mailto:post@karlsen-nordseth.no" style="color:var(--orange-2);border-bottom:1px solid var(--orange-2)">post@karlsen-nordseth.no</a>.
+ </p>
+ </div>
+ <div class="send-card">
+ <h3>Last ned.</h3>
+ <div class="row"><span class="lbl">Våre rutiner for intern varsling</span><a class="dl" href="mailto:post@karlsen-nordseth.no?subject=Rutiner%20for%20intern%20varsling">Last ned</a></div>
+ <div class="row"><span class="lbl">Vår varslingsmal</span><a class="dl" href="mailto:post@karlsen-nordseth.no?subject=Varslingsmal">Last ned</a></div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="wrap">
+ <div class="top">
+ <div class="col">
+ <div class="brandlogo">
+ <img src="assets/logo-white.png" alt="">
+ <span class="brand-name" style="color:#fff"><b>Karlsen</b> &amp; Nordseth</span>
+ </div>
+ <div class="pitch">Antikvarisk håndverk siden <em>1992</em> — i Oslo og på Østlandet.</div>
+ </div>
+ <div class="col">
+ <h5>Selskapet</h5>
+ <ul>
+ <li><a href="om-oss.html">Om oss</a></li>
+ <li><a href="prosjekter.html">Prosjekter</a></li>
+ <li><a href="stillinger.html">Stillinger</a></li>
+ <li><a href="baerekraft.html">Bærekraft</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Ansvar</h5>
+ <ul>
+ <li><a href="miljoarbeid.html">Miljøarbeid</a></li>
+ <li><a href="mangfold.html">Mangfold</a></li>
+ <li><a href="apenhetsloven.html">Åpenhetsloven</a></li>
+ <li><a href="etikkogansvar.html">Etikk og ansvar</a></li>
+ <li><a href="personvernerklaering.html">Personvernerklæring</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Kontakt</h5>
+ <ul>
+ <li><a href="tel:+4767073830">+47 67 07 38 30</a></li>
+ <li><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></li>
+ <li>Org.nr. 985 214 034</li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom">
+ <span>© <span id="yr"></span> Karlsen &amp; Nordseth Entreprenør AS</span>
+ <div class="socials" aria-label="Sosiale medier">
+ <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/project.js" defer></script>
+<script>
+(function(){
+ var btn=document.querySelector(".menu-btn");
+ var header=document.getElementById("siteHeader");
+ if(!btn||!header)return;
+ btn.setAttribute("aria-expanded","false");
+ var closeMenu=function(){
+  header.classList.remove("is-menu-open");
+  document.body.classList.remove("is-menu-open");
+  btn.setAttribute("aria-expanded","false");
+ };
+ var toggleMenu=function(){
+  var isOpen=header.classList.toggle("is-menu-open");
+  document.body.classList.toggle("is-menu-open",isOpen);
+  btn.setAttribute("aria-expanded",isOpen?"true":"false");
+ };
+ btn.addEventListener("click",function(e){e.stopPropagation();toggleMenu();});
+ document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",closeMenu);});
+ document.querySelectorAll(".drawer-close").forEach(function(b){b.addEventListener("click",closeMenu);});
+ document.addEventListener("click",function(e){if(!header.contains(e.target))closeMenu();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});
+ window.addEventListener("resize",function(){if(window.innerWidth>920)closeMenu();});
+})();
+</script>
+</body>
+</html>

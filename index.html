@@ -1,0 +1,2397 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Karlsen &amp; Nordseth Entreprenør — Antikvarisk rehabilitering i Oslo</title>
+<meta name="description" content="Karlsen &amp; Nordseth Entreprenør er en ledende byggentreprenør innen antikvarisk rehabilitering, riggentrepriser og nybygg i Oslo og det sentrale østlandsområdet.">
+<meta property="og:title" content="Karlsen &amp; Nordseth Entreprenør | Antikvarisk rehabilitering | Oslo">
+<meta property="og:description" content="Med lidenskap for antikvariske bygg. Spesialister på tak- og fasadearbeid, rigg og drift i Oslo og på Østlandet.">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="icon" href="assets/logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="voice-agent.css?v=7">
+<link rel="stylesheet" href="assets/i18n.css?v=7">
+
+<style>
+/* ========== Tokens ========== */
+:root{
+ --ink:#15110D;
+ --ink-2:#2A2520;
+ --paper:#F4EFE8;
+ --paper-2:#EAE2D6;
+ --line:rgba(21,17,13,.12);
+ --muted:#6C645B;
+ --orange:#F88038; /* sampled from KNE Oransje logo */
+ --orange-2:#E26B1F; /* hover / darker variant */
+ --verdigris:#3F7A6F; /* copper patina nod */
+ --sand:#C8B79C;
+ --blue:#3D5E7A; /* sampled from hero sky/shadows */
+ --blue-rgb:61,94,122; /* same blue, RGB-splittet for rgba() */
+ --r-sm:6px;
+ --r-md:14px;
+ --r-lg:24px;
+ --max:1440px;
+ --pad: clamp(20px, 4vw, 56px);
+ --t-h0: clamp(2.6rem, 7.5vw, 7.25rem);
+ --t-h1: clamp(2rem, 4.6vw, 4rem);
+ --t-h2: clamp(1.6rem, 2.6vw, 2.35rem);
+ --t-h3: clamp(1.2rem, 1.6vw, 1.5rem);
+ --t-eyebrow: .72rem;
+ --serif: "Cormorant Garamond", "Iowan Old Style", "EB Garamond", Georgia, "Times New Roman", serif;
+ --sans: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* ========== Reset / Base ========== */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+/* Aldri tillat horisontal scroll — om noe smyger seg utenfor 100vw, klipp det. */
+html,body{overflow-x:hidden;max-width:100%}
+body{
+ margin:0;
+ background:var(--paper);
+ color:var(--ink);
+ font-family:var(--sans);
+ font-weight:400;
+ font-size:17px;
+ line-height:1.55;
+ -webkit-font-smoothing:antialiased;
+ text-rendering:optimizeLegibility;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
+::selection{background:var(--orange);color:#fff}
+
+/* ----- Prevent dragging of UI controls, logos, and decorative imagery ----- */
+.site-header,
+.site-header *,
+.nav,
+.nav *,
+.nav-links,
+.nav-links *,
+.nav-cta,
+.nav-cta *,
+button,
+button *,
+.btn,
+.btn *,
+a.btn,
+.brand,
+.brand *,
+.brand-logo,
+.nav-links a,
+.nav-phone,
+.nav-phone *,
+.menu-btn,
+.chip,
+.filter-chip,
+.smart-chip,
+.brandlogo img,
+.search-bar .search-go,
+.search-bar kbd,
+.lang-switcher,
+.lang-switcher *,
+.lang-flag,
+.lang-flag *{
+ -webkit-user-drag:none !important;
+ user-select:none;
+ -webkit-user-select:none;
+ -ms-user-select:none;
+ -moz-user-select:none;
+ -webkit-touch-callout:none;
+}
+img{ -webkit-user-drag:none; pointer-events:auto; }
+.site-header img,
+.brand img,
+.brand-logo,
+.brandlogo img{
+ -webkit-user-drag:none !important;
+ pointer-events:none; /* image inside the brand link can't initiate a drag */
+}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{
+ font-family:var(--sans);
+ font-weight:500;
+ font-size:var(--t-eyebrow);
+ letter-spacing:.2em;
+ text-transform:uppercase;
+ color:var(--muted);
+ display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{
+ content:"";display:inline-block;width:28px;height:1px;background:currentColor;opacity:.6;
+}
+.eyebrow.no-rule::before{display:none}
+
+h1,h2,h3,h4{
+ font-family:var(--serif);
+ font-weight:500;
+ font-style:normal;
+ letter-spacing:-.015em;
+ line-height:1.05;
+ margin:0;
+}
+h1{font-size:var(--t-h0); font-weight:400}
+h2{font-size:var(--t-h1)}
+h3{font-size:var(--t-h2)}
+h4{font-size:var(--t-h3); line-height:1.18}
+em.italic{font-style:italic}
+
+.btn{
+ --bg:var(--ink);
+ --fg:var(--paper);
+ display:inline-flex;align-items:center;gap:12px;
+ padding:14px 22px;
+ background:var(--bg);color:var(--fg);
+ border-radius:999px;
+ font-weight:500;font-size:.95rem;letter-spacing:.01em;
+ transition:transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+.btn:hover{transform:translateY(-1px); box-shadow:0 14px 30px -16px rgba(0,0,0,.45)}
+.btn .arrow{display:inline-block;transition:transform .3s ease}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn--ghost{
+ --bg:transparent; --fg:var(--ink);
+ border:1px solid var(--ink);
+}
+.btn--ghost:hover{--bg:var(--ink); --fg:var(--paper)}
+.btn--orange{--bg:var(--orange); --fg:#fff}
+.btn--orange:hover{--bg:var(--orange-2)}
+.btn--white{--bg:#fff; --fg:var(--ink)}
+
+/* ========== Header ========== */
+.site-header{
+ position:fixed;top:0;left:0;right:0;z-index:50;
+ background:transparent;
+ transition:color .35s ease;
+ /* default: light text over the dark hero */
+ --hdr-fg:#F4EFE8;
+ --hdr-fg-muted:rgba(244,239,232,.78);
+ --hdr-line:rgba(244,239,232,.28);
+ color:var(--hdr-fg);
+}
+.site-header.is-light{
+ /* triggered after scrolling past the hero */
+ --hdr-fg:var(--ink);
+ --hdr-fg-muted:var(--muted);
+ --hdr-line:rgba(21,17,13,.22);
+}
+.nav{
+ /* 3-col grid: brand left, nav-links *truly* centred (independent of the
+    side widths), nav-cta right. The 1fr-auto-1fr layout keeps the menu in
+    the middle of the viewport regardless of what's in .nav-cta. */
+ display:grid;
+ grid-template-columns:1fr auto 1fr;
+ align-items:center;
+ gap:24px;padding:18px 0;
+}
+.nav > .brand{ justify-self:start }
+.nav > .nav-links{ justify-self:center }
+.nav > .nav-cta{ justify-self:end }
+/* Mer luft fra venstre/høyre kant — særlig for logoen */
+.site-header .wrap{
+ padding-left: clamp(28px, 5vw, 72px);
+ padding-right: clamp(28px, 5vw, 72px);
+}
+.brand{display:inline-flex;align-items:center}
+.brand-logo{
+ height:38px;width:auto;
+ transition:opacity .35s ease, filter .35s ease;
+}
+/* Default: dark hero → show the white-on-orange mark, hide the orange-on-light */
+.brand-logo--light{display:none}
+.brand-logo--dark{display:block}
+.site-header:not(.is-light) .brand-logo--dark{
+ filter: drop-shadow(0 1px 2px rgba(0,0,0,.35));
+}
+/* After scroll past the hero → swap to the orange-on-light mark */
+.site-header.is-light .brand-logo--dark{display:none}
+.site-header.is-light .brand-logo--light{display:block}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{
+ position:relative;
+ padding:10px 16px;
+ font-family:var(--serif);
+ font-style:italic;
+ font-weight:400;
+ font-size:1.08rem;
+ letter-spacing:.01em;
+ color:var(--hdr-fg);
+ transition:color .25s ease, opacity .25s ease;
+ opacity:.92;
+}
+.nav-links a::after{
+ content:"";
+ position:absolute;left:16px;right:16px;bottom:6px;height:1px;
+ background:currentColor;opacity:0;transform:scaleX(.4);transform-origin:left;
+ transition:opacity .3s ease, transform .35s ease;
+}
+.nav-links a:hover{opacity:1}
+.nav-links a:hover::after{opacity:.7;transform:scaleX(1)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-phone{
+ display:inline-flex;align-items:center;gap:9px;
+ font-family:var(--serif);font-style:italic;font-size:1rem;
+ color:var(--hdr-fg);
+ white-space:nowrap;
+ transition:opacity .2s ease;
+}
+/* Hide phone before it gets squeezed by the centered nav-links — the menu
+   drawer only kicks in at 920px, but the phone runs out of room earlier. */
+@media (max-width:1100px){
+ .nav-phone{display:none}
+}
+.nav-phone:hover{opacity:.75}
+.nav-phone svg{width:14px;height:14px}
+.nav-cta .btn{
+ font-family:var(--serif);font-style:italic;font-weight:400;font-size:1rem;
+ padding:10px 18px;
+ background:transparent;color:var(--hdr-fg);
+ border:1px solid var(--hdr-fg);
+}
+.nav-cta .btn:hover{background:var(--hdr-fg);color:var(--ink)}
+.site-header.is-light .nav-cta .btn:hover{color:var(--paper)}
+.menu-btn{display:none}
+/* Drawer-elementer er kun for mobil — skjul på desktop. */
+.nav-links .lang-switcher{display:none}
+.drawer-header{display:none}
+@media (max-width:920px){
+ .nav-phone{display:none}
+ .menu-btn{
+ display:inline-flex;align-items:center;gap:8px;
+ padding:10px 14px;border:1px solid var(--hdr-line);border-radius:999px;
+ font-family:var(--serif);font-style:italic;font-size:1rem;
+ color:var(--hdr-fg);background:transparent;
+ transition:background .2s ease, color .2s ease;
+ }
+ .menu-btn[aria-expanded="true"]{background:rgba(255,255,255,.14)}
+ .site-header.is-light .menu-btn[aria-expanded="true"]{background:rgba(0,0,0,.06)}
+
+ /* Drawer dekker HELE viewporten (100vw × 100vh) når åpnet.
+    width/max-width forsterkes med !important for å bryte fri av evt.
+    arvet bredde fra .nav-links basis-regelen. */
+ .nav-links{
+ display:flex !important;
+ flex-direction:column !important;
+ align-items:stretch !important;
+ gap:0 !important;
+
+ position:fixed !important;
+ inset:0 !important;
+ top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;
+ width:100vw !important;
+ max-width:100vw !important;
+ height:100vh;
+ height:100svh;
+
+ background:var(--paper);
+ color:var(--ink);
+ padding:0 0 32px;
+ margin:0 !important;
+ overflow-y:auto;
+ -webkit-overflow-scrolling:touch;
+
+ opacity:0;
+ visibility:hidden;
+ transform:translateY(-12px);
+ transition:opacity .25s ease, transform .25s ease, visibility 0s linear .25s;
+ z-index:60;
+ }
+ .nav-links a{
+ padding:18px 6vw;
+ font-size:1.2rem;
+ color:var(--ink);
+ border-bottom:1px solid var(--line);
+ opacity:1;
+ text-align:center;
+ }
+ .nav-links > a:last-of-type{border-bottom:0}
+ .nav-links a::after{display:none}
+
+ /* Drawer-header: X øverst til VENSTRE (mindre), logo sentrert. */
+ .drawer-header{
+ display:grid;
+ grid-template-columns:1fr auto 1fr;
+ align-items:center;
+ padding:16px 6vw;
+ border-bottom:1px solid var(--line);
+ width:100%;
+ }
+ .drawer-header .brand-logo{height:30px;display:block}
+ .drawer-header .brand{justify-self:center;grid-column:2}
+ .drawer-spacer{display:block;width:32px;height:1px;grid-column:3}
+ .drawer-close{
+ grid-column:1;
+ justify-self:start;
+ display:inline-flex;align-items:center;justify-content:center;
+ width:32px;height:32px;
+ border-radius:999px;
+ border:1px solid var(--line);
+ background:transparent;
+ color:var(--ink);
+ cursor:pointer;
+ padding:0;
+ transition:background .2s ease, border-color .2s ease;
+ }
+ .drawer-close:hover{background:rgba(21,17,13,.04)}
+ .drawer-close svg{width:11px;height:11px}
+
+ /* Språkvalg cloned inn av JS — plassert OVER menypunktene */
+ .nav-links .lang-switcher{
+ display:inline-flex;
+ align-self:center;
+ margin:24px 0 16px;
+ border-color:rgba(21,17,13,.18);
+ background:rgba(21,17,13,.04);
+ padding:5px;
+ }
+ .nav-links .lang-flag{
+ color:var(--ink);
+ opacity:.6;
+ padding:7px 11px;
+ }
+ .nav-links .lang-flag svg{width:22px}
+ .nav-links .lang-flag.is-active{
+ background:rgba(21,17,13,.10);
+ opacity:1;
+ }
+
+ .site-header.is-menu-open .nav-links{
+ opacity:1;
+ visibility:visible;
+ transform:translateY(0);
+ transition:opacity .25s ease, transform .25s ease, visibility 0s;
+ }
+ /* Lås body-scroll når drawer er åpen så bakgrunnen ikke beveger seg */
+ body.is-menu-open{overflow:hidden}
+ /* While the viewport is being resized, kill drawer transitions so the
+    breakpoint switch (desktop nav → mobile drawer) doesn't briefly fade
+    the drawer out across the whole viewport. JS toggles the class. */
+ html.is-resizing .nav-links{transition:none !important}
+}
+
+section[data-theme]{scroll-margin-top:80px}
+/* ========== Hero ========== */
+.hero{
+ position:relative;
+ isolation:isolate;
+ z-index:20; /* keep search dropdown above subsequent sections when it overflows */
+ min-height:100vh;
+ min-height:100svh;
+ display:grid;
+ color:#fff;
+}
+.hero::before{
+ content:"";
+ position:absolute;inset:0;
+ background:url('assets/hero.jpg') center 30%/cover no-repeat;
+ z-index:-2;
+}
+/* left-anchored editorial scrim — keeps the architectural detail visible on the right
+   while giving the headline + search a clean dark surface on the left */
+.hero::after{
+ content:"";
+ position:absolute;inset:0;z-index:-1;
+ background:
+ linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.18) 14%, rgba(0,0,0,0) 30%, rgba(0,0,0,.20) 70%, rgba(0,0,0,.55) 100%),
+ linear-gradient(100deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.40) 38%, rgba(0,0,0,.10) 65%, rgba(0,0,0,0) 85%);
+}
+.hero-inner{
+ align-self:center;            /* sits in the visual middle on tall viewports */
+ /* Bruker longhand for top/bottom — så .wrap'ens horisontale padding
+    (var(--pad)) ikke blir overskrevet av en padding-shorthand. */
+ padding-top:120px;
+ padding-bottom:80px;
+ display:flex;flex-direction:column;gap:28px;
+ max-width:880px;
+}
+/* Anchor the hero column under the brand logo at all viewport sizes by
+   matching the header's gutter clamp, then backing out this element's
+   own padding (from .wrap) so the text x-position lines up with the
+   brand. The mobile-centered layout (≤720px) overrides this below. */
+.hero-inner{
+ margin-left:calc(max(0px, (100% - var(--max)) / 2) + clamp(28px, 5vw, 72px) - var(--pad));
+ margin-right:auto;
+}
+.hero-eyebrow{color:rgba(255,255,255,.78)}
+.hero-eyebrow::before{background:rgba(255,255,255,.55)}
+.hero h1{
+ max-width:16ch;
+ color:#fff;
+ font-weight:400;
+ text-shadow:0 2px 28px rgba(0,0,0,.25);
+}
+.hero h1 .em{
+ font-style:italic;
+ font-weight:500;
+ color:#fff;
+}
+.hero-sub{
+ max-width:70ch;
+ color:rgba(255,255,255,.88);
+ font-size:clamp(1rem, 1.15vw, 1.13rem);
+ line-height:1.55;
+ margin:0;
+}
+/* ----- Hero search ----- */
+.hero-search{position:relative;width:100%;max-width:600px;margin-top:8px}
+.search-bar{
+ display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;
+ padding:6px 12px 6px 18px;
+ background:rgba(255,255,255,.96);
+ color:var(--ink);
+ border-radius:999px;
+ box-shadow:0 22px 50px -22px rgba(0,0,0,.55), 0 1px 0 rgba(255,255,255,.5) inset;
+ transition:box-shadow .25s ease, background .25s ease;
+}
+.search-bar:focus-within{
+ background:#fff;
+ box-shadow:
+   0 30px 60px -22px rgba(0,0,0,.55),
+   0 0 0 4px rgba(var(--blue-rgb),.65),
+   0 0 24px -4px rgba(var(--blue-rgb),.45);
+}
+.search-bar svg.search-icon{width:18px;height:18px;color:var(--muted)}
+.search-bar input{
+ font:inherit;font-size:1rem;color:var(--ink);
+ background:transparent;border:0;outline:0;width:100%;min-width:0;
+ padding:12px 0;
+}
+.search-bar input::placeholder{color:var(--muted)}
+.search-bar kbd{
+ font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.06em;
+ color:var(--muted);
+ padding:5px 8px;border:1px solid var(--line);border-radius:7px;
+ background:var(--paper);
+ white-space:nowrap;
+}
+.search-bar .search-go{
+ display:inline-flex;align-items:center;justify-content:center;
+ width:40px;height:40px;border-radius:999px;
+ background:var(--orange);color:#fff;
+ transition:background .25s ease, transform .25s ease;
+}
+.search-bar .search-go svg{
+ width:15px;height:15px;
+ animation:searchGoNudge 5.2s ease-in-out infinite;
+}
+.search-bar .search-go:hover{background:var(--orange-2);transform:translateY(-1px)}
+.search-bar .search-go:hover svg{animation:none;transform:translateX(2px)}
+/* Subtil "lev"-animasjon — pilen skyver seg litt mot høyre hvert ~5. sekund */
+@keyframes searchGoNudge{
+ 0%, 78%, 100% { transform:translateX(0); }
+ 84% { transform:translateX(2.5px); }
+ 90% { transform:translateX(0); }
+}
+@media (prefers-reduced-motion: reduce){
+ .search-bar .search-go svg{animation:none}
+}
+
+/* Results dropdown — åpner oppover (over søkefeltet).
+ Bredden matcher hele hero-rekken (søk + eller + pille), så panelets
+ høyre kant flukter med pillens høyre kant — symmetrisk. */
+.search-results{
+ position:absolute;
+ left:0;
+ bottom:calc(100% + 22px);
+ width:780px;
+ max-width:calc(100vw - var(--pad) * 2);
+ max-height:min(420px, 48vh);
+ overflow:auto;
+ background:rgba(255,255,255,.98);
+ backdrop-filter:saturate(140%) blur(10px);
+ -webkit-backdrop-filter:saturate(140%) blur(10px);
+ color:var(--ink);
+ border-radius:18px;
+ box-shadow:0 -20px 60px -18px rgba(0,0,0,.45);
+ padding:14px;
+ z-index:5;
+ display:flex;flex-direction:column;
+}
+.search-results[hidden]{display:none}
+@media (max-width: 600px){
+ .search-results{width:auto;left:0;right:0}
+}
+.search-empty{
+ padding:22px 18px;color:var(--muted);font-size:.95rem;text-align:center;
+}
+.search-empty b{color:var(--ink);font-weight:500}
+.search-section{padding:6px 6px 10px}
+.search-section + .search-section{border-top:1px solid var(--line);margin-top:4px;padding-top:10px}
+.search-section h6{
+ margin:0 0 6px;padding:6px 10px;
+ font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+}
+.search-result{
+ display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;
+ padding:10px 12px;border-radius:12px;
+ cursor:pointer;
+ transition:background .15s ease;
+ width:100%;text-align:left;
+ color:inherit;text-decoration:none;
+}
+.search-result:hover,.search-result.is-active{background:var(--paper-2)}
+.search-result .thumb{
+ width:44px;height:44px;border-radius:10px;background:var(--paper-2) center/cover no-repeat;flex:none;
+ box-shadow:inset 0 0 0 1px var(--line);
+}
+.search-result .thumb.no-img{
+ display:grid;place-items:center;color:var(--muted);
+ font-family:var(--serif);font-style:italic;font-size:1.15rem;
+}
+.search-result .info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.search-result .t{
+ font-family:var(--serif);font-size:1.05rem;font-weight:500;letter-spacing:-.005em;
+ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.search-result .t mark{
+ background:rgba(248,128,56,.22);color:inherit;border-radius:3px;padding:0 2px;
+}
+.search-result .d{
+ font-size:.84rem;color:var(--muted);line-height:1.45;
+ display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.search-result .d mark{background:rgba(248,128,56,.22);color:var(--ink);border-radius:3px;padding:0 2px}
+.search-result .pill{
+ font-size:.66rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+ padding:5px 10px;border-radius:999px;flex:none;
+ background:var(--paper-2);color:var(--ink);
+}
+.search-result .pill.t-Prosjekt{background:rgba(248,128,56,.16);color:var(--orange-2)}
+.search-result .pill.t-Kompetanse{background:rgba(63,122,111,.16);color:var(--verdigris)}
+.search-result .pill.t-Side{background:rgba(21,17,13,.08);color:var(--ink)}
+.search-result .pill.t-Stilling{background:rgba(200,183,156,.32);color:#7a6738}
+
+.search-foot{
+ padding:10px 14px;border-top:1px solid var(--line);
+ display:flex;justify-content:space-between;align-items:center;gap:10px;
+ font-size:.78rem;color:var(--muted);
+}
+
+/* Quick chips */
+.hero-chips{
+ display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+ margin-top:4px;
+}
+.hero-chips .chip-label{
+ font-family:var(--serif);font-style:italic;font-size:.95rem;color:rgba(255,255,255,.75);margin-right:4px;
+}
+.chip{
+ font-family:var(--sans);font-size:.85rem;font-weight:500;letter-spacing:.01em;
+ color:rgba(255,255,255,.92);
+ padding:7px 14px;
+ background:rgba(255,255,255,.08);
+ border:1px solid rgba(255,255,255,.28);
+ border-radius:999px;
+ transition:background .2s ease, border-color .2s ease, color .2s ease;
+}
+.chip:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.55)}
+
+/* ----- Subtle scroll-cue at the bottom of the hero ----- */
+.hero-scroll{
+ position:absolute; left:50%; bottom:28px; transform:translateX(-50%);
+ display:flex; flex-direction:column; align-items:center; gap:8px;
+ color:rgba(255,255,255,.72);
+ font:500 .72rem/1 var(--sans);
+ letter-spacing:.18em; text-transform:uppercase;
+ padding:6px 10px;
+ background:transparent; border:0;
+ cursor:pointer;
+ transition: opacity .35s ease, color .25s ease, transform .35s ease;
+ z-index:1;
+}
+.hero-scroll:hover{color:#fff}
+.hero-scroll:focus-visible{outline:2px solid #fff; outline-offset:6px; border-radius:6px}
+.hero-scroll svg{
+ width:18px; height:18px;
+ animation: heroScrollNudge 2.4s ease-in-out infinite;
+}
+@keyframes heroScrollNudge{
+ 0%, 100% { transform: translateY(0); opacity:.85 }
+ 50%      { transform: translateY(6px); opacity:1 }
+}
+@media (prefers-reduced-motion: reduce){
+ .hero-scroll svg{ animation:none }
+}
+@media (max-width:640px){
+ .hero-scroll{ bottom:18px; font-size:.68rem }
+ .hero-scroll svg{ width:16px; height:16px }
+}
+
+/* ----- Hero pills row — org-nr + ta-kontakt side by side ----- */
+.hero-pills{
+ display:flex; align-items:center; gap:10px;
+ align-self:flex-start;
+ margin-top:-8px; /* trim flex gap so it hugs the H1 a touch */
+}
+.hero-orgnr,
+.hero-kontakt{
+ display:inline-flex; align-items:center; gap:10px;
+ font:inherit;
+ font-family:var(--serif); font-style:italic; font-size:.98rem;
+ color:rgba(255,255,255,.94);
+ background:rgba(255,255,255,.10);
+ border:1px solid rgba(255,255,255,.36);
+ padding:9px 16px; border-radius:999px;
+ cursor:pointer;
+ -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+ transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease, opacity .35s ease;
+ box-shadow:0 14px 36px -18px rgba(0,0,0,.55);
+ text-decoration:none;
+}
+.hero-orgnr{ cursor:pointer; }
+.hero-kontakt{ font-family:var(--sans); font-style:normal; font-weight:500; letter-spacing:.02em; }
+.hero-orgnr:hover,
+.hero-kontakt:hover{background:rgba(255,255,255,.20); border-color:rgba(255,255,255,.65); transform:translateY(-1px)}
+.hero-orgnr:focus-visible,
+.hero-kontakt:focus-visible{outline:2px solid #fff; outline-offset:3px}
+.hero-orgnr .orgnr-label{opacity:.78; font-size:.9rem}
+.hero-orgnr .orgnr-value{
+ font-family:var(--sans); font-style:normal; font-weight:500;
+ letter-spacing:.02em; font-feature-settings:"tnum" 1;
+}
+.hero-orgnr .orgnr-icon{width:14px; height:14px; opacity:.72; transition: opacity .25s ease}
+.hero-orgnr:hover .orgnr-icon{opacity:1}
+.hero-orgnr.is-copied{
+ background:rgba(255,255,255,.96); color:var(--ink);
+ border-color:rgba(255,255,255,.96);
+}
+.hero-orgnr.is-copied .orgnr-label{opacity:.6}
+.hero-orgnr.is-copied .orgnr-icon{opacity:1; color:var(--orange)}
+
+@media (max-width:920px){
+ .hero-orgnr,
+ .hero-kontakt{font-size:.92rem; padding:8px 14px}
+}
+
+@media (max-width:640px){
+ .hero-inner{padding-bottom:86px}
+ .search-bar input{font-size:1rem}
+ .search-bar kbd{display:none}
+}
+
+/* ========== Manifesto ========== */
+.manifesto{
+ padding:clamp(80px,10vw,140px) 0 clamp(48px,6vw,80px);
+}
+.manifesto-grid{
+ display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,80px);align-items:start;
+}
+.manifesto h2{
+ font-weight:400;
+}
+.manifesto h2 .em{font-style:italic;color:var(--orange);font-weight:500}
+.manifesto p{color:var(--muted);max-width:54ch;font-size:1.08rem;line-height:1.65}
+.manifesto p + p{margin-top:18px}
+.kicker{display:flex;flex-direction:column;gap:18px}
+@media (max-width:820px){
+ .manifesto-grid{grid-template-columns:1fr}
+}
+
+/* ========== Stats strip ========== */
+.stats-strip{
+ border-top:1px solid var(--line);
+ border-bottom:1px solid var(--line);
+ margin-top:60px;
+}
+.stats-strip ul{
+ display:grid;grid-template-columns:repeat(4,1fr);
+ list-style:none;margin:0;padding:0;
+}
+.stats-strip li{
+ padding:36px 24px;
+ border-right:1px solid var(--line);
+ display:flex;flex-direction:column;gap:8px;
+}
+.stats-strip li:last-child{border-right:0}
+.stats-strip .num{
+ font-family:var(--serif);font-size:clamp(2rem,3.6vw,3rem);font-weight:400;letter-spacing:-.02em;line-height:1;
+}
+.stats-strip .num em{font-style:italic;color:var(--orange);font-weight:400}
+.stats-strip .lbl{font-size:.83rem;color:var(--muted);letter-spacing:.06em}
+@media (max-width:820px){
+ .stats-strip ul{grid-template-columns:repeat(2,1fr)}
+ .stats-strip li:nth-child(2){border-right:0}
+ .stats-strip li:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+
+/* ========== Services ========== */
+.services{padding:clamp(48px,6vw,88px) 0 clamp(80px,10vw,140px)}
+.section-head{
+ display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:end;
+ margin-bottom:clamp(36px,5vw,64px);
+}
+.section-head .right{color:var(--muted);max-width:48ch;justify-self:end}
+.section-head h2{font-weight:400}
+.section-head h2 em{color:var(--orange);font-style:italic;font-weight:500}
+@media (max-width:820px){
+ .section-head{grid-template-columns:1fr}
+ .section-head .right{justify-self:start}
+}
+.service-grid{
+ display:grid;grid-template-columns:repeat(4,1fr);
+ border-top:1px solid var(--line);
+}
+.service{
+ padding:36px 28px 32px;
+ border-right:1px solid var(--line);
+ display:flex;flex-direction:column;gap:16px;
+ position:relative;
+ transition:background .3s ease;
+ min-height:300px;
+}
+.service:last-child{border-right:0}
+.service .num{
+ font-family:var(--serif);font-size:.9rem;color:var(--muted);
+ letter-spacing:.04em;font-style:italic;
+}
+.service h4{margin:0}
+.service p{color:var(--muted);font-size:.95rem;line-height:1.55;margin:0}
+@media (max-width:980px){.service-grid{grid-template-columns:repeat(2,1fr)}.service{border-bottom:1px solid var(--line)}.service:nth-child(2n){border-right:0}}
+@media (max-width:560px){.service-grid{grid-template-columns:1fr}.service{border-right:0}}
+
+/* ========== Featured Projects ========== */
+.projects{
+ background:#0F1B2E;
+ color:var(--paper);
+ padding:clamp(90px,11vw,150px) 0;
+ position:relative;
+}
+.projects .eyebrow{color:rgba(244,239,232,.7)}
+.projects .eyebrow::before{background:rgba(244,239,232,.6)}
+.projects h2{color:var(--paper)}
+.projects h2 em{color:var(--sand);font-style:italic;font-weight:500}
+.projects .section-head .right{color:rgba(244,239,232,.7)}
+
+.projects-grid{
+ display:grid;
+ grid-template-columns:repeat(6, 1fr);
+ grid-auto-rows: 280px;
+ gap:18px;
+}
+.proj{
+ position:relative;overflow:hidden;
+ border-radius:var(--r-md);
+ background:#222;
+ isolation:isolate;
+ transition:transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.proj img{
+ width:100%;height:100%;object-fit:cover;
+ transition:transform .9s cubic-bezier(.2,.7,.2,1), filter .6s ease;
+}
+.proj:hover img{transform:scale(1.05); filter:brightness(.85)}
+.proj::after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.7) 100%);
+}
+.proj .body{
+ position:absolute;left:20px;right:20px;bottom:18px;
+ display:flex;align-items:end;justify-content:space-between;gap:16px;
+ z-index:2;color:#fff;
+}
+.proj .meta{display:flex;flex-direction:column;gap:4px}
+.proj .tag{
+ font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+ color:rgba(255,255,255,.8);
+}
+.proj h4{
+ color:#fff;font-family:var(--serif);
+ font-weight:400;font-size:clamp(1.1rem,1.6vw,1.55rem);letter-spacing:-.01em;
+}
+.proj .ico{
+ width:40px;height:40px;border-radius:999px;background:rgba(255,255,255,.16);
+ border:1px solid rgba(255,255,255,.35);
+ display:grid;place-items:center;flex:none;
+ transition:background .3s ease, transform .3s ease;
+}
+.proj:hover .ico{background:#fff;transform:rotate(-45deg)}
+.proj:hover .ico svg path{stroke:var(--ink)}
+
+/* layout: 6-col asymmetric grid */
+.proj-1{grid-column:span 4;grid-row:span 2}
+.proj-2{grid-column:span 2}
+.proj-3{grid-column:span 2}
+.proj-4{grid-column:span 3}
+.proj-5{grid-column:span 3}
+.proj-6{grid-column:span 6}
+
+@media (max-width:980px){
+ .projects-grid{grid-template-columns:repeat(4,1fr); grid-auto-rows:240px}
+ .proj-1{grid-column:span 4;grid-row:span 2}
+ .proj-2,.proj-3{grid-column:span 2}
+ .proj-4,.proj-5{grid-column:span 2}
+ .proj-6{grid-column:span 4}
+}
+@media (max-width:640px){
+ .projects-grid{grid-template-columns:1fr;grid-auto-rows:230px;gap:12px}
+ .proj{grid-column:span 1 !important;grid-row:auto !important}
+ .proj-1{grid-row:span 2 !important}
+}
+.projects-foot{
+ margin-top:36px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;
+ color:rgba(244,239,232,.65);font-size:.95rem;
+}
+
+/* ========== Craft (image + copy) ========== */
+.craft{padding:clamp(80px,10vw,140px) 0}
+.craft-grid{
+ display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,5vw,80px);align-items:center;
+}
+.craft-img{
+ position:relative;
+ display:grid;grid-template-rows:1.4fr 1fr;gap:14px;
+ aspect-ratio: 5/6;
+ text-decoration:none;color:inherit;
+ transition:transform .35s ease;
+}
+.craft-img:hover{transform:translateY(-2px)}
+.craft-img .craft-video,
+.craft-img .craft-pair > *{
+ position:relative;border-radius:var(--r-md);overflow:hidden;
+ box-shadow:0 30px 60px -40px rgba(0,0,0,.30);
+}
+.craft-img .craft-video{background:#1a1611}
+.craft-img video{width:100%;height:100%;object-fit:cover;display:block}
+.craft-img .craft-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.craft-img img{width:100%;height:100%;object-fit:cover;display:block}
+.craft-img .badge{
+ position:absolute;left:18px;top:18px;z-index:3;
+ padding:8px 12px;background:rgba(244,239,232,.92);
+ font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;border-radius:999px;
+}
+.craft-copy h3{font-weight:400}
+.craft-copy h3 em{color:var(--orange);font-style:italic;font-weight:500}
+.craft-copy p{color:var(--muted);max-width:50ch;line-height:1.7;margin-top:18px}
+.craft-list{
+ margin-top:28px;list-style:none;padding:0;
+ display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+ border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;
+}
+.craft-list li{
+ background:var(--paper);
+ padding:18px 18px;
+ display:flex;flex-direction:column;gap:6px;
+}
+.craft-list .num{
+ font-family:var(--serif);font-style:italic;color:var(--orange);font-size:.9rem;
+}
+.craft-list .t{font-weight:500;font-size:.97rem}
+.craft-list .d{font-size:.85rem;color:var(--muted)}
+@media (max-width:820px){.craft-grid{grid-template-columns:1fr}.craft-img{aspect-ratio:4/5}}
+
+/* ========== Sustainability ========== */
+.sustainability{
+ position:relative;overflow:hidden;
+ color:#fff;
+ padding:clamp(90px,11vw,150px) 0;
+ isolation:isolate;
+ min-height:100vh;
+ min-height:100dvh;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+}
+.sustainability::before{
+ content:"";position:absolute;inset:0;z-index:-2;
+ background:url('assets/baerekraft/new.png') center/cover no-repeat;
+}
+.sustainability::after{
+ content:"";position:absolute;inset:0;z-index:-1;
+ background:linear-gradient(90deg, rgba(8,18,16,.80) 0%, rgba(10,22,20,.66) 38%, rgba(15,30,28,.42) 62%, rgba(15,30,28,.58) 100%);
+}
+.sus-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:start}
+.sus-grid h2{color:#fff;font-weight:400}
+.sus-grid h2 em{font-style:italic;color:#A9D6CC;font-weight:500}
+.sus-grid p{color:rgba(255,255,255,.78);max-width:46ch;line-height:1.7}
+.sus-grid p + p{margin-top:14px}
+.sus-points{
+ display:grid;gap:14px;margin:30px 0 0;
+ padding:0;        /* nullstill default ul-padding så boksene flukter med teksten over */
+ list-style:none;
+}
+.sus-points li{
+ list-style:none;
+ display:grid;grid-template-columns:auto 1fr;gap:18px;
+ padding:18px 20px;
+ border:1px solid rgba(255,255,255,.18);
+ border-radius:var(--r-md);
+ background:rgba(255,255,255,.03);
+ backdrop-filter:blur(6px);
+}
+.sus-points .n{
+ font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#A9D6CC;
+ width:40px;
+}
+.sus-points .t{font-weight:500;margin-bottom:4px;letter-spacing:.01em}
+.sus-points .d{color:rgba(255,255,255,.7);font-size:.93rem;line-height:1.55}
+@media (max-width:820px){.sus-grid{grid-template-columns:1fr}}
+
+/* ========== Careers callout ========== */
+.careers{
+ padding:clamp(80px,10vw,140px) 0;
+}
+.careers-card{
+ display:grid;grid-template-columns:1.2fr 1fr;gap:0;
+ border-radius:var(--r-lg);overflow:hidden;
+ background:var(--paper-2);
+ border:1px solid var(--line);
+}
+.careers-copy{padding:clamp(28px,4vw,64px)}
+.careers-copy h2{font-weight:400;max-width:14ch}
+.careers-copy h2 em{color:var(--orange);font-style:italic;font-weight:500}
+.careers-copy p{color:var(--muted);margin-top:18px;max-width:46ch;line-height:1.65}
+.careers-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.careers-img{position:relative;min-height:340px}
+.careers-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:820px){.careers-card{grid-template-columns:1fr}.careers-img{min-height:280px}}
+
+/* ========== Contact ========== */
+.contact{
+ padding:clamp(80px,10vw,140px) 0;
+ border-top:1px solid var(--line);
+}
+.contact-grid{
+ display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,80px);align-items:start;
+}
+.contact h2{
+ font-weight:400;
+ max-width:14ch;
+}
+.contact h2 em{color:var(--orange);font-style:italic;font-weight:500}
+.contact-meta{margin-top:36px;display:grid;gap:14px}
+.contact-meta a{color:var(--ink);font-size:1.05rem}
+.contact-meta .row{
+ display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:baseline;
+ padding:14px 0;border-top:1px solid var(--line);
+}
+.contact-meta .row:last-child{border-bottom:1px solid var(--line)}
+.contact-meta .lbl{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+.form{
+ display:grid;gap:14px;
+ background:var(--paper-2);
+ border:1px solid var(--line);
+ border-radius:var(--r-md);
+ padding:clamp(20px,3vw,32px);
+}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form label{display:flex;flex-direction:column;gap:8px;font-size:.85rem;color:var(--muted)}
+.form input,.form textarea{
+ font:inherit;color:var(--ink);
+ background:var(--paper);
+ border:1px solid var(--line);
+ padding:14px 14px;border-radius:10px;
+ outline:none;
+ transition:border-color .25s ease, background .25s ease;
+}
+.form input:focus,.form textarea:focus{border-color:var(--ink)}
+.form textarea{resize:vertical;min-height:120px}
+.form .actions{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:6px}
+.form .actions small{color:var(--muted);font-size:.78rem}
+@media (max-width:820px){.contact-grid{grid-template-columns:1fr}.form .row{grid-template-columns:1fr}}
+
+/* ========== Footer ========== */
+.footer{
+ background:#0F1B2E;color:var(--paper);
+ padding:clamp(48px,6vw,80px) 0 28px;
+}
+.footer .top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;border-bottom:1px solid rgba(244,239,232,.12);padding-bottom:48px}
+.footer h5{
+ font-family:var(--sans);font-size:.78rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+ color:rgba(244,239,232,.6);margin:0 0 16px;
+}
+.footer .col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.footer .col a{color:rgba(244,239,232,.85);font-size:.95rem}
+.footer .col a:hover{color:#fff}
+.footer .brandlogo{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.footer .brandlogo img{height:30px}
+.footer .pitch{
+ font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.65rem);
+ font-weight:400;letter-spacing:-.01em;line-height:1.25;max-width:24ch;
+}
+.footer .pitch em{font-style:italic;color:var(--sand)}
+.footer .bottom{
+ display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;
+ padding-top:22px;color:rgba(244,239,232,.5);font-size:.85rem;
+}
+.footer .socials{display:flex;gap:8px}
+.footer .socials a{
+ width:36px;height:36px;border-radius:999px;border:1px solid rgba(244,239,232,.22);
+ display:grid;place-items:center;
+ transition:background .25s ease, color .25s ease;
+}
+.footer .socials a:hover{background:#fff;color:var(--ink)}
+.footer .socials svg{width:14px;height:14px}
+@media (max-width:820px){.footer .top{grid-template-columns:1fr 1fr;gap:36px}}
+@media (max-width:520px){.footer .top{grid-template-columns:1fr}}
+
+/* ========== Reveal animation ========== */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease, transform .9s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion: reduce){
+ .reveal{opacity:1;transform:none;transition:none}
+ *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+}
+
+/* ========== Fokus-modus: når brukeren søker eller chatter ========== */
+/* Innholdet over søk/chat fader ut, så resultater og chat får plass. */
+.hero-eyebrow,
+.hero h1,
+.hero-sub,
+.hero-chips,
+.hero-pills,
+.hero-scroll{
+ transition: opacity .35s ease, transform .35s ease;
+}
+body.is-searching .hero-eyebrow,
+body.is-searching .hero h1,
+body.is-searching .hero-sub,
+body.is-searching .hero-chips,
+body.is-searching .hero-pills,
+body.is-searching .hero-scroll{
+ opacity:0;
+ transform:translateY(-12px);
+ pointer-events:none;
+}
+
+/* AI-modus — eyebrow, h1, ingress, chips fader ut slik at AI-panelet kan
+ ta over samme området som søkeresultatene gjør. Søkefeltet og "eller"
+ holdes synlige — brukeren skal kunne søke parallelt. */
+.hero-inner{position:relative}
+body.is-aiing .hero-eyebrow,
+body.is-aiing .hero h1,
+body.is-aiing .hero-sub,
+body.is-aiing .hero-chips,
+body.is-aiing .hero-pills,
+body.is-aiing .hero-scroll{
+ opacity:0;
+ transform:translateY(-12px);
+ pointer-events:none;
+}
+
+/* ========== Mobile polish ========== */
+
+/* Strict vw-basert kant-padding på mobil — alt body-content OG header
+   bruker samme 6vw, så hovedinnholdet skalerer pent med viewport. */
+@media (max-width:640px){
+ :root{
+ --pad: 6vw;
+ }
+ .site-header .wrap{
+ padding-left:6vw;
+ padding-right:6vw;
+ }
+ /* Litt mindre logo så header har mer å puste på */
+ .brand-logo{height:30px}
+}
+
+/* Header på mobil: erstatter 3-kolonners grid med en flex-rad der logoen
+   står visuelt sentrert. Language-switcher + Meny ankret absolutt til
+   høyre slik at de ikke skyver brand'en ut av sentrum. */
+@media (max-width:920px){
+ .nav{
+ display:flex !important;
+ justify-content:center;
+ align-items:center;
+ position:relative;
+ }
+ .nav > .brand{
+ justify-self:auto;
+ margin:0 auto;
+ }
+ .nav > .nav-cta{
+ justify-self:auto;
+ position:absolute;
+ /* right:0 plasserer kanten på padding-box-kanten = viewport-kanten,
+    så vi presser den inn med 7vw for synlig "fra siden"-luft. */
+ right:7vw;
+ top:50%;
+ transform:translateY(-50%);
+ gap:8px;
+ }
+ /* Drawer-lenker: sentrert tekst i full bredde */
+ .nav-links a{
+ text-align:center;
+ }
+}
+
+/* På de smaleste telefonene — språk-bytteren tar uforholdsmessig mye
+   plass og kan overlappe logoen. Skjul den i header — den klones inn i
+   meny-skuffen via JS, så brukeren bytter språk derfra. */
+@media (max-width:480px){
+ .nav-cta .lang-switcher{display:none !important}
+}
+
+/* Sentrer alt innhold i hero på mobil — eyebrow, h1, ingress, org.nr,
+   søk-rad og chips står midtstilt med samme luftige padding. */
+@media (max-width:720px){
+ .hero-inner{
+ align-items:center;
+ text-align:center;
+ max-width:none;
+ margin-left:auto;
+ margin-right:auto;
+ }
+ .hero h1,
+ .hero-sub{
+ max-width:none;
+ margin-left:auto;
+ margin-right:auto;
+ overflow-wrap:break-word;
+ word-break:break-word;
+ }
+ .hero-eyebrow,
+ .hero-pills{
+ align-self:center;
+ }
+ .hero-chips{
+ justify-content:center;
+ }
+ .hero-search-row{
+ justify-content:center;
+ align-items:center;
+ margin-left:auto;
+ margin-right:auto;
+ }
+ .hero-search-row > .kne-va-wrap{
+ width:100%;
+ justify-content:center;
+ }
+ /* AI-pillen får samme bredde som søkefeltet over */
+ .hero-search-row > .kne-va-wrap > .kne-va-pill{
+ width:100%;
+ box-sizing:border-box;
+ justify-content:center;
+ }
+ /* Hero-search beholder full bredde, men sentreres */
+ .hero-search-row .hero-search{
+ margin-left:auto;
+ margin-right:auto;
+ }
+}
+
+/* Søkeresultater på mobil: festet til toppen rett under header,
+   med vw-padding på sidene. Maks-høyden er begrenset til ~50vh så panelet
+   stopper rett over selve søkeboksen — søkeboksen forblir synlig mens
+   brukeren skriver. */
+@media (max-width:600px){
+ .search-results{
+ position:fixed;
+ top:84px;
+ left:6vw;
+ right:6vw;
+ bottom:auto;
+ width:auto;
+ max-width:none;
+ max-height:calc(50vh - 30px);
+ transform:none;
+ border-radius:14px;
+ box-shadow:0 26px 60px -18px rgba(0,0,0,.45);
+ }
+}
+
+/* AI-modus på mobil: skjul søkefeltet + "eller" slik at AI-pillen kan
+   gli opp og ta over plassen. AI-pillen beholder samme bredde som
+   søkefeltet hadde — ikke smalere, ikke bredere. */
+@media (max-width:720px){
+ body.is-aiing .hero-search,
+ body.is-aiing .kne-va-or{
+ display:none;
+ }
+}
+
+/* Mobil "Ring oss"-CTA i hero — alltid synlig på mobil, skjult på desktop
+   der nav-phone allerede ligger i header. */
+.hero-call{display:none}
+@media (max-width:720px){
+ .hero-call{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:10px;
+ align-self:center;
+ padding:14px 28px;
+ background:var(--orange);
+ color:#fff;
+ border-radius:999px;
+ font-family:var(--serif);
+ font-style:italic;
+ font-size:1.05rem;
+ letter-spacing:.005em;
+ text-decoration:none;
+ box-shadow:0 18px 36px -14px rgba(248,128,56,.55), 0 1px 0 rgba(255,255,255,.2) inset;
+ transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
+ margin-top:6px;
+ }
+ .hero-call:hover{background:var(--orange-2);transform:translateY(-1px)}
+ .hero-call:active{transform:translateY(0)}
+ .hero-call svg{width:18px;height:18px;flex:none}
+ /* Når AI-modus er på, skjul også "Ring oss" så panelet får ren plass */
+ body.is-aiing .hero-call{
+ opacity:0;
+ transform:translateY(-12px);
+ pointer-events:none;
+ }
+}
+
+</style>
+</head>
+
+<body>
+<!-- Skip link -->
+<a href="#main" style="position:absolute;left:-9999px" onfocus="this.style.cssText='position:fixed;left:16px;top:16px;background:#fff;color:#000;padding:8px 12px;border-radius:8px;z-index:9999'" onblur="this.style.cssText='position:absolute;left:-9999px'">Hopp til innhold</a>
+
+<header class="site-header" id="siteHeader">
+ <div class="wrap nav">
+ <a class="brand" href="#" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo brand-logo--dark" src="assets/logo-white.png" alt="Karlsen &amp; Nordseth Entreprenør" draggable="false">
+ <img class="brand-logo brand-logo--light" src="assets/logo.png" alt="" aria-hidden="true" draggable="false">
+ </a>
+ <nav class="nav-links" aria-label="Hovedmeny">
+ <div class="drawer-header">
+ <button class="drawer-close" type="button" aria-label="Lukk meny">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+ <line x1="6" y1="6" x2="18" y2="18"/>
+ <line x1="6" y1="18" x2="18" y2="6"/>
+ </svg>
+ </button>
+ <a class="brand" href="#" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo" src="assets/logo.png" alt="Karlsen &amp; Nordseth Entreprenør" draggable="false">
+ </a>
+ <span class="drawer-spacer" aria-hidden="true"></span>
+ </div>
+ <a href="index.html" class="is-current">Hjem</a>
+ <a href="prosjekter.html">Prosjekter</a>
+ <a href="om-oss.html">Om oss</a>
+ <a href="baerekraft.html">Bærekraft</a>
+ <a href="etikkogansvar.html">Etikk og ansvar</a>
+ <a href="stillinger.html">Stillinger</a>
+ </nav>
+ <div class="nav-cta">
+ <a class="nav-phone" href="tel:+4767073830">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ +47 67 07 38 30
+ </a>
+ <button class="menu-btn" aria-label="Åpne meny">Meny</button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- HERO -->
+ <section class="hero" data-theme="dark" aria-label="Velkommen">
+ <div class="wrap hero-inner">
+ <div class="hero-eyebrow eyebrow">Etablert 1992 — Oslo &amp; Østlandet</div>
+ <h1>Med <span class="em">lidenskap</span> for&nbsp;antikvariske&nbsp;bygg.</h1>
+ <div class="hero-pills">
+ <button class="hero-orgnr" type="button" data-orgnr="985 214 034" aria-label="Kopier organisasjonsnummer 985 214 034 til utklippstavlen" title="Klikk for å kopiere org.nr.">
+ <span class="orgnr-label">Org.nr.</span>
+ <span class="orgnr-value" data-default="985 214 034">985 214 034</span>
+ <svg class="orgnr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+ </button>
+ <a class="hero-kontakt" href="#kontakt">
+ Kontakt
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px;opacity:.72"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </a>
+ </div>
+ <p class="hero-sub">Spesialister på antikvarisk rehabilitering, riggentrepriser og nybygg.</p>
+
+ <div class="hero-search" role="search">
+ <div class="search-bar">
+ <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+ <input id="kne-search" type="search" autocomplete="off" spellcheck="false"
+ placeholder="Søk etter prosjekt, fag, kompetanse eller bygg…"
+ aria-label="Søk på siten"
+ aria-controls="kne-results" aria-expanded="false">
+ <button class="search-go" type="button" aria-label="Søk">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </button>
+ </div>
+ <div class="search-results" id="kne-results" role="listbox" aria-live="polite" hidden></div>
+ </div>
+
+ <div class="hero-chips" aria-label="Hurtigsøk">
+ <span class="chip-label">Prøv:</span>
+ <button class="chip" data-q="kirke" type="button">Kirker</button>
+ <button class="chip" data-q="tak fasade" type="button">Tak &amp; fasade</button>
+ <button class="chip" data-q="rigg" type="button">Riggentrepriser</button>
+ <button class="chip" data-q="bærekraft" type="button">Bærekraft</button>
+ <button class="chip" data-q="stilling" type="button">Stillinger</button>
+ </div>
+
+ <a class="hero-call" href="tel:+4767073830" aria-label="Ring oss på +47 67 07 38 30">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+ <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+ </svg>
+ Ring oss nå
+ </a>
+ </div>
+ <a class="hero-scroll" href="#om-oss" aria-label="Bla videre">
+ <span>Bla videre</span>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+ </a>
+ </section>
+
+ <!-- MANIFESTO -->
+ <section class="manifesto" data-theme="light" id="om-oss">
+ <div class="wrap manifesto-grid">
+ <div class="kicker reveal">
+ <span class="eyebrow">Om oss</span>
+ <h2>Spesialister på å bevare <em class="em">det som er verdt å bevare</em>.</h2>
+ </div>
+ <div class="reveal">
+ <p>
+ Vi er en mellomstor entreprenør med fokus på antikvarisk rehabilitering, riggentrepriser
+ og nybygg. Med lang erfaring innen tak- og fasadearbeid, og rigg og drift av byggeplasser,
+ jobber vi for store eiendomsbesittere, det offentlige og selvstendige eiendomsutviklere.
+ </p>
+ <p>
+ Vårt fokus er å bevare byggehistorien — og videreføre arven av norsk byggekunst gjennom
+ spesialisert kompetanse på historiske byggemetoder og detaljert håndverk.
+ </p>
+ </div>
+ </div>
+
+ <div class="wrap">
+ <div class="stats-strip reveal" role="list">
+ <ul>
+ <li role="listitem"><span class="num">1992</span><span class="lbl">Etablert i Oslo</span></li>
+ <li role="listitem"><span class="num"><em>274</em> MNOK</span><span class="lbl">Omsetning (gjennomsnitt siste 5 år)</span></li>
+ <li role="listitem"><span class="num"><em>2030</em></span><span class="lbl">Mål: fossilfri bilpark</span></li>
+ <li role="listitem"><span class="num">Miljøfyrtårn</span><span class="lbl">Sertifisert klimarapportering</span></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- SERVICES -->
+ <section class="services" data-theme="light" id="tjenester">
+ <div class="wrap">
+ <div class="section-head reveal">
+ <div>
+ <span class="eyebrow">Hva vi gjør</span>
+ <h2 style="margin-top:14px">Fagområder <em>i praksis</em>.</h2>
+ </div>
+ <p class="right">
+ Fra antikvarisk fasaderehabilitering på vernede kirker til store, kompliserte
+ riggentrepriser i drift — vi løser oppgaven med håndverkere som er stolte av faget.
+ </p>
+ </div>
+
+ <div class="service-grid reveal">
+ <article class="service">
+ <span class="num"><em>01</em> — Fagområde</span>
+ <h4>Antikvarisk rehabilitering</h4>
+ <p>Bevaring av vernede bygg med riktige metoder og materialer — kalkpuss, blyglass, naturstein, kobber og tre.</p>
+ </article>
+ <article class="service">
+ <span class="num"><em>02</em> — Fagområde</span>
+ <h4>Riggentrepriser</h4>
+ <p>Komplisert rigg, drift og brakkerigg på sykehus, museer og store bygg som er i full operativ drift.</p>
+ </article>
+ <article class="service">
+ <span class="num"><em>03</em> — Fagområde</span>
+ <h4>Tak &amp; fasade</h4>
+ <p>Skifertekking, kobberarbeid, mørtelfuger, takrenner og blikkenslagerarbeid på krevende, gamle bygg.</p>
+ </article>
+ <article class="service">
+ <span class="num"><em>04</em> — Fagområde</span>
+ <h4>Nybygg</h4>
+ <p>Som totalentreprenør leverer vi nybygg der detaljkvalitet og presisjon er like viktig som tempo.</p>
+ </article>
+ </div>
+ </div>
+ </section>
+
+ <!-- PROJECTS -->
+ <section class="projects" data-theme="dark">
+ <div class="wrap">
+ <div class="section-head reveal">
+ <div>
+ <span class="eyebrow">Utvalgte prosjekter</span>
+ <h2 style="margin-top:14px">Antikvarisk og <em>rigg</em>, side ved side.</h2>
+ </div>
+ <p class="right">
+ Et utvalg fra to kjernevirksomheter — antikvariske bygg restaurert i samråd med
+ Riksantikvaren, og riggentrepriser på sykehus, museer og store offentlige bygg.
+ </p>
+ </div>
+
+ <div class="projects-grid reveal">
+ <a href="prosjekter/historisk-museum.html" class="proj proj-1" aria-label="Historisk Museum, Oslo">
+ <img src="assets/historisk-museum.jpg" alt="Historisk Museum i Oslo, sett fra luften med tak under rehabilitering" loading="lazy">
+ <div class="body">
+ <div class="meta">
+ <span class="tag">Antikvarisk · Generalentreprise</span>
+ <h4>Historisk Museum</h4>
+ </div>
+ <span class="ico" aria-hidden="true">
+ <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ </div>
+ </a>
+
+ <a href="prosjekter/bekkelaget-kirke.html" class="proj proj-2" aria-label="Bekkelaget Kirke">
+ <img src="assets/bekkelaget-kirke.jpg" alt="Bekkelaget kirke fotografert ovenfra" loading="lazy">
+ <div class="body">
+ <div class="meta"><span class="tag">Antikvarisk · Kirke</span><h4>Bekkelaget Kirke</h4></div>
+ <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+ </div>
+ </a>
+
+ <a href="prosjekter/nytt-nasjonalmuseum.html" class="proj proj-3" aria-label="Nytt Nasjonalmuseum">
+ <img src="assets/rigg/tile-nasjonalmuseum.jpg" alt="Nytt Nasjonalmuseum under bygging — riggentreprise" loading="lazy">
+ <div class="body">
+ <div class="meta"><span class="tag">Rigg · Statsbygg</span><h4>Nytt Nasjonalmuseum</h4></div>
+ <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+ </div>
+ </a>
+
+ <a href="prosjekter/frogner-kirke.html" class="proj proj-4" aria-label="Frogner Kirke">
+ <img src="assets/frogner-kirke.jpg" alt="Detalj av kobberkledd takspir og granittfasade på Frogner kirke" loading="lazy">
+ <div class="body">
+ <div class="meta"><span class="tag">Antikvarisk · Granitt &amp; kobber</span><h4>Frogner Kirke</h4></div>
+ <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+ </div>
+ </a>
+
+ <a href="prosjekter/campus-aas.html" class="proj proj-5" aria-label="Campus Ås — byggherrerigg">
+ <img src="assets/rigg/tile-campusaas.jpg" alt="Overvåkningskamera mot blå himmel — byggherrerigg på Campus Ås" loading="lazy">
+ <div class="body">
+ <div class="meta"><span class="tag">Rigg · Statsbygg</span><h4>Campus Ås</h4></div>
+ <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+ </div>
+ </a>
+
+ <a href="prosjekter/holmenkollen.html" class="proj proj-6" aria-label="Holmenkollen — riggentreprise">
+ <img src="assets/rigg/tile-holmenkollen.jpg" alt="Riggentreprise på Holmenkollen" loading="lazy">
+ <div class="body">
+ <div class="meta"><span class="tag">Rigg · Ikonisk anlegg</span><h4>Holmenkollen</h4></div>
+ <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+ </div>
+ </a>
+ </div>
+
+ <div class="projects-foot">
+ <span>Også: Uranienborg · Fredrikstad Domkirke · Fredrikstad Infanterikaserne · Kråkstad · Akershus Universitetssykehus · Østfold Sykehus</span>
+ <a class="btn btn--white" href="prosjekter.html">Hele referanselisten <span class="arrow">→</span></a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CRAFT -->
+ <section class="craft" data-theme="light">
+ <div class="wrap craft-grid">
+ <a class="craft-img reveal" href="prosjekter/historisk-museum.html" aria-label="Historisk Museum — se prosjektet">
+ <span class="badge">Historisk Museum · 100 håndverkere</span>
+ <div class="craft-video">
+ <video autoplay muted loop playsinline poster="assets/historisk-museum/hero.jpg">
+ <source src="assets/historisk-museum/videos/hero.mp4" type="video/mp4">
+ </video>
+ </div>
+ <div class="craft-pair">
+ <img src="assets/historisk-museum/tak-1.jpg" alt="Blikkenslagere på kobbertaket i kveldslys">
+ <img src="assets/historisk-museum/tak-2.jpg" alt="Kobberdetalj med takrenne og nedløp">
+ </div>
+ </a>
+ <div class="craft-copy reveal">
+ <span class="eyebrow">Håndverket</span>
+ <h3 style="margin-top:14px">Når tegl, blyglass og <em>kobber</em> krever fingerspissfølelse.</h3>
+ <p>
+ På Historisk Museum la vi om ~2 000 m² tak med ny skifer, kobberdetaljer, takrenner,
+ piper og takvinduer — mens 40+ kilometer mørtelfuger ble skrapt og fuget på nytt.
+ Nesten 600 vindusrammer ble demontert og restaurert, og rundt 100 blyglassfag ble
+ rehabilitert. Alt mens museet var i drift.
+ </p>
+ <ul class="craft-list">
+ <li><span class="num">— Skifer</span><span class="t">Tak &amp; renner</span><span class="d">Tradisjonell tekking, kobberbeslag og piper.</span></li>
+ <li><span class="num">— Mur</span><span class="t">Mørtelfuger</span><span class="d">Skraping, fuging og utskiftning av sandstein.</span></li>
+ <li><span class="num">— Tre</span><span class="t">Vindusrammer</span><span class="d">Demontering, restaurering og remontering.</span></li>
+ <li><span class="num">— Glass</span><span class="t">Blyglass</span><span class="d">Skånsom rehabilitering av hånddetaljerte fag.</span></li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- SUSTAINABILITY -->
+ <section class="sustainability" data-theme="dark" id="baerekraft">
+ <div class="wrap sus-grid">
+ <div class="reveal">
+ <span class="eyebrow" style="color:rgba(255,255,255,.7)">Bærekraft</span>
+ <h2 style="margin-top:14px">Å rehabilitere det gamle er <em>et bedre valg</em>.</h2>
+ <p style="margin-top:22px">
+ Når vi tar vare på det som allerede står, reduseres mengden avfall og behov for nytt
+ materiell. Bærekraft betyr for oss å forene sosiale, økonomiske og miljømessige hensyn —
+ fra Miljøfyrtårn-rapportering til konkrete mål om fossilfri bilpark innen 2030.
+ </p>
+ <p>
+ Vi har identifisert seks av FNs bærekraftsmål som mest relevante for vår virksomhet, og
+ jobber aktivt mot sosial dumping i hele leverandørkjeden.
+ </p>
+ </div>
+ <ul class="sus-points reveal">
+ <li><span class="n">01</span><div><div class="t">Anstendig arbeid &amp; vekst</div><div class="d">Trygge arbeidsplasser, mangfold og likestilling — forankret i en egen likestillingspolicy.</div></div></li>
+ <li><span class="n">02</span><div><div class="t">Ansvarlig forbruk &amp; produksjon</div><div class="d">Effektiv ressursbruk, ombruk og kvalitetshåndverk som varer.</div></div></li>
+ <li><span class="n">03</span><div><div class="t">Klima &amp; energi</div><div class="d">Fossilfri bilpark innen 2030 og fornybar elektrisitet med opprinnelsesgaranti.</div></div></li>
+ <li><span class="n">04</span><div><div class="t">Stoppe sosial dumping</div><div class="d">Aktiv kontroll i hele leverandørkjeden, med utgangspunkt i OECD- og ILO-prinsipper.</div></div></li>
+ </ul>
+ </div>
+ </section>
+
+ <!-- CAREERS -->
+ <section class="careers" data-theme="light" id="stillinger">
+ <div class="wrap">
+ <div class="careers-card reveal">
+ <div class="careers-copy">
+ <span class="eyebrow">Stillinger</span>
+ <h2 style="margin-top:14px">Bli en del av et <em>fagmiljø</em> som tar vare på det som er.</h2>
+ <p>
+ Vi rekrutterer faglærte tømrere, blikkenslagere, murere og lærlinger.
+ Hos oss får du jobbe på noen av landets mest spennende antikvariske prosjekter —
+ sammen med et lag som er stolte av faget og av hverandre.
+ </p>
+ <div class="careers-actions">
+ <a class="btn" href="#">Se ledige stillinger <span class="arrow">→</span></a>
+ <a class="btn btn--ghost" href="#">Søk som lærling</a>
+ </div>
+ </div>
+ <div class="careers-img">
+ <img src="assets/stillinger/tar-vare-pa-det-som-er.png" alt="Håndverkere fra Karlsen &amp; Nordseth på taket av Historisk Museum">
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- CONTACT -->
+ <section class="contact" data-theme="light" id="kontakt">
+ <div class="wrap contact-grid">
+ <div class="reveal">
+ <span class="eyebrow">Kontakt</span>
+ <h2 style="margin-top:14px">Et prosjekt vi bør <em>se på sammen</em>?</h2>
+ <p style="color:var(--muted);max-width:46ch;margin-top:18px">
+ Ser du etter en entreprenør for ditt prosjekt eller en ny spennende arbeidsplass?
+ Send oss noen ord — vi svarer i løpet av én arbeidsdag.
+ </p>
+ <div class="contact-meta">
+ <div class="row"><span class="lbl">Telefon</span><a href="tel:+4767073830">+47 67 07 38 30</a></div>
+ <div class="row"><span class="lbl">E-post</span><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></div>
+ <div class="row"><span class="lbl">Org.nr.</span><span>985 214 034</span></div>
+ </div>
+ </div>
+
+ <form class="form reveal" onsubmit="event.preventDefault(); this.querySelector('.actions small').textContent='Takk for at du tar kontakt!';">
+ <div class="row">
+ <label><span>Navn</span><input type="text" name="name" required></label>
+ <label><span>Telefon</span><input type="tel" name="phone"></label>
+ </div>
+ <label><span>E-post</span><input type="email" name="email" required></label>
+ <label><span>Hva gjelder henvendelsen?</span><textarea name="msg" rows="4" required></textarea></label>
+ <div class="actions">
+ <small>Vi svarer innen én arbeidsdag.</small>
+ <button class="btn btn--orange" type="submit">Send <span class="arrow">→</span></button>
+ </div>
+ </form>
+ </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="wrap">
+ <div class="top">
+ <div class="col">
+ <div class="brandlogo">
+ <img src="assets/logo-white.png" alt="" draggable="false">
+ <span class="brand-name" style="color:#fff"><b>Karlsen</b> &amp; Nordseth</span>
+ </div>
+ <div class="pitch">Antikvarisk håndverk siden <em>1992</em> — i Oslo og på Østlandet.</div>
+ </div>
+ <div class="col">
+ <h5>Selskapet</h5>
+ <ul>
+ <li><a href="om-oss.html">Om oss</a></li>
+ <li><a href="prosjekter.html">Prosjekter</a></li>
+ <li><a href="stillinger.html">Stillinger</a></li>
+ <li><a href="baerekraft.html">Bærekraft</a></li>
+ <li><a href="baerekraft.html">Etikk og ansvar</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Tjenester</h5>
+ <ul>
+ <li><a href="#tjenester">Antikvarisk rehabilitering</a></li>
+ <li><a href="#tjenester">Riggentrepriser</a></li>
+ <li><a href="#tjenester">Tak &amp; fasade</a></li>
+ <li><a href="#tjenester">Nybygg</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Kontakt</h5>
+ <ul>
+ <li><a href="tel:+4767073830">+47 67 07 38 30</a></li>
+ <li><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></li>
+ <li>Org.nr. 985 214 034</li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom">
+ <span>© <span id="yr"></span> Karlsen &amp; Nordseth Entreprenør AS</span>
+ <div class="socials" aria-label="Sosiale medier">
+ <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<!-- Searchable index of the existing site (projects, capabilities, pages, jobs).
+ Built from the static HTML in this folder so the search works without any backend.
+ When the site is rebuilt, swap this block for the real CMS content. -->
+<script type="application/json" id="kne-index">
+[
+ {"id":"p-historisk-museum","type":"Prosjekt","title":"Historisk Museum","summary":"Generalentreprise for UiO. ~2 000 m² tak, 40+ km mørtelfuger, ~600 vindusrammer og ~100 blyglassfag restaurert.","client":"Universitet i Oslo","value":"112,5 MNOK","image":"assets/historisk-museum.jpg","tags":["museum","oslo","uio","antikvarisk","tak","skifer","kobber","blyglass","mørtelfuger","sandstein","tegl","generalentreprise","drift","i drift"]},
+ {"id":"p-bekkelaget-kirke","type":"Prosjekt","title":"Bekkelaget Kirke","summary":"Tak- og fasaderehabilitering på vernet kirke i Oslo.","image":"assets/bekkelaget-kirke.jpg","tags":["kirke","oslo","tak","fasade","kobber","antikvarisk"]},
+ {"id":"p-frogner-kirke","type":"Prosjekt","title":"Frogner Kirke","summary":"Detaljert kobber- og fasadearbeid på Frogner kirke.","image":"assets/frogner-kirke.jpg","tags":["kirke","oslo","kobber","kobbertak","granitt","fasade","tak","mørtelfuger"]},
+ {"id":"p-uranienborg-kirke","type":"Prosjekt","title":"Uranienborg Kirke","summary":"Antikvarisk rehabilitering av tegltårn og fasade.","image":"assets/uranienborg-kirke.jpg","tags":["kirke","oslo","tegl","tegltårn","mur","murverk","antikvarisk"]},
+ {"id":"p-fredrikstad-domkirke","type":"Prosjekt","title":"Fredrikstad Domkirke","summary":"Tak- og mørtelfugerehabilitering på Fredrikstad Domkirke.","image":"assets/fredrikstad-domkirke.jpg","tags":["kirke","fredrikstad","tak","mørtelfuger","tegl","gotisk","antikvarisk"]},
+ {"id":"p-kraakstad","type":"Prosjekt","title":"Kråkstad Kirke","summary":"Tak- og tårnarbeid på trekirke utenfor Oslo.","image":"assets/krakstad-kirke.jpg","tags":["kirke","østlandet","tak","tårn","trekirke","tre","antikvarisk"]},
+ {"id":"p-fredrikstad-infanterikaserne","type":"Prosjekt","title":"Fredrikstad Infanterikaserne","summary":"Antikvarisk rehabilitering for Forsvarsbygg.","client":"Forsvarsbygg","image":"assets/fredrikstad-infanterikaserne.jpg","tags":["forsvarsbygg","fredrikstad","kaserne","tegl","fasade","antikvarisk"]},
+ {"id":"p-nasjonalmuseum","type":"Prosjekt","title":"Nytt Nasjonalmuseum","summary":"Riggentreprise og fasadearbeid på Nytt Nasjonalmuseum.","tags":["museum","oslo","stein","fasade","rigg","nybygg"]},
+ {"id":"p-holmenkollen","type":"Prosjekt","title":"Holmenkollen","summary":"Riggentreprise på Holmenkollen.","tags":["oslo","stillas","rigg","ikoniske bygg"]},
+ {"id":"p-ahus","type":"Prosjekt","title":"Akershus Universitetssykehus (A-hus)","summary":"Riggentreprise på sykehus i full drift.","tags":["sykehus","ahus","rigg","drift","stillas","helsebygg"]},
+ {"id":"p-campus-aas","type":"Prosjekt","title":"Campus Ås","summary":"Rigg og drift på Campus Ås.","tags":["campus","ås","nybygg","rigg","drift"]},
+ {"id":"p-kalnes","type":"Prosjekt","title":"Kalnes — Østfold sykehus","summary":"Rigg og drift av sykehus i Østfold.","tags":["sykehus","kalnes","østfold","rigg","drift","helsebygg"]},
+
+ {"id":"k-antikvarisk","type":"Kompetanse","title":"Antikvarisk rehabilitering","summary":"Bevaring av vernede bygg med riktige metoder og materialer — kalkpuss, blyglass, naturstein, kobber og tre.","tags":["antikvarisk","vernet","historisk","kalk","kalkpuss","tradisjonell","kirke","museum","kulturminne","riksantikvaren"]},
+ {"id":"k-rigg","type":"Kompetanse","title":"Riggentrepriser","summary":"Komplisert rigg, drift og brakkerigg på sykehus, museer og store bygg i full operativ drift.","tags":["rigg","stillas","drift","brakkerigg","sykehus","helsebygg","museum","logistikk"]},
+ {"id":"k-tak-fasade","type":"Kompetanse","title":"Tak & fasade","summary":"Skifertekking, kobberarbeid, mørtelfuger, takrenner og blikkenslagerarbeid.","tags":["tak","fasade","skifer","kobber","blikkenslager","mørtel","fuging","puss","beslag","piper","takrenner"]},
+ {"id":"k-nybygg","type":"Kompetanse","title":"Nybygg","summary":"Som total- eller generalentreprenør leverer vi nybygg der detaljkvalitet og presisjon er like viktig som tempo.","tags":["nybygg","totalentreprise","generalentreprise"]},
+ {"id":"k-skifer","type":"Kompetanse","title":"Skifertekking","summary":"Tradisjonell skifertekking på antikvariske bygg.","tags":["skifer","tak","tradisjonell tekking","tekking","tak","tegl"]},
+ {"id":"k-kobber","type":"Kompetanse","title":"Kobberarbeid","summary":"Kobbertak, takrenner, beslag og piper i kobber.","tags":["kobber","blikkenslager","tak","detaljer","beslag","takrenner"]},
+ {"id":"k-mortel","type":"Kompetanse","title":"Mørtelfuger & murverk","summary":"Skraping og fuging av mørtel, samt rehabilitering av tegl og naturstein.","tags":["mørtel","fuging","mur","murverk","tegl","kalkpuss","sandstein","naturstein","puss"]},
+ {"id":"k-vinduer","type":"Kompetanse","title":"Vindusrestaurering","summary":"Demontering, restaurering og remontering av historiske vinduer.","tags":["vindu","vindusramme","blyglass","tre","glass","kirkevinduer","kittfals"]},
+ {"id":"k-blyglass","type":"Kompetanse","title":"Blyglass","summary":"Skånsom rehabilitering av blyglassfag.","tags":["blyglass","glass","kirke","vinduer","blyfag","detaljarbeid"]},
+ {"id":"k-fasaderehab","type":"Kompetanse","title":"Fasaderehabilitering","summary":"Fasaderehabilitering for sameier, borettslag og offentlige byggherrer.","tags":["fasade","puss","tegl","betong","sameier","borettslag"]},
+
+ {"id":"s-om-oss","type":"Side","title":"Om oss","summary":"Spesialister på antikvarisk rehabilitering, etablert i Oslo i 1992. Org.nr. 985 214 034.","image":"assets/om-oss/sporty.png","tags":["om oss","selskapet","historie","verdier","ledelse","kontaktpersoner","markedssjef","organisasjonsnummer","org nr","985 214 034","985214034"]},
+ {"id":"s-baerekraft","type":"Side","title":"Bærekraft","summary":"Bærekraft og ansvarlig næringsliv — Miljøfyrtårn, FNs bærekraftsmål, fossilfri bilpark 2030.","image":"assets/baerekraft/hero.jpg","tags":["bærekraft","miljø","klima","fns","miljøfyrtårn","ansvar","sirkulær","oecd","ilo","fossilfri"]},
+ {"id":"s-miljoarbeid","type":"Side","title":"Miljøarbeid","summary":"Miljøfyrtårn-rapportering, fornybar strøm og fossilfri bilpark innen 2030.","image":"assets/baerekraft/miljofyrtarn.png","tags":["miljø","miljøarbeid","klima","miljøfyrtårn","fossilfri","fornybar","opprinnelsesgaranti","2030"]},
+ {"id":"s-prosjekter","type":"Side","title":"Referanseprosjekter","summary":"Komplett oversikt over våre referanseprosjekter — antikvarisk, rigg, fasade, nybygg.","tags":["prosjekter","referanser","portefølje","cases"]},
+ {"id":"s-stillinger","type":"Side","title":"Stillinger","summary":"Ledige stillinger hos Karlsen & Nordseth.","image":"assets/stillinger/jobb-med-oss.png","imagePos":"top left","tags":["jobb","karriere","stillinger","rekruttering","lærling","blikkenslager","tømrer","murer"]},
+ {"id":"s-etikk","type":"Side","title":"Etikk og ansvar","summary":"Våre etiske retningslinjer og samfunnsansvar.","image":"assets/etikkogansvar/hero.jpg","tags":["etikk","ansvar","compliance","retningslinjer","leverandør"]},
+ {"id":"s-varsling","type":"Side","title":"Varsling","summary":"Varslingsordning for ansatte og leverandører.","tags":["varsling","whistleblower","rapporter fareforhold"]},
+ {"id":"s-hms","type":"Side","title":"HMS","summary":"Helse, miljø og sikkerhet.","tags":["hms","sikkerhet","helse","arbeidsmiljø","sikkerhetsstyring"]},
+ {"id":"s-mangfold","type":"Side","title":"Mangfold","summary":"Vårt arbeid med mangfold og likestilling.","image":"assets/baerekraft/inklusivitet.png","tags":["mangfold","likestilling","inkludering","diversitet"]},
+ {"id":"s-apenhet","type":"Side","title":"Åpenhetsloven","summary":"Aktsomhetsvurderinger og rapport etter Åpenhetsloven.","image":"assets/baerekraft/lov.png","tags":["åpenhetsloven","compliance","leverandør","menneskerettigheter"]},
+ {"id":"s-personvern","type":"Side","title":"Personvernerklæring","summary":"Hvordan vi håndterer personopplysninger.","image":"assets/baerekraft/privacy.png","tags":["personvern","gdpr","privacy","cookies","informasjonskapsler"]},
+
+ {"id":"j-blikkenslager","type":"Stilling","title":"Blikkenslager","summary":"Søker erfaren blikkenslager til antikvariske kobber- og takprosjekter.","tags":["blikkenslager","tak","kobber","stillinger","jobb","fagarbeider"]},
+ {"id":"j-laerling","type":"Stilling","title":"Lærling","summary":"Lærlingplass i flere fagretninger — tømrer, murer, blikkenslager.","tags":["lærling","tømrer","murer","blikkenslager","fagopplæring","yrkesfag"]}
+]
+</script>
+
+<script type="application/json" id="kne-fulltext">
+[{"id": "p-bekkelaget-kirke", "type": "Prosjekt", "title": "Bekkelaget Kirke", "body": "Bekkelaget Kirke | Karlsen & Nordseth Entreprenør top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Bekkelaget Kirke Bekkelagt Referanse Topp Verneklasse: Kommunalt listeført (gult) Oppdragsgiver: Kirkelig Fellesråd i Oslo Entrepriseform: Generalentreprise (NS 8405) Kontraktssum: 6 ,5 MNOK Arbeidets art: Antikvarisk restaurering og rehabilitering Periode: 2012 Maler tømrer og snekker taktekker og Blikkenslager mur og puss Prosjektstyring Om bygget Bekkelaget Kirke ble oppført på 1920-tallet og er en steinkirke med nyromanske buer og hvelv. Kirken er tegnet av kommunearkitekt Harald Bødtker, mens Martin Enevold har stått for den innvendige utsmykkingen. Vårt arbeid KNE utførte taktekker-, blikkenslager-, tømrer-, snekker-, murer-, puss- og malerarbeider. Tårn, spir, renner og nedløp ble utført i kobber. Yttertak ble rehabilitert med ny Koramic takstein, og takets lufteløsninger og isoleringsevne ble oppgradert. Hele fasaden ble pusset med kalkmørtel og overmalt med purkristarat kalkmaling, samt restaurering av bladgull på tårn og andre utsmykninger. Historisk Museum: About Us Vil du vite mer om prosjektet? Vi hører gjerne fra deg post@karlsen-nordseth.no + 47 67 07 38 30 +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 1399}, {"id": "s-baerekraft", "type": "Side", "title": "Bærekraft", "body": "Bærekraft | Karlsen & Nordseth Entreprenør top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Bærekraft Miljøarbeid Åpenhetsloven Personvernerklæring Mangfold Bærekraft og ansvarlig næringsliv Denne policyen reflekterer vårt engasjement for å bidra positivt til samfunnet og miljøet, samtidig som vi skaper verdier for våre kunder, ansatte og eiere. ​ I 1987 beskrev FN bærekraft på denne måten: En utvikling som imøtekommer dagens behov uten å ødelegge mulighetene for at kommende generasjoner skal få dekket sine behov. Bærekraft omfatter tre verdiområder; sosialt, økonomisk og miljømessig. Alle tre områdene må være tilstede for å oppnå bærekraft. ​ Denne definisjonen står som et fundament for vårt bærekraftsarbeid. For å lykkes må vi derfor balansere tre avgjørende verdiområder: sosialt, økonomisk og miljømessig. Alle tre er nødvendige for å skape en bærekraftig fremtid. ​ Vårt arbeide bygger på OECD sine retningslinjer for flernasjonale selskaper, FN- og ILO-konvensjoner og nasjonalt regelverk. Vi har identifisert seks av FNs bærekraftsmål som er mest relevant for vår virksomhet og som reflekterer de tre verdiområdene: Vi jobber sammen mot felles mål for å skape et mer bærekraftig selskap, både internt og med nye og eksisterende samarbeidspartnere. Vi jobber kontinuerlig for å sikre gode arbeidsvilkår, opplæring og en helsefremmende arbeidsplass for alle ansatte. Våre arbeidsplasser skal være trygge og sikre samt at vi skal ha en positiv arbeidskultur. Det oppmuntres til fysisk aktivitet. Vi har vi som mål å være en arbeidsplass der arbeidsmiljøet skal være attraktivt og utviklende og hvor mangfold, likestilling og respekt for den enkeltes rettigheter står sentralt. Vi har utarbeidet en egen likestillingspolicy for å ivareta dette. Vi skal ikke ha forekomst av sosial dumping i våre prosjekter og vi jobber aktivt for å bidra til anstendige arbeidsforhold og rettferdig arbeidsmiljø nedover i verdikjeden. Vi skal overholde gjeldende lovgivning og har i tillegg utarbeidet egne etiske retningslinjer som alle ansatte og samarbeidspartnere blir gjort kjent med. Vårt fokus er å bygge en solid forretningsmodell som skaper verdier på en ansvarlig og transparent måte for å fremme langsiktig økonomisk vekst samt sikre og skape nye arbeidsplasser uten å skade miljøet. Dette inkluderer effektiv ressursbruk, investering i innovasjon og teknologi, samt ansvarlig økonomisk styring. Vi måler vårt klimaavtrykk gjennom rapporteringsverktøyet i Miljøfyrtårn. Vi har som mål å ha fossilfrie kjøretøy innen 2030 og være fokuserte når vi velger hvordan transport foregår. Vi skal ha en leverandør med opprinnelsesgaranti på kjøp av strøm samt investere i fornybar energi i våre driftslokaler. https://fn.no/om-fn/fns-baerekraftsmaal +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 2960}, {"id": "p-fredrikstad-domkirke", "type": "Prosjekt", "title": "Fredrikstad Domkirke", "body": "Fredrikstad Domkirke | Karlsen & Nordseth Entreprenør top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Historisk Museum: Product Fredrikstad Domkirke Verneklasse: Kommunalt listeført (gult) Oppdragsgiver: Fredrikstad Kirkelig Fellesråd Entrepriseform: Generalentreprise (NS 8405) Kontraktssum: 24 MNOK Arbeidets art: Antikvarisk restaurering og rehabilitering Periode: 2014-2016 Historisk Museum: About Maler tømrer og snekker taktekker og Blikkenslager mur og puss Prosjektstyring Om bygget Fredrikstad Domkirke ble oppført på 1880-tallet og er en tidstypisk langkirke i nygotiske former. Kirken er tegnet av arkitekt Waldemar Lühr og er den eneste kirken i landet med fyrlykt i tårnet. Vårt arbeid KNE utførte taktekker-, blikkenslager-, tømrer-, snekker-, murer-, maler-, glass- og blyglassarbeider. Tårn, spir, renner og nedløp ble utført i kobber, mens hovedtak ble tekket med Lushan takskifer over sarnafil og nytt undertak. Takets bæresystem, lufting og isoleringsevne ble også oppgradert, sammen med rehabilitering av murfundamenter til tårn og hovedspir. Hele fasaden ble spekket med ny pølsespekk, støpejernsvinduer ble rehabilitert og innvendige blyglass ble restaurert. Historisk Museum: About Us Vil du vite mer om prosjektet? Vi hører gjerne fra deg post@karlsen-nordseth.no + 47 67 07 38 30 +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 1517}, {"id": "p-fredrikstad-infanterikaserne", "type": "Prosjekt", "title": "Fredrikstad Infanterikaserne", "body": "Fredrikstad Infanterikaserne | Karlsen & Nordseth Entreprenør top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Historisk Museum: Product Infanterikasernen i Fredrikstad Verneklasse: Fredet (rødt) Oppdragsgiver: Forsvarsbygg Entrepriseform: Generalentreprise (NS 8405) Kontraktssum: 23 ,5 MNOK Arbeidets art: Antikvarisk restaurering og rehabilitering Periode: 2013-2015 Historisk Museum: About Maler tømrer og snekker taktekker og Blikkenslager mur og puss Stål Om bygget Infanterikasernen ligger på sentralt på torvet i Fredrikstad festning – Gamlebyen, og ble oppført som kaserne av infanteriet i 1788. Bygget betegnes som noe av det flotteste vi har av militær arkitektur i Norge. Vårt arbeid KNE utførte taktekker-, blikkenslager-, tømrer-, snekker-, stål-, mur-, puss- og malerarbeid. Renner, nedløp og diverse beslag ble tekket i kobber, mens yttertak ble restaurert/rehabilitert med eksisterende og ny takstein. Eksisterende takstein ble sortert og renset til gjenbruk. Nesten hele takets bærekonstruksjon ble forsterket, råteskade i taktro ble utbedret, lufting ble oppgradert, og ny stubbeloftsleire i takets randsone ble etablert. Gesimsene måtte sikres og ble komplett rekonstruert med gjenbruk av renset eksisterende teglstein og ny kalkpuss. Innvendige himlingsarbeider, herunder ny panel og rabitzpuss, måtte utføres og hovedporter ble restaurert. Historisk Museum: About Us Vil du vite mer om prosjektet? Vi hører gjerne fra deg post@karlsen-nordseth.no + 47 67 07 38 30 +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 1696}, {"id": "p-frogner-kirke", "type": "Prosjekt", "title": "Frogner Kirke", "body": "Frogner Kirke | Karlsen & Nordseth Entreprenør top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Historisk Museum: Product Frogner Kirke Verneklasse: Kommunalt listeført (gult) Oppdragsgiver: Kirkelig Fellesråd i Oslo Entrepriseform: Generalentreprise (NS 8405) Kontraktssum: 11 ,6 MNOK Arbeidets art: Antikvarisk restaurering og rehabilitering Periode: 2016-2017 Historisk Museum: About Maler tømrer og snekker taktekker og Blikkenslager mur og puss Prosjektstyring Om bygget Frogner Kirke ble oppført i 1907 og er tegnet av Ivar Næss. Kirkens fasade er utført i grov- og finhuggen granitt, mens de sekundære fasadene mot gårdsrommene er utført i pusset tegl. Vårt arbeid KNE utførte mur, tømrer, snekker, taktekker, maler, blikkenslager. Hel renovering av hele kirken utvendig. Koppertekkinger av spir, ornamenter, doble skivetekkinger og båndtekkinger i patinert kopper inkl takrenner, nedløp og beslagsarbeider. Utbedring av støpejerns vinduer og koppermantling av dører. Totalrenovering av murfasader og maling av bygget. Historisk Museum: About Us Vil du vite mer om prosjektet? Vi hører gjerne fra deg post@karlsen-nordseth.no + 47 67 07 38 30 +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 1361}, {"id": "p-historisk-museum", "type": "Prosjekt", "title": "Historisk Museum | Karlsen & Nordseth", "body": "Historisk Museum | Karlsen & Nordseth top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. UiO Historisk Museum I forbindelse med at vi gjorde store arbeider på Historisk Museum i takt med konstruksjon av ny webside, valgte vi å presentere en mer utdypende referanse som viser litt av utfordringene vi møter og arbeidet vi gjør på denne type prosjekter. Under følger en oversikt over hva som gjøres når en erfaren antikvarisk entreprenør får oppgaven å rehabilitere og restaurere et av Norges største prestisjebygg. Topp Video Historisk Historisk Museum Referanse OPPDRAGSBESKRIVELSE OG OPPSUMERING RIGG OG SIKKERHET TAK FASADE VINDUER IRRASJONELL DRIFT GALLERI Oppdragsbesrivelse og Oppsumering OPPDRAGSBESKRIVELSE OG OPPSUMMERING Status: Pågående Kunde: Universitet i Oslo (EA) Entrepriseform: Generalentreprise Arbeidets art: Restaurering, rehabilitering og rigg Håndtverkere i arbeid: Ca. 100 Kontraktstørrelse: 112,5 MNOK Ferdigstillelse : 18. August 2019 sparkel og maling tømrere og snekkere blikk og tekking mur og puss granitt og sandstein Glass og blyglass Grunnarbeider Tekniske fag UiO er landets største institusjon for forskning og høyere utdanning. UiO eier ca 100 byggverk som forvaltes, driftes, vedlikeholdes og utvikles av deres eiendomsavdeling. ​ Ett av disse byggene er Historisk Museum på Tullinløkka. ​ Historisk Museum i Oslo ble oppført i perioden 1897-1902 og er et fredet kulturminne. Bygningen ble oppført til museumsformål og driftes fremdeles som et museum. Bygningen er tegnet av arkitekt Henrik Bull i Art Nouveau-stil. Riksantikvaren har rangert bygget som ett av de 50 viktigste prestisjebyggene i Norge. ​ i 2017 la UiO ut konkurransegrunnlaget til rehabilitering av museumet. ​ Byggherren ønsket å rehabilitere nesten 2000m² med tak og 4000 m² med fasader. I tillegg skulle hele utomhusområdet og infrasktrukturen under bakkenivå oppgraderes. Tilbyderen som leverte det beste forholdet mellom pris, kvalitet og miljø ble tildelt oppdraget. Karlsen & Nordseth Entreprenør AS skåret 9,51 poeng på pris, 9,66 poeng på kvalitet og 10 poeng på miljø. Anchor 1 Hele museumskvartalet ble inngjerdet på betonggriser med rondeller og porter som adkomst til riggområdet. Stillaset ble kledd i dekorert duk og toppet med tak over tak. Det ble også montert sensorbelysning og videoovervåkning i høyden på stillaset etter pålegg fra sikkerhetsavdelingen. Med stillas etablert rundt hele bygget fikk man muligheten til å inspisere tilstanden på nært hold, og påbegynne arbeidene. Det ble tidlig avdekket råteskader og svikt i takets bærekonstruksjon, etterfulgt av observasjoner om at enkelte vinduer nesten datt ut av fasaden. Siden den gang har prosjektet vært preget av fremdriftsstans, kartlegging, prosjektering, utarbeidelse av pilotløsninger og evalueringer av disse med rådgivere og riksantikvaren, irrasjonell drift og koordinering med den innvendige driften av museet. På tak er det utført utallige blikkdetaljer, forsterkning av hele bærekonstruksjonen, tekkearbeider, nye nedløpsløsninger og rehabilitering av piper, tårn og overlys. På fasaden er det krafset og spekket over 40 kilometer med fuger, byttet hundrevis av teglstein og vasket og reparert all naturstein. Nesten 600 vindusrammer er tatt ut og restaurert på verksted, tilnærmet alle bunn og sidekarmer er byttet og kontorfløyen og midtskipet får helt nyutviklede vinduer. Ca 100 blyglassenheter er tatt ut og restaurert i etablert blyglassverksted på riggen. Flere rom er komplett oppusset med ny teknikk og føringsveier til strøm, data og alarm. ​ Det skal også monteres nye sikkerhetsvinduer i omtrent alle vindusfeltene, utvendig elkraft skal utbedres og utomhusarealet oppgraderes. Pga en stor mengde ubeskrevne arbeider er overtakelse foreløpig utsatt med over et år, og man er trolig ikke ferdig før julen 2020. Imidlertid vil prosjektet bli levert med særdeles høy kvalitet og gjennomtenkte løsninger. Alle arbeidene følges tett opp av egne ansatte med lang erfaring innen antikvarisk restaurering og rehabilitering. Samarbeidet med byggherren oppleves også svært godt, og vi er sammen innstilt til å lande prosjektet på beste mulig måte for alle involverte parter. Riggen og Sikerhet RIGG OG SIKKERHET Museets etnografiske utstillinger og arkiver, inneholdende historiske gjenstander av uvurderlig verdi, utløste svært strenge krav til adgangskontroll, overvåking og innbruddssikkerhet. Parallelt med etablering av riggområdet måtte vi derfor delta i en rekke møter med sikkerhetsavdelingen til UiO og Nokas. Slik sikret vi gode sikkerhetsrutiner i prosjektet, og foretok tidlig planlegging av sikkerhetstiltak tilpasset det kommende prosjektet. Prosjektet startet opp med utplassering av betonggriser rundt hele museumskvartalet på Tullinløkka i nesten 300 meters lengde. Til betonggrisene ble det boltet fast tre meter høye stålgjerder med digitalstyrte rondeller og porter som adkomst til riggområdet. Parallelt med stillasmonteringen ble sensorbelysning og videoovervåkningskameraer montert i høyden rundt hele museet. I tillegg skulle riggområde patruljeres av Nokas utenom den daglige bemanningen på plassen for å opprettholde aktivitet i riggområdet på kvelds- og nattestid. Vi fikk tildelt arbeidstid for egen bemanning på plassen og strenge instrukser måtte overholdes ved evt. avvik til den angitte arbeidstiden. Impulsivt helge- og overtidsarbeid ble ikke akseptert dersom det ikke var varslet iht. sikkerhetsavdelingens instrukser og rutiner. Byggelederen hos byggherren, Robert Hallingfoss, ønsket muligheten for tett oppfølging av arbeidene for å opprettholde høy kvalitet og påse effektivitet under utførelsen. Det ble derfor etablert egne arbeidsstasjoner/-verksted på riggområdet. Blant annet ble blyglassverksted, god temperert tørkesone for malte vinduer og blandingssone for murerprodukter oppført. Stillasets to nederste etasjer ble skjermet med OSB-plater rundt hele bygget innenfor inngjerdingen for ekstra sikkerhet. Hele stillaset ble kledd i dekorert duk og toppet med tak over tak for å opprettholde god drift i nedbørsperioder. Tak - Historisk ​ TAK ​ Taket med sine 2 000 kvadratmeter, tårn, piper, takhatter og titalls overlys var det første arbeidet som ble påbegynt. Under rivearbeidene ble det observert store svanker i takkonstruksjonen rundt overlysene/takvinduene. Nedbøyningen var opptil 14 centimeter og det ble registrert åpne brudd i flere knutepunkter. Hele 4. etasje ble evakuert og sammen med byggherren prosjekterte vi frem en arbeidsbeskrivelse på hvordan vi skulle forsterke takets bærekonstruksjon. Nedløpssystemet er komplett restaurert og rehabilitert. Takrenner er rekonstruert med inntekket treverk for å oppnå ønskede former og stivhet. Tilvirkede profilbeslag er montert mellom kobberrenne og murgesims. Kummene er håndbanket med dreid pynteskål i underside og alle rennejern og tutband er rehabilitert. Det er også lagd spesialverktøy for å kunne gjennomføre de angitte oppgavene. Tårnene er restaurert, pipene er rehabilitert og et titalls takhatter er innfalset med buede hjørner i kobber produsert på verksted med former av epoxy og 120 tonns trykkbelastning i glødende tilstand. Hele taket er tekket på nytt med dobbeltfalset skivetekking. Kobberfangere for snø og håndlagde is-stoppere, samt montering av lynvern er også utført.oppgavene. Blikkenslagere -og mestere har også detaljprosjektert en rekke andre detaljer, og det har gått med 25 tonn med kobber til takrenner, beslag, utsmykninger og tekkinger. For hver eneste detalj er det levert piloter som er blitt evaluert og godkjent av riksantikvaren. Henrik Bulls tegninger fra slutten av 1880-tallet er blitt kontinuerlig gransket for å gjenskape de arkitektoniske trekkene i alle løsninger. Fasade ​ FASADE ​ Under prosjektet ble det utkrafsing av over 40 kilometer med fuger. Det ble blandet og utført flere felter med farget spekk som riksantikvaren vurderte og godkjente. Videre ble de utkrafsede fugene omspekkes med iherdig arbeid over bare én sesong. Den første etasjen er utført med pølsespekk, mens de overliggende etasjene er spekket med skyggespekk. Parallelt er det utskiftet over 300 teglstein som er spesialbestilt fra tyskland. Materialleverandører, rådgivere og muremester har vært på byggeplassen for å se på det utførte arbeidet og har vært imponert over sluttresultatet og uttrykt at arbeidet er blitt utført med svært høy kvalitet. Museet består av flere felter med sandstein og granitt. Sandsteinen er fremskaffet fra samme brudd i Tyskland som eksisterende sandstein ved oppføring av bygningen. Blokkene er tredd på utstikkende ståldybler som feste og kuttet med spesielt sagblad som har generert en særegen avsporing på sandsteinen. Vi innhentet kompetanse fra Polen til rehabilitering av sandsteinen som innehar lange tradisjoner innen faget. Skadde områder ble forsiktig og kontrollert frest ut, og erstattende felter er håndmeislet fra originalstein og montert på en slik måte at man ikke ser spor av rehabiliteringen. Der hele steiner er byttet har utførende gjenskapt sporene fra de spesielle sagbladene som glir inn i eksisterende avsporing fra bygningsoppføring. All sandstein og granitt er rengjort med dampvask. Vi har ikke kommet så langt med rehabiliteringen av granitt ettersom det meste skal tas etter demontering av stillas. Her skal det rehabiliteres hele trappeområder og utvendige søyler. Museet har også montert flere statuer som har gullforgyllende utsmykninger på seg. Disse er også restaurert med skinnende resultat. Vinduer ​ VINDUER ​ Vindusfeltene i museet inneholder to rader med vinduer, herunder varevinduer og yttervinduer. De eksisterende varevinduene skulle rives og erstattes med nye sikkerhetsvinduer, mens de utvendige antikvariske trevinduene skulle restaureres. Etter at stillaset åpnet for bruk, ble de antikvariske yttervinduene inspisert på nært hold. Vinduene viste seg å være i mye dårligere forfatning enn antatt i forprosjektet, og byggherren bestilte en total revurdering av tilstanden. Museets over 750 vinduer ble derfor kartlagt og inndelt i tilstandsgrader basert på visuell inspeksjon. Arbeidet og den videre restaureringen ble utført av Grøttumsbråtens eftf. Videre ble omfanget priset og fremdriften måtte planlegges på nytt. Dette utløste noen intense måneder i startfasen av prosjektet. Yttervinduene som ikke hadde varevinduer, måtte forsterskes etter strenge krav for å sikre de uvurderlige gjenstandene plassert innenfor dem. ​ ​ Det ble iverksatt en langvarig prosjektering hvor glasset, limet og treverket måtte sikre styrken etterspurt. ​ Vinduene ble testet og godkjent av forsvarsbygg, og KNE er stolte over å ha laget to typer antikvariske vindu med moderne styrke. Ved fjerning av eksisterende varevinduer smuldret mange av smygene opp, og måtte restaureres. ​ Byggets utforming gjorde at hvert smyg hadde satt seg forskjellig, og det ble brukt 3D-scanner for å lage en profil av alle smygene. ​ Varevinduene ble så bygget etter hver enkel profil. ​ Ved bruk av Leika BLK360 brukte vi moderne teknologi for å sikre god flyt i oppmåling og bygging av vinduer. Det er gjennomført omfattende blyglassarbeider som er under arbeid. Det vil komme mer informasjon knyttet til blyglass når prosjektet er ferdig. Per dags dato har vi montert over 20 varevinduer i museet, men leveransen er foreløpig stanset ifm COVID19 situasjonen. Hele fabrikken er steng ned og tilhørende elementer som transporteres fra andre land og settes sammen på fabrikken har også stoppet. Irrasjonell Drift ​ IRRASJONELL DRIFT ​ Museet utførte en ROS analyse tidlig i prosjektet, hvor det kom frem at samtlige utstillingssaler krevde en sikkerhetsklasse tilsvarende P6B. I tillegg ville museet etter beste evne opprettholde den innvendige driften parallelt med arbeidene til prosjektet. Dvs at vi måtte restaurere vinduene med tilhørende smyg og trekninger, mens utstillingen pågikk. Ettersom prosjektets arbeider var tidkrevende, både mtp kvalitet og omfang, besluttet lederne å etablere en innvendig «skallsikring». Altså et fysisk skille, som ivaretok sikkerhetskravene til museet, av bygningsarbeidene og museets drift. På denne måten kunne prosjektet utføre sine arbeider fra stillas og museet kunne drifte utstillingene og arbeidsplasser uforstyrret mens prosjektarbeidene pågikk. Fasadens teglfuger skulle spekkes og sandsteinselementene skulle restaureres, alt imens prosjektet skulle male smyg, trekninger, karmer og vindusrammer. Som nevnt utløste dette et massivt koordineringsarbeid, og styringsegenskapene til Karlsen & Nordseth Entreprenør ble virkelig satt på prøve. For at spekkeavfall og vanning ikke skulle tilgrise og kvalitetsmessig ødelegge for malingsarbeidene måtte disse to grensesnittene detaljkoordineres nesten daglig. En samtidighetsfaktor verdt å nevne, var driftsavdelingsens matrise som på ingen måte kunne forsinkes ifm museets markedsføring av de ca 15 utstillingene. Anchor 3 ​ GALLERI ​ glleri Historisk Museum: About Us Nøkkelord Rehabilitering Restaurering Riksantikvaren Blikkenslager Verneverdig Sandstein Rigg og drift Koordinering Antikvarisk Spekking Prosjektledelse Varevinduer Vil du vite mer om prosjektet? Vi hører gjerne fra deg post@karlsen-nordseth.no +47 67 07 38 30 +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 13396}, {"id": "p-hjem", "type": "Side", "title": "Hjem", "body": "Karlsen & Nordseth Entreprenør | Antikvarisk rehabilitering | Viken top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Hjem: Welcome Karlsen & Nordseth Entreprenør AS er en ledende byggentreprenør innen rehabilitering, riggentrepriser og nybygg i Oslo og det sentrale østlandsområdet. Vi er spesialister på antikvarisk rehabilitering og har lang erfaring innen tak- og fasadearbeid og rigg og drift av byggeplasser. Her kan du lese mer om noen av våre prosjekter. Med lidenskap for antikvariske bygg Karlsen & Nordseth Entreprenør AS er et firma med mange års erfaring med antikvarisk rehabilitering i Oslo og på Østlandet. Vårt mål er å være en mellomstor entreprenør med fokus på antikvarisk rehabilitering, riggentrepriser og nybygg. Vi arbeider bevisst mot store eiendomsbesittere og det offentlige, i tillegg til eiendomsutvikling i egen regi. Mer om oss Hjem - Omoss Hjem: Contact Kontakt oss Ser du etter en entreprenør for ditt prosjekt eller en ny spennende arbeidsplass? Ta kontakt med Karlsen & Nordseth Entreprenør AS for å lære mer. Send Takk for at du tar kontakt! +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 1288}, {"id": "s-om-oss", "type": "Side", "title": "Om oss", "body": "Om Oss | Karlsen & Nordseth Entreprenør top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Om Oss Toppe Om oss Karlsen & Nordseth Entreprenør er en ledende byggentreprenør innen rehabilitering, riggentrepriser og nybygg i Oslo og det sentrale østlandsområdet. Vi er spesialister på antikvarisk rehabilitering og har lang erfaring innen fasaderehabilitering, takarbeid og rigg og drift av byggeplasser. Våre kunder er store eiendomsbesittere, boligsameier og offentlig eiendomsforvaltning. Om oss top Bygge historie Lavt klima-avtrykk Lette på føttene Vi ønsker å bevare uttrykket i Norske bygg og å være en sentral del av å videreføre arven av norsk arkitektur. Vi søker å ha ekspertise i et felt hvor detaljnivå og dyp kunnskap om fortidens byggemetoder er avgjørende. ​ ​ Ved å rehabilitere det gamle tar man ofte et bedre valg fra et klimaperspektiv. Mengden avfall og behov for nytt materiell er langt mindre. ​ Vi gjør også en satsning for å ha et lavt klima-avtrykk som bedrift. ​ I ledelsen har vi troen på at et aktivt liv gir glade dager. Vi vil fortsette å være med på idrettsarrangementer som bedrift. Kontakt oss Ser du etter en entreprenør for ditt prosjekt eller en ny spennende arbeidsplass? Ta kontakt med Karlsen & Nordseth Entreprenør for å lære mer. Send Takk for at du tar kontakt! +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 1511}, {"id": "s-prosjekter", "type": "Side", "title": "Referanseprosjekter", "body": "Referanseprosjekter | Karlsen & Nordseth top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Under følger utvalgte referanseprosjekter innen antikvarisk rehabilitering. Disse er oppsummeringer av arbeidet som har blitt gjort. Ta kontakt for mer detaljerte referanser. Referanseprosjekter: Products Referanseprosjekter Antikvarisk Rehabilitering HISTORISK MUSEUM Refernser Antikvrisk Liste BEKKELAGET KIRKE KRÅKSTAD KIRKE FREDRIKSTAD DOMKIRKE FREDRIKSTAD INFANTERIKASERNE URANIENBORG KIRKE FROGNER KIRKE +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 711}, {"id": "s-stillinger", "type": "Side", "title": "Stillinger", "body": "Stillinger | Blikkenslager | Karlsen & Nordseth Entreprenør top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Stillinger Lærlinger JOBB MED OSS Karlsen & Nordseth Entreprenør AS er stadig i vekst og søker nye flotte medarbeidere. Vi kan tilby et godt arbeidsmiljø, konkurransedyktig lønn og gode arbeidsbetingelser. ​ Vi leter etter deg som brenner for faget og er entusiastisk rundt arbeidet vi utfører. Du er detaljorientert, initiativrik og ikke redd for å dele erfaringene dine om du mener noe kan forbedres. Bedrift i vekst Gode lønnsbetingelser Variert og spennende arbeid Hyggelig arbeidsmiljø 2019 2018 2017 Vi søker blikkenslager/taktekker med fagbrev 25.04.2025 Vi søker en dyktig og erfaren blikkenslager og/eller taktekker med fagbrev, som blikkenslager hos oss vil du jobbe med varierte oppgaver innen taktekking, fasadearbeider og andre oppgaver. Du vil være en viktig del av vårt team og bidra til å levere høy kvalitet til våre kunder. ​ Kvalifikasjoner: Fagbrev Gode ferdigheter i bruk av relevante verktøy og utstyr Selvstendig, nøyaktig og pålitelig Gode samarbeidsevner og positiv innstilling Førerkort klasse B Flytende norsk i både muntlig og skriftlig kommunikasjon ​ Vi tilby: Gode arbeidsvilkår Muligheter for faglig utvikling og kurs Et godt arbeidsmiljø med dyktige kolleger Varierte og spennende arbeidsoppgaver ​ Send CV og søknad til post@karlsen-nordseth.no ​ Stillinger: News & Updates +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 1627}, {"id": "p-uranienborg-kirke", "type": "Prosjekt", "title": "Uranienborg Kirke", "body": "Uranienborg Kirke | Karlsen & Nordseth Entreprenør top of page Gå til «Hovedinnhold» +47 67 07 38 30 post@karlsen-nordseth.no Org.nr.: 985 214 034 Hjem Prosjekter Stillinger Om oss Bærekraft Etikk og ansvar More Use tab to navigate through the menu items. Historisk Museum: Product Uranienborg Kirke Verneklasse: Kommunalt listeført (gult) Oppdragsgiver: Kirkelig Fellesråd i Oslo Entrepriseform: Generalentreprise (NS 8405) Kontraktssum: 16 ,5 MNOK Arbeidets art: Antikvarisk restaurering og rehabilitering Periode: 2007-2010 Historisk Museum: About Maler tømrer og snekker taktekker og Blikkenslager mur og puss glass og blyglass Om bygget Uranienborg Kirke ble oppført på 1880-tallet og har et nøkternt nygotisk preg. Kirken er tegnet av Balthazar Lange og er utsmykket med freskemalerier av Enevold Thømt og glassmalerier av Emanuel Vigeland. Vårt arbeid KNE utførte taktekker-, blikkenslager-, tømrer-, snekker-, murer-, maler-, glass- og blyglassarbeider. Tårn, spir, renner og nedløp ble utført i forpatinert kobber, mens hovedtak ble omlagt med murforankret skifertekking. Rehabilitering av murtårn rundt hovedspir. Fugene på fasaden ble krafset før ny pølsespekk ble påført med egenprodusert farge tilnærmet eksisterende. Frostskadet tegl på fasade og øvrig murverk ble rehabilitert med gjenbruk og supplering av ny stein. Støpejernsvinduer ble rehabilitert, innvendige blyglass ble restaurert og nye varevinduer ble montert. Historisk Museum: About Us Vil du vite mer om prosjektet? Vi hører gjerne fra deg post@karlsen-nordseth.no + 47 67 07 38 30 +47 67 07 38 30 post@karlsen-nordseth.no bottom of page", "len": 1614}]
+</script>
+
+<script>
+ // Year
+ document.getElementById('yr').textContent = new Date().getFullYear();
+
+ /* While the viewport is actively being resized, mark <html> with
+    .is-resizing. CSS uses this to suppress drawer transitions so the
+    breakpoint switch (desktop nav ↔ mobile drawer at 920px) doesn't
+    briefly fade the drawer across the whole viewport. */
+ (function(){
+   let t;
+   window.addEventListener('resize', () => {
+     document.documentElement.classList.add('is-resizing');
+     clearTimeout(t);
+     t = setTimeout(() => {
+       document.documentElement.classList.remove('is-resizing');
+     }, 150);
+   });
+ })();
+
+ /* ── Block native drag on header/menu/buttons (covers Firefox, which
+       ignores -webkit-user-drag CSS) ─────────────────────────────────── */
+ const NO_DRAG_SEL = [
+   '.site-header', '.site-header *',
+   '.nav', '.nav *',
+   '.nav-links a', '.nav-links button',
+   '.nav-cta a', '.nav-cta button',
+   '.brand', '.brand *',
+   '.brand-logo', '.brandlogo img',
+   '.menu-btn',
+   '.btn', 'a.btn', 'button',
+   '.chip', '.filter-chip', '.smart-chip',
+   '.search-bar .search-go',
+   '.lang-switcher', '.lang-switcher *',
+   '.lang-flag'
+ ].join(',');
+ document.querySelectorAll(NO_DRAG_SEL).forEach(el => {
+   el.setAttribute('draggable', 'false');
+ });
+ document.addEventListener('dragstart', (e) => {
+   const t = e.target;
+   if (t && t.closest && t.closest(NO_DRAG_SEL)) {
+     e.preventDefault();
+   }
+ }, true);
+
+ // Header — read the data-theme of the section currently under the menu
+ // and flip text colours accordingly so the menu stays readable everywhere.
+ const hdr = document.getElementById('siteHeader');
+ const sections = Array.from(document.querySelectorAll('[data-theme]'));
+ const probeY = 40; // a few px below the top, inside the header band
+ const updateTheme = () => {
+ let active = sections[0];
+ for (const el of sections) {
+ const r = el.getBoundingClientRect();
+ if (r.top <= probeY && r.bottom > probeY) { active = el; break; }
+ }
+ const theme = active ? active.dataset.theme : 'dark';
+ hdr.classList.toggle('is-light', theme === 'light');
+ };
+ updateTheme();
+ window.addEventListener('scroll', updateTheme, {passive:true});
+ window.addEventListener('resize', updateTheme);
+
+ // ===== Mobile menu drawer =====
+ (function(){
+ const btn = document.querySelector('.menu-btn');
+ const header = document.getElementById('siteHeader');
+ if (!btn || !header) return;
+ btn.setAttribute('aria-expanded','false');
+
+ // Klon språk-bytteren inn i meny-skuffen, plassert OVER menypunktene
+ // (rett etter .drawer-header). Retry til i18n.js har bygd originalen.
+ const ensureDrawerLangSwitcher = (retries = 8) => {
+ const drawer = document.querySelector('.nav-links');
+ if (!drawer) return;
+ if (drawer.querySelector('.lang-switcher')) return;
+ const src = document.querySelector('.nav-cta .lang-switcher');
+ if (!src){
+ if (retries > 0) setTimeout(() => ensureDrawerLangSwitcher(retries - 1), 80);
+ return;
+ }
+ const cloned = src.cloneNode(true);
+ const firstLink = drawer.querySelector('a:not(.brand)');
+ if (firstLink){
+ drawer.insertBefore(cloned, firstLink);
+ } else {
+ drawer.appendChild(cloned);
+ }
+ };
+ ensureDrawerLangSwitcher();
+
+ const closeMenu = () => {
+ header.classList.remove('is-menu-open');
+ document.body.classList.remove('is-menu-open');
+ btn.setAttribute('aria-expanded','false');
+ };
+ const toggleMenu = () => {
+ ensureDrawerLangSwitcher();
+ const isOpen = header.classList.toggle('is-menu-open');
+ document.body.classList.toggle('is-menu-open', isOpen);
+ btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+ };
+ btn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+ // Close on any link click inside the drawer (menu items + brand-logo link)
+ document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', closeMenu));
+ // Close button inside drawer-header
+ document.querySelectorAll('.drawer-close').forEach(b => b.addEventListener('click', closeMenu));
+ // Close drawer after a flag inside it is picked (i18n.js still applies the lang)
+ document.addEventListener('click', (e) => {
+ if (e.target.closest('.nav-links .lang-flag')) closeMenu();
+ });
+ document.addEventListener('click', (e) => { if (!header.contains(e.target)) closeMenu(); });
+ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+ window.addEventListener('resize', () => { if (window.innerWidth > 920) closeMenu(); });
+ })();
+
+ // Reveal on scroll
+ const io = new IntersectionObserver((entries) => {
+ for (const e of entries) {
+ if (e.isIntersecting) {
+ e.target.classList.add('in');
+ io.unobserve(e.target);
+ }
+ }
+ }, { rootMargin:'0px 0px -8% 0px', threshold: 0.08 });
+ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+ // ===== Site search =====
+ // Index = curated entries (title/summary/tags/image) + full body text scraped
+ // from each saved HTML file in this folder. So a search for "3D-scanner" or
+ // "Koramic takstein" or "kalkmaling" hits the actual project copy, not just
+ // the tags I wrote by hand.
+ const RAW = JSON.parse(document.getElementById('kne-index').textContent);
+ const FULLTEXT = JSON.parse(document.getElementById('kne-fulltext').textContent);
+
+ // Map every searchable entry to a real URL on this site. Entries without a
+ // dedicated page fall back to the most relevant section anchor.
+ const URL_MAP = {
+ // Top-level pages
+ 'p-hjem': 'index.html',
+ 's-om-oss': 'om-oss.html',
+ 's-baerekraft': 'baerekraft.html',
+ 's-prosjekter': 'prosjekter.html',
+ 's-stillinger': 'stillinger.html',
+
+ // Bærekraft sub-pages (now have dedicated pages)
+ 's-miljoarbeid': 'miljoarbeid.html',
+ 's-mangfold': 'mangfold.html',
+ 's-apenhet': 'apenhetsloven.html',
+ 's-etikk': 'etikkogansvar.html',
+ 's-personvern': 'personvernerklaering.html',
+
+ // Project detail pages
+ 'p-historisk-museum': 'prosjekter/historisk-museum.html',
+ 'p-bekkelaget-kirke': 'prosjekter/bekkelaget-kirke.html',
+ 'p-frogner-kirke': 'prosjekter/frogner-kirke.html',
+ 'p-uranienborg-kirke': 'prosjekter/uranienborg-kirke.html',
+ 'p-fredrikstad-domkirke': 'prosjekter/fredrikstad-domkirke.html',
+ 'p-kraakstad': 'prosjekter/krakstad-kirke.html',
+ 'p-fredrikstad-infanterikaserne': 'prosjekter/fredrikstad-infanterikaserne.html',
+ 'p-nasjonalmuseum': 'prosjekter/nytt-nasjonalmuseum.html',
+ 'p-holmenkollen': 'prosjekter/holmenkollen.html',
+ 'p-ahus': 'prosjekter/ahus.html',
+ 'p-campus-aas': 'prosjekter/campus-aas.html',
+ 'p-kalnes': 'prosjekter/kalnes.html',
+
+ // Kompetanse-overview filters on the combined prosjekter page
+ 'k-antikvarisk': 'prosjekter.html#antikvarisk',
+ 'k-rigg': 'prosjekter.html#rigg',
+
+ // Stillinger — same page (no per-stilling slug yet)
+ 'j-blikkenslager': 'stillinger.html',
+ 'j-laerling': 'stillinger.html',
+ };
+ // Section fallbacks for entries without a dedicated page.
+ const URL_FALLBACK = {
+ Prosjekt : 'prosjekter.html',
+ Kompetanse: 'index.html#tjenester',
+ Side : 'index.html',
+ Stilling : 'stillinger.html',
+ };
+ // Section-level fallbacks for entries without their own page.
+ const URL_HASH = {
+ 's-varsling' : 'etikkogansvar.html#varsling',
+ 's-hms' : 'baerekraft.html',
+ };
+ const urlFor = (it) =>
+ URL_MAP[it.id] || URL_HASH[it.id] || URL_FALLBACK[it.type] || 'index.html';
+
+ // The bodies were scraped from the live Wix site, so each one starts with the
+ // header chrome (org.nr., menu links: Hjem/Prosjekter/Stillinger/Om oss/Bærekraft…)
+ // and ends with the footer (phone/email/bottom of page). Without stripping it,
+ // every page matches every menu term — a search for "bærekraft" returns every
+ // project page. Strip the known head/tail markers before indexing.
+ const stripBoilerplate = (s) => {
+ if (!s) return s;
+ const HEAD = 'Use tab to navigate through the menu items.';
+ const headIdx = s.indexOf(HEAD);
+ if (headIdx !== -1) s = s.slice(headIdx + HEAD.length);
+ const cutMarkers = [
+ 'Vil du vite mer om prosjektet?',
+ 'Vi hører gjerne fra deg',
+ ];
+ for (const m of cutMarkers) {
+ const i = s.indexOf(m);
+ if (i !== -1) s = s.slice(0, i);
+ }
+ // Wix CMS section-type labels and anchor names — these aren't real content,
+ // they're editor metadata that bleeds into the body. Without stripping
+ // them, every project page matches every other ("Historisk" hits all four
+ // antikvariske projects via "Historisk Museum: Product").
+ s = s.replace(/Historisk Museum:\s*(?:About Us|About|Product)\b/gi, ' ');
+ s = s.replace(/Hjem:\s*(?:Welcome|Contact)\b/gi, ' ');
+ s = s.replace(/Hjem\s*-\s*Omoss\b/gi, ' ');
+ s = s.replace(/Referanseprosjekter:\s*Products?\b/gi, ' ');
+ s = s.replace(/Stillinger:\s*News\s*&\s*Updates\b/gi, ' ');
+ s = s.replace(/\bBekkelagt Referanse Topp\b/gi, ' ');
+ s = s.replace(/\bRefernser Antikvrisk Liste\b/gi, ' ');
+ s = s.replace(/\bOm Oss Toppe\b/gi, ' ');
+ s = s.replace(/\bAnchor\s*\d+\b/gi, ' ');
+ // Trailing contact strip + "bottom of page".
+ s = s.replace(/(\+?\s*47\s*67\s*07\s*38\s*30|post@karlsen-nordseth\.no|bottom of page)/gi, ' ');
+ return s.replace(/\s+/g, ' ').trim();
+ };
+ FULLTEXT.forEach(o => { o.body = stripBoilerplate(o.body); });
+
+ const FT_MAP = Object.fromEntries(FULLTEXT.map(o => [o.id, o.body]));
+ // Merge body copy into curated entries by id; add anything fulltext-only.
+ RAW.forEach(it => { if (FT_MAP[it.id]) it.body = FT_MAP[it.id]; });
+ for (const ft of FULLTEXT) {
+ if (!RAW.some(it => it.id === ft.id)) {
+ RAW.push({ id: ft.id, type: ft.type || 'Side', title: ft.title, summary:'', tags:[], body: ft.body });
+ }
+ }
+
+ // Diacritic-fold + lowercase. Norwegian: æ→ae, ø→o, å→a (so "kirke" matches "kirké" etc.)
+ const fold = (s) => (s || '')
+ .toString()
+ .toLowerCase()
+ .replace(/æ/g,'ae').replace(/ø/g,'o').replace(/å/g,'a')
+ .replace(/[^a-z0-9 ]+/g,' ')
+ .replace(/\s+/g,' ').trim();
+
+ // Synonym map — query token on the left expands to a list of search terms.
+ const SYN = {
+ 'kirker':['kirke'],'kirke':['kirke','tarn','spir'],
+ 'church':['kirke'],'churches':['kirke'],
+ 'tak':['tak','skifer','kobber','tekking','beslag','takrenner','takstein'],
+ 'fasade':['fasade','tegl','puss','mur','mortelfuger','sandstein'],
+ 'rigg':['rigg','stillas','drift','brakkerigg'],
+ 'stillas':['stillas','rigg'],
+ 'jobb':['stilling','jobb','karriere'],'jobs':['stilling'],'karriere':['stilling','jobb'],
+ 'lerling':['laerling'],'laerling':['laerling','laerlinger'],
+ 'museum':['museum','museer'],'museer':['museum'],
+ 'sykehus':['sykehus','helsebygg','ahus','kalnes'],
+ 'baerekraft':['baerekraft','miljo','klima','miljofyrtarn'],
+ 'antikvarisk':['antikvarisk','vernet','kulturminne','historisk'],
+ 'kontakt':['kontakt','telefon','epost','adresse'],
+ 'scanner':['scanner','3d scanner','3d','laser scanner'],
+ '3d':['3d','3d scanner','scanner']
+ };
+
+ // Pre-compute folded haystacks so search() is fast. Body kept in folded form
+ // for matching, but we also retain the raw body so we can build a readable
+ // snippet around the first hit.
+ const INDEX = RAW.map(item => ({
+ ...item,
+ _t : fold(item.title),
+ _s : fold(item.summary || ''),
+ _tags: (item.tags||[]).map(fold),
+ _b : fold(item.body || ''),
+ _bRaw: item.body || '',
+ _hay : fold([item.title, item.summary, (item.tags||[]).join(' '), item.client||'', item.value||'', item.body||''].join(' '))
+ }));
+
+ const expand = (tok) => {
+ const t = fold(tok);
+ const out = new Set([t]);
+ (SYN[t] || []).forEach(x => out.add(fold(x)));
+ return [...out];
+ };
+
+ // Word-anchored occurrence count. Short tokens (≤3 chars) must match a whole
+ // word — otherwise "tak" would match "takt" / "kontakt" / "takk" and pollute
+ // both ranking and the body snippet. Longer tokens allow word-prefix match
+ // so Norwegian compounds (kirke→kirken, blyglass→blyglasset) still hit.
+ const reEscapeFolded = (s) => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ const occurrences = (haystack, needle) => {
+ if (!needle) return 0;
+ const tail = needle.length <= 3 ? '\\b' : '';
+ const re = new RegExp('\\b' + reEscapeFolded(needle) + tail, 'g');
+ return (haystack.match(re) || []).length;
+ };
+
+ // Score a single item against the user query.
+ // Returns {score, bodyHits} so we can decide whether to show a body snippet.
+ const score = (it, qTokensExpanded, qRaw) => {
+ let s = 0;
+ let bodyHitTotal = 0;
+ // Whole-query exact substring match (in any field)
+ if (qRaw) {
+ if (it._t.includes(qRaw)) s += 36;
+ if (it._s.includes(qRaw)) s += 5;
+ if (it._b.includes(qRaw)) { s += 8; bodyHitTotal += 1; }
+ }
+
+ for (const variants of qTokensExpanded) {
+ let bestForToken = 0;
+ let bodyHitsForToken = 0;
+ for (const v of variants) {
+ if (!v) continue;
+ // title
+ if (it._t === v) bestForToken = Math.max(bestForToken, 30);
+ else if ((' '+it._t+' ').includes(' '+v+' ')) bestForToken = Math.max(bestForToken, 20);
+ else if (it._t.includes(v)) bestForToken = Math.max(bestForToken, 12);
+ // tags
+ if (it._tags.includes(v)) bestForToken = Math.max(bestForToken, 10);
+ else if (it._tags.some(t => t.includes(v))) bestForToken = Math.max(bestForToken, 6);
+ // summary
+ if (it._s.includes(v)) bestForToken = Math.max(bestForToken, 4);
+ // body — count occurrences (capped) so densely-mentioned terms rank higher
+ const oc = occurrences(it._b, v);
+ if (oc) {
+ const bScore = Math.min(8, 3 + Math.log2(1 + oc) * 2);
+ bestForToken = Math.max(bestForToken, bScore);
+ bodyHitsForToken = Math.max(bodyHitsForToken, oc);
+ }
+ // any field as last resort
+ if (bestForToken === 0 && it._hay.includes(v)) bestForToken = 1;
+ }
+ if (bestForToken === 0) return { score: 0, bodyHits: 0 }; // every token must match
+ s += bestForToken;
+ bodyHitTotal += bodyHitsForToken;
+ }
+ return { score: s, bodyHits: bodyHitTotal };
+ };
+
+ // Build a short snippet from raw body text around the first matched token.
+ // Locates the match in the *raw* body (case- and diacritic-insensitive) so
+ // the surrounding context is the actual page copy, with no offset drift.
+ const SNIPPET_RADIUS = 70;
+ const reEscape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ // Turn a folded token (e.g. "laerling") into a regex that also matches the
+ // accented original (e.g. "lærling") in the raw body.
+ const foldedToRawPattern = (tok) => reEscape(tok)
+ .replace(/ae/g, '(?:ae|æ)')
+ .replace(/o/g, '[oø]')
+ .replace(/a/g, '[aå]');
+ const bodySnippet = (it, qTokensExpanded, qRaw) => {
+ const raw = it._bRaw;
+ if (!raw) return null;
+ // Build candidate patterns in priority order: exact whole query first, then
+ // each token's expanded variants. The longer ones rank higher so we anchor
+ // on the most specific phrase the user typed.
+ const candidates = [];
+ if (qRaw) candidates.push(qRaw);
+ for (const variants of qTokensExpanded) {
+ for (const v of variants) if (v) candidates.push(v);
+ }
+ candidates.sort((a,b) => b.length - a.length);
+
+ let firstAt = -1, hitLen = 0;
+ for (const c of candidates) {
+ try {
+ // Same word-anchored rule as occurrences() — keep "tak" from
+ // anchoring on "takt med konstruksjon", etc.
+ const tail = c.length <= 3 ? '\\b' : '';
+ const re = new RegExp('\\b' + foldedToRawPattern(c) + tail, 'i');
+ const m = re.exec(raw);
+ if (m && (firstAt === -1 || m.index < firstAt)) {
+ firstAt = m.index;
+ hitLen = m[0].length;
+ }
+ } catch (_) { /* skip malformed */ }
+ }
+ if (firstAt === -1) return null;
+
+ let start = Math.max(0, firstAt - SNIPPET_RADIUS);
+ let end = Math.min(raw.length, firstAt + hitLen + SNIPPET_RADIUS);
+ // snap to word boundaries
+ if (start > 0) {
+ const sp = raw.indexOf(' ', start);
+ if (sp !== -1 && sp - start < 24) start = sp + 1;
+ }
+ if (end < raw.length) {
+ const sp = raw.lastIndexOf(' ', end);
+ if (sp !== -1 && end - sp < 24) end = sp;
+ }
+ let snippet = raw.slice(start, end).trim();
+ if (start > 0) snippet = '… ' + snippet;
+ if (end < raw.length) snippet = snippet + ' …';
+ return snippet;
+ };
+
+ // Build a Text-Fragment phrase (https://developer.mozilla.org/docs/Web/Text_fragments)
+ // for the URL `#:~:text=…` suffix. Just the matched WORD — not surrounding
+ // context — because the destination page's prose is often reworded vs. the
+ // scraped Wix body, so a long phrase from the scrape rarely matches the
+ // redesigned copy. The single matched word ("teglstein", "krafset",
+ // "3D-scanner") almost always survives the rewrite, and browsers scroll to
+ // the first occurrence on the destination page.
+ const WORD_TAIL = '[A-Za-zæøåÆØÅ0-9]*'; // capture full word incl. Norwegian
+ const textFragmentFor = (it, qTokensExpanded, qRaw) => {
+ const raw = it._bRaw;
+ if (!raw) return '';
+ const candidates = [];
+ if (qRaw) candidates.push(qRaw);
+ for (const variants of qTokensExpanded) {
+ for (const v of variants) if (v) candidates.push(v);
+ }
+ candidates.sort((a,b) => b.length - a.length);
+ let firstAt = -1, hitLen = 0;
+ for (const c of candidates) {
+ try {
+ // Capture the full word so the fragment is e.g. "teglstein" not "tegl".
+ const tail = c.length <= 3 ? '\\b' : WORD_TAIL;
+ const re = new RegExp('\\b' + foldedToRawPattern(c) + tail, 'i');
+ const m = re.exec(raw);
+ if (m && (firstAt === -1 || m.index < firstAt)) {
+ firstAt = m.index;
+ hitLen = m[0].length;
+ }
+ } catch (_) { /* skip */ }
+ }
+ if (firstAt === -1) return '';
+ return raw.slice(firstAt, firstAt + hitLen);
+ };
+
+ const TYPE_ORDER = ['Prosjekt', 'Kompetanse', 'Side', 'Stilling'];
+ const TYPE_LABEL = { Prosjekt:'Prosjekter', Kompetanse:'Kompetanse', Side:'Sider', Stilling:'Stillinger' };
+
+ // Highlight matched tokens in a string, preserving HTML-safety.
+ // Uses the same diacritic-tolerant regex as bodySnippet so a folded token
+ // like "laerling" still highlights "Lærling" in the original text.
+ const escapeHtml = (s) => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const highlight = (text, tokens) => {
+ const safe = escapeHtml(text || '');
+ const useful = [...new Set((tokens || []).filter(Boolean))].sort((a,b) => b.length - a.length);
+ if (!useful.length) return safe;
+ // Word-anchored to avoid highlighting "tak" inside "takt" / "kontakt".
+ const pat = useful
+ .map(t => '\\b' + foldedToRawPattern(t) + (t.length <= 3 ? '\\b' : ''))
+ .join('|');
+ try {
+ return safe.replace(new RegExp('(' + pat + ')','ig'), '<mark>$1</mark>');
+ } catch (_) {
+ return safe;
+ }
+ };
+
+ const inputEl = document.getElementById('kne-search');
+ const resultsEl = document.getElementById('kne-results');
+ const chipEls = document.querySelectorAll('.hero-chips .chip');
+ const heroSearchEl = document.querySelector('.hero-search');
+
+ let activeIdx = -1;
+ let lastResults = [];
+
+ const closeResults = () => {
+ resultsEl.hidden = true;
+ inputEl.setAttribute('aria-expanded', 'false');
+ activeIdx = -1;
+ document.body.classList.remove('is-searching');
+ };
+ const openResults = () => {
+ resultsEl.hidden = false;
+ inputEl.setAttribute('aria-expanded', 'true');
+ };
+
+ const search = (q) => {
+ const folded = fold(q);
+ if (!folded) {
+ lastResults = [];
+ closeResults();
+ return;
+ }
+ const tokens = folded.split(' ').filter(Boolean);
+ const expanded = tokens.map(expand);
+ const scored = INDEX
+ .map(it => {
+ const sc = score(it, expanded, folded);
+ return { it, s: sc.score, bodyHits: sc.bodyHits };
+ })
+ .filter(x => x.s > 0)
+ .sort((a,b) => b.s - a.s)
+ .slice(0, 12);
+ // Attach the snippet & query context to each result so render() can use it.
+ const enriched = scored.map(x => ({
+ ...x.it,
+ _snippet: x.bodyHits ? bodySnippet(x.it, expanded, folded) : null,
+ _fragment: x.bodyHits ? textFragmentFor(x.it, expanded, folded) : '',
+ _bodyHits: x.bodyHits
+ }));
+ lastResults = enriched;
+ render(enriched, tokens);
+ openResults();
+ };
+
+ const render = (items, tokens) => {
+ if (!items.length) {
+ const safeQ = escapeHtml(inputEl.value);
+ resultsEl.innerHTML =
+ `<div class="search-empty">Ingen treff på <b>"${safeQ}"</b>. Prøv f.eks. <i>kirke</i>, <i>tak</i>, <i>rigg</i> eller <i>bærekraft</i>.</div>`;
+ return;
+ }
+ // Group by type, in fixed order
+ const groups = {};
+ for (const it of items) (groups[it.type] = groups[it.type] || []).push(it);
+
+ let html = '';
+ for (const t of TYPE_ORDER) {
+ const arr = groups[t]; if (!arr) continue;
+ html += `<div class="search-section"><h6>${TYPE_LABEL[t]}</h6>`;
+ for (const it of arr) {
+ const thumbPos = it.imagePos ? `;background-position:${it.imagePos}` : '';
+ const thumb = it.image
+ ? `<span class="thumb" style="background-image:url('${it.image}')${thumbPos}"></span>`
+ : `<span class="thumb no-img" aria-hidden="true">${escapeHtml(it.title.charAt(0))}</span>`;
+ // Prefer a snippet from the actual page copy when a body match drove
+ // the result — that's how "3D-scanner" style queries get to feel deep.
+ const subtitle = it._snippet
+ ? it._snippet
+ : [it.client, it.value, it.summary].filter(Boolean).join(' · ');
+ // For body-matched results, append a Text Fragment so the browser scrolls
+ // and highlights the matched phrase on long destination pages. Browsers
+ // that don't support text fragments (e.g. Firefox without flag) ignore the
+ // suffix and just open the page top — no breakage.
+ let href = urlFor(it);
+ if (it._fragment) {
+ const sep = href.includes('#') ? ':~:' : '#:~:';
+ href += sep + 'text=' + encodeURIComponent(it._fragment);
+ }
+ html += `<a class="search-result" data-id="${it.id}" href="${escapeHtml(href)}" role="option">
+ ${thumb}
+ <span class="info">
+ <span class="t">${highlight(it.title, tokens)}</span>
+ <span class="d">${highlight(subtitle, tokens)}</span>
+ </span>
+ <span class="pill t-${it.type}">${escapeHtml(it.type)}</span>
+ </a>`;
+ }
+ html += `</div>`;
+ }
+ html += `<div class="search-foot">
+ <span>${items.length} treff</span>
+ <span><i>Trykk Enter eller klikk for å gå til siden.</i></span>
+ </div>`;
+ resultsEl.innerHTML = html;
+ activeIdx = -1;
+ };
+
+ const setActive = (idx) => {
+ const rows = resultsEl.querySelectorAll('.search-result');
+ if (!rows.length) return;
+ if (idx < 0) idx = rows.length - 1;
+ if (idx >= rows.length) idx = 0;
+ rows.forEach((r,i) => r.classList.toggle('is-active', i === idx));
+ rows[idx].scrollIntoView({block:'nearest'});
+ activeIdx = idx;
+ };
+
+ // Toggle hero-fokus-modus mens brukeren skriver
+ const setSearchingClass = () => {
+ document.body.classList.toggle('is-searching', !!inputEl.value.trim());
+ };
+
+ // Debounced input
+ let tId;
+ inputEl.addEventListener('input', () => {
+ clearTimeout(tId);
+ const v = inputEl.value;
+ setSearchingClass();
+ tId = setTimeout(() => search(v), 80);
+ });
+ inputEl.addEventListener('focus', () => {
+ if (inputEl.value.trim()) { setSearchingClass(); search(inputEl.value); }
+ });
+
+ // Keyboard navigation
+ inputEl.addEventListener('keydown', (e) => {
+ if (e.key === 'ArrowDown') { e.preventDefault(); setActive(activeIdx + 1); }
+ else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(activeIdx - 1); }
+ else if (e.key === 'Escape') { closeResults(); inputEl.blur(); }
+ else if (e.key === 'Enter') {
+ const rows = resultsEl.querySelectorAll('.search-result');
+ const target = rows[activeIdx] || rows[0];
+ if (target && target.href) {
+ e.preventDefault();
+ window.location.href = target.href;
+ }
+ }
+ });
+
+ // Click outside closes (chips live outside .hero-search, so exempt them too)
+ document.addEventListener('click', (e) => {
+ if (heroSearchEl.contains(e.target)) return;
+ if (e.target.closest('.hero-chips')) return;
+ closeResults();
+ });
+
+ // Chip → fill input + open results
+ chipEls.forEach(el => {
+ el.addEventListener('click', () => {
+ inputEl.value = el.dataset.q;
+ setSearchingClass();
+ search(el.dataset.q);
+ inputEl.focus();
+ });
+ });
+
+ // Arrow button → run search with current input
+ const searchGoEl = document.querySelector('.search-bar .search-go');
+ if (searchGoEl) {
+ searchGoEl.addEventListener('click', () => {
+ setSearchingClass();
+ search(inputEl.value);
+ inputEl.focus();
+ });
+ }
+
+ // ⌘K / Ctrl+K to focus
+ window.addEventListener('keydown', (e) => {
+ if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+ e.preventDefault();
+ inputEl.focus();
+ inputEl.select();
+ }
+ });
+
+ // Result rows are <a href> — let the browser handle the click. We just
+ // close the dropdown so it doesn't linger after navigation (esp. for hash
+ // links to the same page).
+ resultsEl.addEventListener('click', (e) => {
+ const row = e.target.closest('.search-result');
+ if (!row) return;
+ closeResults();
+ });
+
+ // Org-nr pill — kopier til utklippstavlen ved klikk
+ (function(){
+ const pill = document.querySelector('.hero-orgnr');
+ if (!pill) return;
+ const valEl = pill.querySelector('.orgnr-value');
+ const labelEl = pill.querySelector('.orgnr-label');
+ const defaultVal = valEl.dataset.default || valEl.textContent.trim();
+ const defaultLabel = labelEl ? labelEl.textContent : '';
+ let resetTimer;
+
+ const copyText = async (text) => {
+ if (navigator.clipboard && window.isSecureContext) {
+ try { await navigator.clipboard.writeText(text); return true; } catch(_) {}
+ }
+ const ta = document.createElement('textarea');
+ ta.value = text;
+ ta.setAttribute('readonly','');
+ ta.style.position = 'fixed';
+ ta.style.opacity = '0';
+ document.body.appendChild(ta);
+ ta.select();
+ let ok = false;
+ try { ok = document.execCommand('copy'); } catch(_) {}
+ ta.remove();
+ return ok;
+ };
+
+ pill.addEventListener('click', async () => {
+ const orgnr = pill.dataset.orgnr || defaultVal;
+ const ok = await copyText(orgnr);
+ pill.classList.add('is-copied');
+ if (labelEl) labelEl.textContent = ok ? 'Kopiert' : 'Kopier';
+ valEl.textContent = orgnr;
+ clearTimeout(resetTimer);
+ resetTimer = setTimeout(() => {
+ pill.classList.remove('is-copied');
+ if (labelEl) labelEl.textContent = defaultLabel;
+ valEl.textContent = defaultVal;
+ }, 1800);
+ });
+ })();
+</script>
+
+<!-- AI-assistent (xAI realtime voice). Pillen monteres ved siden av søkefeltet i hero. -->
+<script src="voice-agent.js?v=7" defer></script>
+
+<!-- i18n: dictionary first, then engine. Engine reads window.KNE_I18N on init.
+     The ?v= query string is a cache-bust — bump the version when you edit
+     either file so browsers fetch the new build instead of serving stale. -->
+<script src="assets/i18n-dict.js?v=7"></script>
+<script src="assets/i18n.js?v=7"></script>
+</body>
+</html>

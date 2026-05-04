@@ -1,0 +1,604 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   AI ASSISTENT — Karlsen & Nordseth Entreprenør
+   Pill placert ved siden av søkefeltet i hero. Klikk for å starte talen.
+   • Klikk pillen → panel åpner med START
+   • Klikk START → "Kobler til" → "Lytter"
+   • Panel auto-skjules ~1.8s etter at den er live. Pillen forblir live.
+   • Hover pillen for å hente fram LIVE panelet (status + mute + avslutt).
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --kne-va-ink:        #15110D;
+  --kne-va-paper:      #F4EFE8;
+  --kne-va-paper-2:    #EAE2D6;
+  --kne-va-orange:     #F88038;
+  --kne-va-orange-2:   #E26B1F;
+  --kne-va-verdigris:  #3F7A6F;
+  --kne-va-sand:       #C8B79C;
+  --kne-va-muted:      #6C645B;
+  --kne-va-line:       rgba(21,17,13,.12);
+  --kne-va-error:      #B9442A;
+}
+
+/* ═════ WRAP — sits inside the hero, beside the search bar ═════ */
+.kne-va-wrap {
+  /* No positioning context — the AI panel (.kne-va-drop) is absolute and
+     should anchor to .hero-search-row (the parent), not to this narrow pill
+     wrapper. That way the panel spans the full search-row width and sits
+     flush above the search bar. */
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* No drag-handles or accidental selection on any AI-assistant control */
+.kne-va-pill,
+.kne-va-mic-btn,
+.kne-va-ai-close,
+.kne-va-chat-send,
+.kne-va-chip,
+.kne-va-action {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* ═════ "ELLER" SEPARATOR (mellom søk og pill) ═════ */
+.kne-va-or {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: rgba(255,255,255,.62);
+  padding: 0 4px;
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+  letter-spacing: .01em;
+  align-self: center;
+}
+@media (max-width: 720px) {
+  .kne-va-or {
+    width: 100%;
+    text-align: center;
+    padding: 6px 0 4px;
+    font-size: 1.05rem;
+  }
+}
+
+/* ═════ PILL — same height as the search bar (52px) ═════ */
+.kne-va-pill {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,.96);
+  color: var(--kne-va-ink);
+  border: 0;
+  height: 52px;
+  padding: 0 24px 0 20px;
+  border-radius: 999px;
+  font-family: "Cormorant Garamond", "Iowan Old Style", "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: .005em;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow:
+    0 22px 50px -22px rgba(0,0,0,.55),
+    0 1px 0 rgba(255,255,255,.5) inset;
+  transition:
+    background .25s ease,
+    box-shadow .25s ease,
+    transform .25s ease,
+    color .25s ease;
+  line-height: 1;
+}
+/* Subtilt gradient-glød som fyller hele pillen og skifter sakte mellom
+   blå og oransje. background-size 200% lar oss skyve fargestoppene fram
+   og tilbake, slik at hele flaten kryss-fader mellom blå-til-oransje og
+   oransje-til-blå over 12 sekunder. Subtilt — alpha er lav. */
+.kne-va-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg,
+    rgba(61, 94, 122, .22) 0%,
+    rgba(248, 128, 56, .20) 50%,
+    rgba(61, 94, 122, .22) 100%);
+  background-size: 200% 100%;
+  animation: kneVaPillGlow 12s ease-in-out infinite alternate;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+.kne-va-pill > * {
+  position: relative;
+  z-index: 1;
+}
+@keyframes kneVaPillGlow {
+  0%   { background-position:   0% 0; }
+  100% { background-position: 100% 0; }
+}
+.kne-va-pill:hover {
+  background: #fff;
+  box-shadow:
+    0 30px 60px -22px rgba(0,0,0,.55),
+    0 0 0 3px rgba(248,128,56,.40),
+    0 1px 0 rgba(255,255,255,.5) inset;
+  transform: translateY(-1px);
+}
+.kne-va-pill:hover::before {
+  animation: none;
+  opacity: 0;
+}
+.kne-va-pill:focus-visible {
+  outline: 3px solid rgba(248,128,56,.55);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kne-va-pill::before { animation: none; opacity: .5; }
+}
+/* Når stemme-økt er aktiv overtar state-animasjonene; skjul glødet */
+.kne-va-wrap.kne-va-active .kne-va-pill::before { display: none; }
+
+/* Waveform icon — 4 bars, animated when live */
+.kne-va-pill-wf {
+  display: inline-flex; align-items: center; gap: 3px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.kne-va-pill-wf span {
+  display: inline-block;
+  width: 2.5px;
+  border-radius: 1.5px;
+  background: var(--kne-va-muted);
+  transform-origin: center;
+  transition: background .3s ease;
+}
+.kne-va-pill-wf span:nth-child(1) { height: 8px; }
+.kne-va-pill-wf span:nth-child(2) { height: 14px; }
+.kne-va-pill-wf span:nth-child(3) { height: 10px; }
+.kne-va-pill-wf span:nth-child(4) { height: 6px; }
+
+/* State dot */
+.kne-va-pill-dot {
+  display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: transparent;
+  transition: background .3s ease, box-shadow .3s ease;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.kne-va-wrap.kne-va-active .kne-va-pill-dot { opacity: 1; }
+
+.kne-va-pill-label {
+  line-height: 1;
+  display: inline-block;
+}
+
+/* Active pill — orange ring */
+.kne-va-wrap.kne-va-active .kne-va-pill {
+  border-color: var(--kne-va-orange);
+  background: #fff;
+  color: var(--kne-va-ink);
+}
+.kne-va-wrap.kne-va-active .kne-va-pill-wf span { background: var(--kne-va-orange); }
+
+/* Listening — orange dot + waveform pulse */
+.kne-va-wrap[data-state="listening"] .kne-va-pill-dot {
+  background: var(--kne-va-orange);
+  box-shadow: 0 0 0 0 rgba(248,128,56,.55);
+  animation: kneVaDotPulse 1.8s ease-out infinite;
+}
+.kne-va-wrap[data-state="listening"] .kne-va-pill-wf span {
+  animation: kneVaWfListen 1.3s ease-in-out infinite;
+}
+.kne-va-wrap[data-state="listening"] .kne-va-pill-wf span:nth-child(2) { animation-delay: .1s; }
+.kne-va-wrap[data-state="listening"] .kne-va-pill-wf span:nth-child(3) { animation-delay: .2s; }
+.kne-va-wrap[data-state="listening"] .kne-va-pill-wf span:nth-child(4) { animation-delay: .3s; }
+
+/* Speaking — verdigris (copper patina) dot + active waveform */
+.kne-va-wrap[data-state="speaking"] .kne-va-pill-dot {
+  background: var(--kne-va-verdigris);
+  box-shadow: 0 0 0 0 rgba(63,122,111,.55);
+  animation: kneVaDotPulseGreen 1.1s ease-out infinite;
+}
+.kne-va-wrap[data-state="speaking"] .kne-va-pill-wf span {
+  background: var(--kne-va-verdigris);
+  animation: kneVaWfSpeak .65s ease-in-out infinite;
+}
+.kne-va-wrap[data-state="speaking"] .kne-va-pill-wf span:nth-child(2) { animation-delay: .08s; }
+.kne-va-wrap[data-state="speaking"] .kne-va-pill-wf span:nth-child(3) { animation-delay: .16s; }
+.kne-va-wrap[data-state="speaking"] .kne-va-pill-wf span:nth-child(4) { animation-delay: .24s; }
+
+/* Connecting — slow blink */
+.kne-va-wrap[data-state="connecting"] .kne-va-pill-dot {
+  background: var(--kne-va-muted);
+  animation: kneVaDotBlink 1s ease-in-out infinite;
+}
+
+/* Muted — red dot */
+.kne-va-wrap[data-state="muted"] .kne-va-pill-dot { background: var(--kne-va-error); }
+.kne-va-wrap[data-state="muted"] .kne-va-pill-wf span { background: #B8C5D4; }
+
+@keyframes kneVaDotPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(248,128,56,.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(248,128,56,0); }
+  100% { box-shadow: 0 0 0 0 rgba(248,128,56,0); }
+}
+@keyframes kneVaDotPulseGreen {
+  0%   { box-shadow: 0 0 0 0 rgba(63,122,111,.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(63,122,111,0); }
+  100% { box-shadow: 0 0 0 0 rgba(63,122,111,0); }
+}
+@keyframes kneVaDotBlink {
+  0%, 100% { opacity: .25; }
+  50%      { opacity: 1; }
+}
+@keyframes kneVaWfListen {
+  0%, 100% { transform: scaleY(.5); }
+  50%      { transform: scaleY(1.1); }
+}
+@keyframes kneVaWfSpeak {
+  0%, 100% { transform: scaleY(.4); }
+  50%      { transform: scaleY(1.3); }
+}
+
+@media (max-width: 720px) {
+  .kne-va-pill { padding: 0 18px 0 14px; font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kne-va-pill-wf span { animation: none !important; }
+  .kne-va-pill-dot { animation: none !important; }
+}
+
+/* ═════ AI-PANEL — eksakt samme styling som .search-results ═════ */
+.kne-va-drop {
+  /* Anchored to .hero-search-row (parent of the pill wrap) so the panel
+     spans the full search-row width and sits flush above the search bar.
+     The pill wrap (.kne-va-wrap) is position:static so this absolute
+     finds .hero-search-row's positioning context instead. */
+  position: absolute;
+  bottom: calc(100% + 22px);
+  left: 0;
+  right: 0;
+  width: auto;
+  max-width: 100%;
+  max-height: min(420px, 48vh);
+  background: rgba(255,255,255,.98);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  color: var(--kne-va-ink);
+  border-radius: 18px;
+  box-shadow: 0 -20px 60px -18px rgba(0,0,0,.45);
+  padding: 14px;
+  z-index: 60;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px) scale(.98);
+  transform-origin: bottom center;
+  transition: opacity .2s ease, transform .25s cubic-bezier(.22,1,.36,1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.kne-va-drop.is-open {
+  opacity: 1; pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 600px) {
+  .kne-va-drop {
+    /* Anchored just above the AI pill, not pinned to the top of the
+       viewport. Spans the wrap width (so it inherits hero side-padding)
+       and grows up toward — but never past — the header. */
+    position: absolute;
+    bottom: calc(100% + 12px);
+    top: auto;
+    right: 0; left: 0;
+    width: auto; max-width: none;
+    max-height: 50vh;
+    transform-origin: bottom center;
+  }
+}
+
+/* ═════ HEADER med tittel, voice-status og lukk-knapp ═════ */
+.kne-va-ai-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 6px 10px;
+  border-bottom: 1px solid var(--kne-va-line);
+  margin-bottom: 10px;
+}
+.kne-va-ai-title {
+  font-family: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--kne-va-ink);
+  letter-spacing: .005em;
+}
+.kne-va-voice-status {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-left: auto;
+  margin-right: 8px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 11px; font-weight: 500; letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--kne-va-orange);
+}
+.kne-va-voice-status[hidden] { display: none; }
+.kne-va-drop[data-state="speaking"] .kne-va-voice-status { color: var(--kne-va-verdigris); }
+.kne-va-drop[data-state="connecting"] .kne-va-voice-status { color: var(--kne-va-muted); }
+.kne-va-drop[data-state="muted"] .kne-va-voice-status { color: var(--kne-va-error); }
+.kne-va-voice-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: currentColor;
+  animation: kneVaDotPulse 1.8s ease-out infinite;
+}
+.kne-va-drop[data-state="connecting"] .kne-va-voice-dot { animation: kneVaDotBlink 1s ease-in-out infinite; }
+.kne-va-drop[data-state="speaking"]   .kne-va-voice-dot { animation: kneVaDotPulseGreen 1.1s ease-out infinite; }
+.kne-va-drop[data-state="muted"]      .kne-va-voice-dot { animation: none; }
+
+.kne-va-ai-close {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--kne-va-muted);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+  flex-shrink: 0;
+}
+.kne-va-ai-close svg { width: 14px; height: 14px; }
+.kne-va-ai-close:hover {
+  background: var(--kne-va-paper);
+  color: var(--kne-va-ink);
+  border-color: var(--kne-va-line);
+}
+
+/* Error band */
+.kne-va-drop-error {
+  margin-top: 12px;
+  padding: 9px 12px;
+  background: rgba(185,68,42,.08);
+  border: 1px solid rgba(185,68,42,.3);
+  border-radius: 10px;
+  color: var(--kne-va-error);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+.kne-va-drop-error:empty { display: none; }
+
+.kne-va-sr-only {
+  position: absolute;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* ═════ CHAT-PANEL ═════ */
+.kne-va-chat-history {
+  display: flex; flex-direction: column; gap: 10px;
+  min-height: 80px;
+  max-height: min(360px, 48vh);
+  overflow-y: auto;
+  padding: 6px 4px 8px;
+  margin-bottom: 10px;
+  scrollbar-width: thin;
+}
+.kne-va-chat-history::-webkit-scrollbar { width: 6px; }
+.kne-va-chat-history::-webkit-scrollbar-thumb {
+  background: rgba(21,17,13,.18);
+  border-radius: 3px;
+}
+
+.kne-va-chat-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.kne-va-chat-msg.is-user {
+  align-self: flex-end;
+  background: var(--kne-va-ink);
+  color: var(--kne-va-paper);
+  border-bottom-right-radius: 4px;
+}
+.kne-va-chat-msg.is-ai {
+  align-self: flex-start;
+  background: var(--kne-va-paper);
+  color: var(--kne-va-ink);
+  border-bottom-left-radius: 4px;
+}
+.kne-va-chat-msg.is-loading {
+  align-self: flex-start;
+  background: var(--kne-va-paper);
+  color: var(--kne-va-muted);
+  font-style: italic;
+}
+
+/* Klikkbare navigasjons-lenker AI-en kan inkludere i svar */
+.kne-va-chat-link {
+  color: var(--kne-va-orange-2);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
+.kne-va-chat-link:hover {
+  color: var(--kne-va-ink);
+  text-decoration-color: currentColor;
+}
+.kne-va-chat-link:focus-visible {
+  outline: 2px solid rgba(248,128,56,.55);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.kne-va-chat-msg.is-loading::after {
+  content: '';
+  display: inline-block;
+  margin-left: 4px;
+  animation: kneVaTyping 1.2s steps(4) infinite;
+}
+@keyframes kneVaTyping {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+  100% { content: ''; }
+}
+
+.kne-va-chat-form {
+  display: flex; gap: 8px; align-items: stretch;
+}
+
+/* Mikrofon-knapp i form-raden — toggler stemme-modus inni samme samtale */
+.kne-va-mic-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--kne-va-line);
+  background: #fff;
+  color: var(--kne-va-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.kne-va-mic-btn svg { width: 17px; height: 17px; }
+.kne-va-mic-btn:hover {
+  border-color: var(--kne-va-orange);
+  color: var(--kne-va-orange-2);
+  background: rgba(248,128,56,.06);
+  transform: translateY(-1px);
+}
+.kne-va-mic-btn.is-active {
+  background: var(--kne-va-orange);
+  border-color: var(--kne-va-orange);
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(248,128,56,.18);
+  animation: kneVaMicPulse 1.6s ease-in-out infinite;
+}
+.kne-va-mic-btn.is-active:hover {
+  background: var(--kne-va-orange-2);
+  border-color: var(--kne-va-orange-2);
+}
+@keyframes kneVaMicPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(248,128,56,.4); }
+  50%      { box-shadow: 0 0 0 8px rgba(248,128,56,0); }
+}
+.kne-va-chat-input {
+  flex: 1;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--kne-va-line);
+  background: #fff;
+  color: var(--kne-va-ink);
+  outline: 0;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.kne-va-chat-input:focus {
+  border-color: var(--kne-va-orange);
+  box-shadow: 0 0 0 3px rgba(248,128,56,.18);
+}
+.kne-va-chat-input::placeholder { color: var(--kne-va-muted); }
+
+.kne-va-chat-send {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--kne-va-orange);
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+  flex-shrink: 0;
+}
+.kne-va-chat-send svg { width: 16px; height: 16px; }
+.kne-va-chat-send:hover:not(:disabled) {
+  background: var(--kne-va-orange-2);
+  transform: translateY(-1px);
+}
+.kne-va-chat-send:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.kne-va-chat-back {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 11.5px; font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--kne-va-muted);
+  margin-bottom: 8px;
+  cursor: pointer;
+  background: none; border: 0; padding: 4px 0;
+  transition: color .2s ease;
+}
+.kne-va-chat-back:hover { color: var(--kne-va-ink); }
+.kne-va-chat-back svg { width: 12px; height: 12px; }
+
+/* ═════ HIGHLIGHT — applied transiently to a project/competence card
+   when the agent draws attention to it ═════ */
+.kne-va-highlight {
+  animation: kneVaHighlight 3.4s cubic-bezier(.2,.7,.2,1);
+  position: relative;
+  z-index: 3;
+  border-radius: inherit;
+  transform-origin: center;
+  will-change: transform, box-shadow;
+}
+@keyframes kneVaHighlight {
+  0%   { box-shadow: 0 0 0 0 rgba(248,128,56,0);                 transform: scale(1); }
+  10%  { box-shadow: 0 0 0 8px rgba(248,128,56,.50),
+                     0 14px 36px rgba(248,128,56,.28);           transform: scale(1.02); }
+  35%  { box-shadow: 0 0 0 5px rgba(248,128,56,.42),
+                     0 10px 28px rgba(248,128,56,.22);           transform: scale(1.013); }
+  60%  { box-shadow: 0 0 0 6px rgba(248,128,56,.45),
+                     0 12px 30px rgba(248,128,56,.22);           transform: scale(1.016); }
+  85%  { box-shadow: 0 0 0 3px rgba(248,128,56,.24);             transform: scale(1.006); }
+  100% { box-shadow: 0 0 0 0 rgba(248,128,56,0);                 transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kne-va-highlight {
+    animation: none;
+    box-shadow: 0 0 0 3px rgba(248,128,56,.55);
+    transition: box-shadow .4s ease;
+  }
+}
+
+/* ═════ SEARCH-FIELD MARK — gold pulse on the search input
+   when the agent fills it ═════ */
+.kne-va-field-marked {
+  animation: kneVaFieldMark 1.1s ease-out;
+  position: relative;
+  z-index: 2;
+}
+@keyframes kneVaFieldMark {
+  0%   { box-shadow: 0 0 0 0 rgba(248,128,56,0); }
+  18%  { box-shadow: 0 0 0 4px rgba(248,128,56,.5), 0 6px 18px rgba(248,128,56,.22); }
+  55%  { box-shadow: 0 0 0 3px rgba(248,128,56,.4); }
+  100% { box-shadow: 0 0 0 0 rgba(248,128,56,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kne-va-field-marked { animation: none; box-shadow: 0 0 0 3px rgba(248,128,56,.55); }
+}
+
+@media (print) { .kne-va-wrap { display: none !important; } }

@@ -1,0 +1,12 @@
+# Secrets — never commit
+.env
+*.env
+.env.*
+
+# Local dev tools — not needed on GitHub Pages
+voice_server.py
+dev.sh
+
+# macOS
+.DS_Store
+**/.DS_Store

@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stillinger — Karlsen &amp; Nordseth Entreprenør</title>
+<meta name="description" content="Ledige stillinger hos Karlsen &amp; Nordseth Entreprenør. Vi søker blikkenslager/taktekker med fagbrev — og tar inn lærlinger i flere fagretninger.">
+<meta property="og:title" content="Stillinger | Karlsen &amp; Nordseth">
+<meta property="og:image" content="assets/stillinger/jobb-med-oss.png">
+<link rel="icon" href="assets/logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/project.css?v=2">
+
+<style>
+.pillars-band{padding:80px 0;background:var(--paper)}
+.pillars-band .head{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:end;margin-bottom:36px}
+.pillars-band .head h2 em{color:var(--orange-2);font-style:italic}
+.pillars-band .head p{color:var(--muted);max-width:48ch;margin:14px 0 0}
+.tilegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{
+ padding:32px 28px;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
+ transition:transform .35s, box-shadow .35s;
+}
+.tile:hover{transform:translateY(-2px);box-shadow:0 22px 48px -22px rgba(0,0,0,.18)}
+.tile .num{font-family:var(--serif);font-style:italic;color:var(--orange);font-size:.95rem;margin-bottom:10px;display:block}
+.tile h4{font-size:1.2rem;font-weight:500;line-height:1.2}
+.tile h4 em{color:var(--orange-2);font-style:italic}
+@media (max-width:920px){
+ .pillars-band .head{grid-template-columns:1fr;gap:14px}
+ .tilegrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){.tilegrid{grid-template-columns:1fr}}
+
+.job-band{padding:96px 0;background:#0F1B2E;color:var(--paper)}
+.job-card{
+ max-width:1080px;margin:0 auto;
+ background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+ border-radius:var(--r-lg);padding:48px;
+}
+.job-card .meta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.job-card .live-pill{
+ display:inline-flex;align-items:center;gap:8px;
+ padding:7px 13px;border-radius:999px;
+ background:rgba(63,122,111,.22);backdrop-filter:blur(6px);
+ border:1px solid rgba(159,229,213,.35);color:#cdebe2;
+ font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+}
+.job-card .live-pill .dot{
+ width:7px;height:7px;border-radius:50%;background:#5dd9b8;
+ box-shadow:0 0 0 0 rgba(93,217,184,.6);animation:pulse 2s infinite;
+}
+.job-card .date{color:rgba(244,239,232,.55);font-family:var(--serif);font-style:italic;font-size:.95rem}
+.job-card h2{color:#fff;font-weight:400;font-size:clamp(1.8rem,3vw,2.6rem)}
+.job-card h2 em{color:var(--orange);font-style:italic}
+.job-card .pitch{color:#E8E1D3;font-size:1.05rem;line-height:1.7;margin:24px 0;max-width:64ch}
+.job-card .pitch em{color:var(--sand);font-style:italic}
+.job-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px}
+.job-block h4{
+ font-family:var(--sans);font-weight:500;font-size:.72rem;letter-spacing:.18em;
+ text-transform:uppercase;color:var(--orange);margin:0 0 18px;
+}
+.job-block ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.job-block li{
+ padding:12px 0 12px 22px;color:#E8E1D3;line-height:1.55;border-top:1px solid rgba(255,255,255,.08);
+ position:relative;
+}
+.job-block li:first-child{border-top:0;padding-top:0}
+.job-block li::before{
+ content:"";position:absolute;left:0;top:50%;width:10px;height:1px;background:var(--orange);
+}
+.job-block li:first-child::before{top:auto}
+.apply-strip{
+ margin-top:36px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);
+ display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.apply-strip .apply-text{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#fff}
+.apply-strip .apply-text a{color:var(--orange);border-bottom:1px solid var(--orange)}
+@media (max-width:760px){.job-grid{grid-template-columns:1fr;gap:24px}.job-card{padding:32px 28px}}
+
+.archive-band{padding:64px 0;background:var(--paper)}
+.archive-row{
+ display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start;
+}
+.archive-row p{color:var(--muted);font-size:.98rem;line-height:1.65;max-width:50ch}
+.archive-tabs{display:flex;flex-wrap:wrap;gap:10px}
+.archive-tab{
+ padding:9px 16px;border:1px solid var(--line);border-radius:999px;
+ font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--muted);
+ background:#fff;cursor:default;
+}
+.archive-tab.is-active{background:#0F1B2E;color:var(--paper);border-color:var(--ink)}
+@media (max-width:920px){.archive-row{grid-template-columns:1fr;gap:18px}}
+
+/* Page hero */
+.page-hero{
+ position:relative;isolation:isolate;
+ min-height:min(72vh, 720px);
+ display:grid;color:#fff;padding:140px 0 56px;
+ overflow:hidden;background:#0F1B2E;
+}
+.page-hero::before{
+ content:"";position:absolute;inset:0;z-index:-2;
+ background:url('assets/stillinger/jobb-med-oss.png') center 35%/cover no-repeat;
+}
+.page-hero::after{
+ content:"";position:absolute;inset:0;z-index:-1;
+ background:
+   linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.22) 22%, rgba(0,0,0,.04) 40%, rgba(0,0,0,.40) 75%, rgba(0,0,0,.85) 92%, rgba(0,0,0,.95) 100%),
+   linear-gradient(95deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.45) 35%, rgba(0,0,0,.10) 65%, rgba(0,0,0,0) 90%);
+}
+.page-hero .crumbs{
+ font-family:var(--serif);font-style:italic;font-size:1rem;
+ color:rgba(255,255,255,.78);display:flex;gap:10px;align-items:center;margin-bottom:18px;
+}
+.page-hero .crumbs a{color:inherit;border-bottom:1px solid transparent;transition:border-color .2s}
+.page-hero .crumbs a:hover{border-color:rgba(255,255,255,.6)}
+.page-hero .crumbs .sep{opacity:.5}
+.page-hero h1{max-width:22ch;color:#fff;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.page-hero h1 em{font-style:italic;font-weight:500;color:var(--orange)}
+.page-hero .lede{
+ max-width:54ch;color:rgba(255,255,255,.92);
+ font-size:clamp(1rem,1.15vw,1.13rem);line-height:1.55;margin-top:24px;
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Hopp til innhold</a>
+
+<header class="site-header" id="siteHeader">
+ <div class="wrap nav">
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo brand-logo--dark" src="assets/logo-white.png" alt="Karlsen &amp; Nordseth Entreprenør">
+ <img class="brand-logo brand-logo--light" src="assets/logo.png" alt="" aria-hidden="true">
+ </a>
+ <nav class="nav-links" aria-label="Hovedmeny">
+ <div class="drawer-header">
+ <button class="drawer-close" type="button" aria-label="Lukk meny">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+ <line x1="6" y1="6" x2="18" y2="18"/>
+ <line x1="6" y1="18" x2="18" y2="6"/>
+ </svg>
+ </button>
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo" src="assets/logo.png" alt="Karlsen &amp; Nordseth Entreprenør" draggable="false">
+ </a>
+ <span class="drawer-spacer" aria-hidden="true"></span>
+ </div>
+ <a href="index.html">Hjem</a>
+ <a href="prosjekter.html">Prosjekter</a>
+ <a href="om-oss.html">Om oss</a>
+ <a href="baerekraft.html">Bærekraft</a>
+ <a href="etikkogansvar.html">Etikk og ansvar</a>
+ <a href="stillinger.html" class="is-current">Stillinger</a>
+ </nav>
+ <div class="nav-cta">
+ <a class="nav-phone" href="tel:+4767073830">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ +47 67 07 38 30
+ </a>
+ <a class="btn" href="index.html#kontakt">Kontakt <span class="arrow">→</span></a>
+ <button class="menu-btn" aria-label="Åpne meny">Meny</button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- HERO -->
+ <section class="page-hero" data-theme="dark">
+ <div class="wrap">
+ <div class="crumbs">
+ <a href="index.html">Hjem</a><span class="sep">·</span>
+ <span>Stillinger</span>
+ </div>
+ <span class="eyebrow" style="color:rgba(255,255,255,.78)">Jobb med oss</span>
+ <h1 style="margin-top:18px">Bli en del av et fagmiljø<br>som tar vare på<br><em>det som er</em>.</h1>
+ <p class="lede">
+   Vi rekrutterer faglærte tømrere, blikkenslagere, murere og lærlinger.
+   Hos oss får du jobbe på noen av landets mest spennende antikvariske prosjekter —
+   sammen med et lag som er stolte av faget og av hverandre.
+ </p>
+ </div>
+ </section>
+
+ <!-- PILLARS -->
+ <section class="pillars-band" data-theme="light">
+ <div class="wrap">
+ <div class="head reveal">
+ <div>
+ <span class="eyebrow">Hvorfor jobbe hos oss</span>
+ <h2 style="margin-top:14px">Et arbeidsmiljø vi <em>er stolte av</em>.</h2>
+ </div>
+ <p>
+   Karlsen &amp; Nordseth Entreprenør AS er stadig i vekst og søker nye flotte medarbeidere.
+   Vi kan tilby et godt arbeidsmiljø, konkurransedyktig lønn og gode arbeidsbetingelser.
+ </p>
+ </div>
+ <div class="tilegrid reveal">
+ <div class="tile">
+ <span class="num">— 01</span>
+ <h4>Bedrift <em>i vekst</em>.</h4>
+ </div>
+ <div class="tile">
+ <span class="num">— 02</span>
+ <h4>Gode <em>lønnsbetingelser</em>.</h4>
+ </div>
+ <div class="tile">
+ <span class="num">— 03</span>
+ <h4>Variert og <em>spennende</em> arbeid.</h4>
+ </div>
+ <div class="tile">
+ <span class="num">— 04</span>
+ <h4>Hyggelig <em>arbeidsmiljø</em>.</h4>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ARCHIVE TABS -->
+ <section class="archive-band" data-theme="light">
+ <div class="wrap archive-row reveal">
+ <div>
+ <span class="eyebrow">Aktive utlysninger</span>
+ <h3 style="margin-top:14px;font-size:1.55rem">Én aktiv stilling — og <em>åpen for lærlinger</em>.</h3>
+ </div>
+ <div>
+ <p>
+   Vi leter etter deg som brenner for faget og er entusiastisk rundt arbeidet vi utfører.
+   Du er detaljorientert, initiativrik og ikke redd for å dele erfaringene dine om du mener
+   noe kan forbedres.
+ </p>
+ <div class="archive-tabs" style="margin-top:18px">
+ <span class="archive-tab is-active">Aktive 2025</span>
+ <span class="archive-tab">Lærlinger</span>
+ <span class="archive-tab">2019</span>
+ <span class="archive-tab">2018</span>
+ <span class="archive-tab">2017</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- JOB CARD -->
+ <section class="job-band" id="utlysning">
+ <div class="wrap">
+ <div class="job-card reveal">
+ <div class="meta-row">
+ <span class="live-pill"><span class="dot"></span>Aktiv stilling</span>
+ <span class="date">Publisert 25.04.2025</span>
+ </div>
+ <h2>Vi søker <em>blikkenslager / taktekker</em> med fagbrev.</h2>
+ <p class="pitch">
+   Som blikkenslager hos oss vil du jobbe med varierte oppgaver innen
+   <em>taktekking, fasadearbeider</em> og andre oppgaver. Du vil være en viktig del
+   av vårt team og bidra til å levere høy kvalitet til våre kunder.
+ </p>
+
+ <div class="job-grid">
+ <div class="job-block">
+ <h4>Kvalifikasjoner</h4>
+ <ul>
+ <li>Fagbrev</li>
+ <li>Gode ferdigheter i bruk av relevante verktøy og utstyr</li>
+ <li>Selvstendig, nøyaktig og pålitelig</li>
+ <li>Gode samarbeidsevner og positiv innstilling</li>
+ <li>Førerkort klasse B</li>
+ <li>Flytende norsk i både muntlig og skriftlig kommunikasjon</li>
+ </ul>
+ </div>
+
+ <div class="job-block">
+ <h4>Vi tilbyr</h4>
+ <ul>
+ <li>Gode arbeidsvilkår</li>
+ <li>Muligheter for faglig utvikling og kurs</li>
+ <li>Et godt arbeidsmiljø med dyktige kolleger</li>
+ <li>Varierte og spennende arbeidsoppgaver</li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="apply-strip">
+ <div class="apply-text">
+ Send CV og søknad til <a href="mailto:post@karlsen-nordseth.no?subject=Søknad%20—%20Blikkenslager%2Ftaktekker">post@karlsen-nordseth.no</a>.
+ </div>
+ <a class="btn btn--orange" href="mailto:post@karlsen-nordseth.no?subject=Søknad%20—%20Blikkenslager%2Ftaktekker">
+   Send søknad <span class="arrow">→</span>
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="cta-band" id="kontakt">
+ <div class="wrap cta-grid">
+ <div>
+ <span class="eyebrow" style="color:rgba(244,239,232,.55)">Spørsmål?</span>
+ <h2 style="margin-top:14px">Vil du <em>vite mer</em>?</h2>
+ <p>
+   Ta kontakt på telefon eller e-post — vi svarer i løpet av én arbeidsdag.
+   Lærlingsøknader er velkomne hele året.
+ </p>
+ <div class="actions" style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap">
+ <a class="btn btn--orange" href="tel:+4767073830">Ring oss <span class="arrow">→</span></a>
+ <a class="btn" style="background:#fff;color:var(--ink)" href="mailto:post@karlsen-nordseth.no">Send e-post <span class="arrow">→</span></a>
+ </div>
+ </div>
+ <div class="meta">
+ <div class="row"><span class="lbl">Telefon</span><span class="val"><a href="tel:+4767073830">+47 67 07 38 30</a></span></div>
+ <div class="row"><span class="lbl">E-post</span><span class="val"><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></span></div>
+ <div class="row"><span class="lbl">Org.nr.</span><span class="val">985 214 034</span></div>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="wrap">
+ <div class="top">
+ <div class="col">
+ <div class="brandlogo">
+ <img src="assets/logo-white.png" alt="">
+ <span class="brand-name" style="color:#fff"><b>Karlsen</b> &amp; Nordseth</span>
+ </div>
+ <div class="pitch">Antikvarisk håndverk siden <em>1992</em> — i Oslo og på Østlandet.</div>
+ </div>
+ <div class="col">
+ <h5>Selskapet</h5>
+ <ul>
+ <li><a href="om-oss.html">Om oss</a></li>
+ <li><a href="prosjekter.html">Prosjekter</a></li>
+ <li><a href="stillinger.html">Stillinger</a></li>
+ <li><a href="baerekraft.html">Bærekraft</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Tjenester</h5>
+ <ul>
+ <li><a href="index.html#tjenester">Antikvarisk rehabilitering</a></li>
+ <li><a href="index.html#tjenester">Riggentrepriser</a></li>
+ <li><a href="index.html#tjenester">Tak &amp; fasade</a></li>
+ <li><a href="index.html#tjenester">Nybygg</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Kontakt</h5>
+ <ul>
+ <li><a href="tel:+4767073830">+47 67 07 38 30</a></li>
+ <li><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></li>
+ <li>Org.nr. 985 214 034</li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom">
+ <span>© <span id="yr"></span> Karlsen &amp; Nordseth Entreprenør AS</span>
+ <div class="socials" aria-label="Sosiale medier">
+ <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/project.js" defer></script>
+<script>
+(function(){
+ var btn=document.querySelector(".menu-btn");
+ var header=document.getElementById("siteHeader");
+ if(!btn||!header)return;
+ btn.setAttribute("aria-expanded","false");
+ var closeMenu=function(){
+  header.classList.remove("is-menu-open");
+  document.body.classList.remove("is-menu-open");
+  btn.setAttribute("aria-expanded","false");
+ };
+ var toggleMenu=function(){
+  var isOpen=header.classList.toggle("is-menu-open");
+  document.body.classList.toggle("is-menu-open",isOpen);
+  btn.setAttribute("aria-expanded",isOpen?"true":"false");
+ };
+ btn.addEventListener("click",function(e){e.stopPropagation();toggleMenu();});
+ document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",closeMenu);});
+ document.querySelectorAll(".drawer-close").forEach(function(b){b.addEventListener("click",closeMenu);});
+ document.addEventListener("click",function(e){if(!header.contains(e.target))closeMenu();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});
+ window.addEventListener("resize",function(){if(window.innerWidth>920)closeMenu();});
+})();
+</script>
+</body>
+</html>

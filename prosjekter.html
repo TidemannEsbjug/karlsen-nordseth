@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Referanseprosjekter — Karlsen &amp; Nordseth Entreprenør</title>
+<meta name="description" content="Hele porteføljen — antikvarisk rehabilitering og rigg &amp; drift, samlet på én side. Filtrer på fagområde, søk på navn eller kunde.">
+<meta property="og:title" content="Referanseprosjekter | Karlsen &amp; Nordseth">
+<meta property="og:image" content="assets/historisk-museum.jpg">
+<link rel="icon" href="assets/logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/project.css?v=2">
+
+<style>
+/* ───── Page hero — paper-cream editorial overview ───── */
+.over-hero{
+ position:relative;isolation:isolate;
+ padding:140px 0 56px;background:var(--paper);color:var(--ink);
+}
+.over-hero .crumbs{
+ font-family:var(--serif);font-style:italic;font-size:1rem;
+ color:var(--muted);display:flex;gap:10px;align-items:center;margin-bottom:18px;
+}
+.over-hero .crumbs a{color:inherit;border-bottom:1px solid transparent;transition:border-color .2s}
+.over-hero .crumbs a:hover{border-color:var(--ink)}
+.over-hero .crumbs .sep{opacity:.5}
+.over-hero h1{
+ font-size:clamp(2.6rem,7vw,6rem);font-weight:400;letter-spacing:-.015em;
+ line-height:1.04;max-width:18ch;margin-top:18px;
+}
+.over-hero h1 em{font-style:italic;color:var(--orange-2);font-weight:500}
+.over-hero .lede{
+ max-width:62ch;color:var(--muted);
+ font-size:clamp(1.05rem,1.2vw,1.18rem);line-height:1.6;margin-top:24px;
+ font-family:var(--serif);font-style:italic;font-weight:300;
+}
+.over-hero .lede em{color:var(--orange-2);font-style:italic}
+.hero-statline{
+ display:flex;flex-wrap:wrap;gap:24px 44px;margin-top:40px;
+ padding-top:28px;border-top:1px solid var(--line);max-width:880px;
+}
+.hero-statline > div{display:flex;flex-direction:column;gap:4px}
+.hero-statline .num{
+ font-family:var(--serif);font-size:1.65rem;color:var(--ink);line-height:1;font-weight:400;
+}
+.hero-statline .num em{font-style:italic;color:var(--orange-2);font-weight:500}
+.hero-statline .lbl{
+ font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+}
+.hero-statline .lbl small{display:block;font-size:.6rem;letter-spacing:.04em;text-transform:none;color:var(--muted);margin-top:4px}
+
+/* ───── Filter / search bar (sticky just under header) ───── */
+.filter-bar{
+ margin-top:120px;
+ background:rgba(244,239,232,.92);
+}
+.filter-bar .wrap{
+ padding-left:clamp(28px,5vw,72px);
+ padding-right:clamp(28px,5vw,72px);
+}
+.filter-row{
+ display:flex;gap:16px;align-items:center;justify-content:space-between;
+ padding:24px 0;flex-wrap:wrap;line-height:1;
+}
+.filter-chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter-chip{
+ min-height:44px;padding:0 18px;border:1px solid var(--line);border-radius:999px;
+ font-family:var(--serif);font-style:italic;font-size:1rem;line-height:1;color:var(--ink);
+ background:transparent;transition:background .2s, border-color .2s, color .2s;
+ display:inline-flex;align-items:center;gap:8px;
+}
+.filter-chip:hover{border-color:var(--ink)}
+.filter-chip.is-active{background:#0F1B2E;color:var(--paper);border-color:var(--ink)}
+.filter-chip .count{
+ font-family:var(--sans);font-style:normal;font-size:.72rem;
+ padding:2px 7px;border-radius:999px;background:var(--paper-2);color:var(--ink);
+}
+.filter-chip.is-active .count{background:rgba(255,255,255,.18);color:#fff}
+.filter-chip .dot{
+ width:7px;height:7px;border-radius:50%;background:var(--orange-2);flex-shrink:0;
+}
+.filter-chip[data-filter="antikvarisk"] .dot{background:var(--orange-2)}
+.filter-chip[data-filter="rigg"] .dot{background:var(--verdigris)}
+.filter-chip[data-filter="live"] .dot{background:#5dd9b8;animation:pulse 2s infinite;box-shadow:0 0 0 0 rgba(93,217,184,.6)}
+
+.filter-search{
+ position:relative;width:min(380px,100%);min-height:44px;
+ display:flex;align-items:center;gap:8px;
+ padding:0 6px 0 16px;background:#fff;
+ border:1px solid var(--line);border-radius:999px;
+ box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 8px 24px -16px rgba(0,0,0,.18);
+ transition:box-shadow .25s ease, border-color .25s ease;
+}
+.filter-search:focus-within{
+ border-color:rgba(248,128,56,.45);
+ box-shadow:0 0 0 3px rgba(248,128,56,.18), 0 8px 24px -16px rgba(0,0,0,.2);
+}
+.filter-search svg{width:16px;height:16px;color:var(--muted);flex-shrink:0}
+.filter-search input{
+ font:inherit;font-size:.95rem;color:var(--ink);line-height:1;
+ background:transparent;border:0;outline:0;width:100%;min-width:0;padding:0;
+}
+.filter-search input::placeholder{color:var(--muted)}
+.filter-search kbd{
+ font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.06em;
+ color:var(--muted);padding:4px 7px;border:1px solid var(--line);border-radius:6px;
+ background:var(--paper);white-space:nowrap;
+}
+
+/* ───── Project grid ───── */
+.projects-section{padding:40px 0 96px;background:var(--paper)}
+.projects-head{
+ display:flex;justify-content:space-between;align-items:end;
+ gap:24px;margin-bottom:36px;flex-wrap:wrap;
+}
+.projects-head .meta{font-size:.95rem;color:var(--muted)}
+.projects-head .meta b{color:var(--ink);font-weight:500}
+.projects-head h2 em{color:var(--orange-2);font-style:italic}
+
+.proj-grid{
+ display:grid;
+ grid-template-columns:repeat(12,1fr);
+ grid-auto-rows:minmax(220px,auto);
+ grid-auto-flow:dense;
+ gap:22px;
+}
+.p-card{
+ position:relative;display:block;overflow:hidden;
+ border-radius:var(--r-md);background:#0F1B2E;color:#fff;
+ transition:transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+ isolation:isolate;
+ grid-column:span 4;grid-row:span 1;min-height:280px;
+}
+.p-card.is-hero{grid-column:span 8;grid-row:span 2;min-height:520px}
+.p-card.is-tall{grid-column:span 4;grid-row:span 2;min-height:520px}
+.p-card.is-wide{grid-column:span 8}
+.p-card:hover{transform:translateY(-3px);box-shadow:0 30px 60px -28px rgba(0,0,0,.45)}
+.p-card img{
+ position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+ transition:transform 1.05s cubic-bezier(.2,.8,.2,1), filter .55s ease;
+ z-index:0;
+}
+.p-card:hover img{transform:scale(1.05)}
+.p-card::before{
+ content:"";position:absolute;inset:0;z-index:1;
+ background:linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.78) 100%);
+ pointer-events:none;
+}
+.p-card .body{
+ position:absolute;inset:auto 0 0 0;z-index:2;
+ padding:24px 26px;display:flex;flex-direction:column;gap:6px;
+}
+.p-card .meta-pill{
+ align-self:flex-start;
+ font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
+ color:rgba(255,255,255,.85);
+ padding:6px 11px;border:1px solid rgba(255,255,255,.35);border-radius:999px;
+ backdrop-filter:blur(6px);background:rgba(0,0,0,.18);
+ margin-bottom:8px;display:inline-flex;align-items:center;gap:7px;
+}
+.p-card .meta-pill .marker{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.p-card[data-cat~="rigg"] .meta-pill .marker{background:#7fd8c8}
+.p-card h3{font-size:clamp(1.4rem,2vw,2rem);color:#fff;font-weight:500;letter-spacing:-.01em}
+.p-card .sub{
+ font-size:.92rem;color:rgba(255,255,255,.78);margin-top:6px;max-width:48ch;line-height:1.55;
+}
+.p-card .arrow-pill{
+ position:absolute;top:22px;right:22px;z-index:3;
+ width:42px;height:42px;border-radius:999px;
+ background:rgba(0,0,0,.35);backdrop-filter:blur(6px);
+ display:inline-flex;align-items:center;justify-content:center;
+ transition:background .25s, transform .35s, color .25s;color:#fff;
+ border:1px solid rgba(255,255,255,.22);
+}
+.p-card:hover .arrow-pill{background:var(--orange);border-color:var(--orange);transform:rotate(-45deg)}
+.p-card .arrow-pill svg{width:16px;height:16px}
+
+.p-card .stat-row{
+ display:flex;gap:18px;margin-top:16px;padding-top:14px;
+ border-top:1px solid rgba(255,255,255,.18);max-width:520px;flex-wrap:wrap;
+}
+.p-card .stat-row > div{display:flex;flex-direction:column;gap:2px}
+.p-card .stat-row .v{font-family:var(--serif);font-size:1.05rem;color:#fff;line-height:1}
+.p-card .stat-row .v em{color:var(--orange);font-style:italic}
+.p-card .stat-row .l{font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+
+/* "Live" status pill */
+.p-card .live-pill{
+ position:absolute;top:22px;left:22px;z-index:3;
+ display:inline-flex;align-items:center;gap:8px;
+ padding:7px 13px;border-radius:999px;
+ background:rgba(20,17,13,.55);backdrop-filter:blur(6px);
+ border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.86);
+ font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+}
+.p-card .live-pill.is-live{
+ background:rgba(63,122,111,.22);border-color:rgba(159,229,213,.35);color:#cdebe2;
+}
+.p-card .live-pill .dot{
+ width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);
+}
+.p-card .live-pill.is-live .dot{
+ background:#5dd9b8;
+ box-shadow:0 0 0 0 rgba(93,217,184,.6);
+ animation:pulse 2s infinite;
+}
+@keyframes pulse{
+ 0%   {box-shadow:0 0 0 0 rgba(93,217,184,.6)}
+ 70%  {box-shadow:0 0 0 8px rgba(93,217,184,0)}
+ 100% {box-shadow:0 0 0 0 rgba(93,217,184,0)}
+}
+
+@media (max-width:1080px){
+ .p-card,
+ .p-card.is-hero,
+ .p-card.is-tall,
+ .p-card.is-wide{grid-column:span 6;grid-row:auto;min-height:340px}
+ .p-card.is-hero{grid-column:span 12;min-height:420px}
+}
+@media (max-width:640px){
+ .p-card,
+ .p-card.is-hero,
+ .p-card.is-tall,
+ .p-card.is-wide{grid-column:span 12;min-height:300px}
+}
+
+/* Cards filtered out */
+.p-card.is-hidden{display:none}
+
+/* Empty state when filter has no matches */
+.no-results{
+ padding:64px 24px;text-align:center;color:var(--muted);
+ border:1px dashed var(--line);border-radius:var(--r-md);
+}
+.no-results h3{color:var(--ink);margin-bottom:8px;font-size:1.4rem}
+
+/* ───── "Etablert siden 1992" context strip ───── */
+.context-band{padding:96px 0;background:var(--paper-2);color:var(--ink)}
+.context-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.context-grid h2{color:var(--ink);font-weight:400}
+.context-grid h2 em{color:var(--orange-2);font-style:italic}
+.context-grid .eyebrow{color:var(--muted)}
+.context-grid p{color:var(--ink-2);max-width:54ch;margin-top:18px;font-size:1.02rem;line-height:1.7}
+.context-grid p em{font-style:italic;color:var(--orange-2)}
+.ctx-stats{
+ display:grid;grid-template-columns:1fr 1fr;gap:24px 32px;
+ padding:36px;background:rgba(255,255,255,.5);border:1px solid rgba(21,17,13,.08);
+ border-radius:var(--r-md);
+}
+.ctx-stats > div{display:flex;flex-direction:column;gap:6px}
+.ctx-stats .num{font-family:var(--serif);font-size:1.85rem;color:var(--ink);line-height:1;font-weight:400}
+.ctx-stats .num em{color:var(--orange-2);font-style:italic}
+.ctx-stats .lbl{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.ctx-stats .lbl small{display:block;font-size:.6rem;letter-spacing:.04em;text-transform:none;color:var(--muted);margin-top:4px}
+@media (max-width:920px){.context-grid{grid-template-columns:1fr;gap:36px}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Hopp til innhold</a>
+
+<header class="site-header is-light is-pinned" id="siteHeader">
+ <div class="wrap nav">
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo brand-logo--dark" src="assets/logo-white.png" alt="Karlsen &amp; Nordseth Entreprenør">
+ <img class="brand-logo brand-logo--light" src="assets/logo.png" alt="" aria-hidden="true">
+ </a>
+ <nav class="nav-links" aria-label="Hovedmeny">
+ <div class="drawer-header">
+ <button class="drawer-close" type="button" aria-label="Lukk meny">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+ <line x1="6" y1="6" x2="18" y2="18"/>
+ <line x1="6" y1="18" x2="18" y2="6"/>
+ </svg>
+ </button>
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo" src="assets/logo.png" alt="Karlsen &amp; Nordseth Entreprenør" draggable="false">
+ </a>
+ <span class="drawer-spacer" aria-hidden="true"></span>
+ </div>
+ <a href="index.html">Hjem</a>
+ <a href="prosjekter.html" class="is-current">Prosjekter</a>
+ <a href="om-oss.html">Om oss</a>
+ <a href="baerekraft.html">Bærekraft</a>
+ <a href="etikkogansvar.html">Etikk og ansvar</a>
+ <a href="stillinger.html">Stillinger</a>
+ </nav>
+ <div class="nav-cta">
+ <a class="nav-phone" href="tel:+4767073830">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ +47 67 07 38 30
+ </a>
+ <a class="btn" href="index.html#kontakt">Kontakt <span class="arrow">→</span></a>
+ <button class="menu-btn" aria-label="Åpne meny">Meny</button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- FILTER BAR -->
+ <div class="filter-bar" data-theme="light">
+ <div class="wrap filter-row">
+ <div class="filter-chips" role="tablist" aria-label="Filtrer prosjekter">
+ <button class="filter-chip is-active" data-filter="all" type="button" role="tab" aria-selected="true">
+   Alle <span class="count" id="count-all">—</span>
+ </button>
+ <button class="filter-chip" data-filter="antikvarisk" type="button" role="tab" aria-selected="false">
+   <span class="dot" aria-hidden="true"></span>Antikvarisk rehabilitering <span class="count" id="count-antikvarisk">—</span>
+ </button>
+ <button class="filter-chip" data-filter="rigg" type="button" role="tab" aria-selected="false">
+   <span class="dot" aria-hidden="true"></span>Rigg &amp; drift <span class="count" id="count-rigg">—</span>
+ </button>
+ <button class="filter-chip" data-filter="kirker" type="button" role="tab" aria-selected="false">
+   Kirker <span class="count" id="count-kirker">—</span>
+ </button>
+ <button class="filter-chip" data-filter="live" type="button" role="tab" aria-selected="false">
+   <span class="dot" aria-hidden="true"></span>Pågående <span class="count" id="count-live">—</span>
+ </button>
+ </div>
+
+ <label class="filter-search">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+ <input id="proj-search" type="search" autocomplete="off" spellcheck="false"
+        placeholder="Filtrer på navn, fag, kunde…" aria-label="Filtrer prosjekter">
+ <kbd>/</kbd>
+ </label>
+ </div>
+ </div>
+
+ <!-- PROJECT GRID -->
+ <section class="projects-section">
+ <div class="wrap">
+
+ <div class="projects-head reveal">
+ <div>
+ <span class="eyebrow">Prosjektportefølje</span>
+ <h2 style="margin-top:14px">Bevarer fortiden. Bygger fremtiden.</h2>
+ </div>
+ <div class="meta">
+   <b id="meta-shown">—</b> av <b id="meta-total">—</b> prosjekter vist.
+ </div>
+ </div>
+
+ <div class="proj-grid" id="proj-grid">
+
+ <!-- 01 — HISTORISK MUSEUM (antikvarisk, hero) -->
+ <a href="prosjekter/historisk-museum.html" class="p-card is-hero"
+    data-cat="antikvarisk museum"
+    data-name="Historisk Museum UiO Tullinløkka Universitet Oslo Henrik Bull">
+ <img src="assets/historisk-museum.jpg" alt="Historisk Museum i Oslo med tak under rehabilitering">
+ <span class="live-pill"><span class="dot"></span>Levert</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Antikvarisk · Generalentreprise</span>
+ <h3>UiO Historisk Museum</h3>
+ <p class="sub">Bygget av Henrik Bull (1897–1902), fredet kulturminne. ~2 000 m² tak, 40+ km mørtelfuger og ~600 vindusrammer restaurert mens museet er i drift.</p>
+ <div class="stat-row">
+ <div><span class="v"><em>112,5</em> MNOK</span><span class="l">Kontrakt</span></div>
+ <div><span class="v">~100</span><span class="l">Håndverkere</span></div>
+ <div><span class="v">25 t</span><span class="l">Kobber</span></div>
+ <div><span class="v">~100</span><span class="l">Blyglassfag</span></div>
+ </div>
+ </div>
+ </a>
+
+ <!-- 02 — NYTT NASJONALMUSEUM (rigg, tall) -->
+ <a href="prosjekter/nytt-nasjonalmuseum.html" class="p-card is-tall"
+    data-cat="rigg museum"
+    data-name="Nytt Nasjonalmuseum Statsbygg Oslo Vestbanen kunst">
+ <img src="assets/rigg/tile-nasjonalmuseum.jpg" alt="Nytt Nasjonalmuseum — riggentreprise">
+ <span class="live-pill"><span class="dot"></span>Levert · 2014–2021</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Rigg &amp; drift · Statsbygg</span>
+ <h3>Nytt Nasjonalmuseum</h3>
+ <p class="sub">Nordens største kunstmuseum. 148 brakkerigger, ~2 km skallsikring, hovedansvar fra august 2019.</p>
+ <div class="stat-row">
+ <div><span class="v"><em>126</em> MNOK</span><span class="l">Kontrakt</span></div>
+ <div><span class="v">2014–2021</span><span class="l">Periode</span></div>
+ </div>
+ </div>
+ </a>
+
+ <!-- 03 — AHUS (rigg, wide) -->
+ <a href="prosjekter/ahus.html" class="p-card is-wide"
+    data-cat="rigg sykehus"
+    data-name="Akershus Universitetssykehus Ahus Helse Sør-Øst Lørenskog">
+ <img src="assets/rigg/tile-ahus.jpg" alt="Akershus Universitetssykehus — rigg og drift">
+ <span class="live-pill"><span class="dot"></span>Levert · 2004–2011</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Rigg &amp; drift · Helse Sør-Øst</span>
+ <h3>Akershus Universitetssykehus</h3>
+ <p class="sub">Riggentreprise på nytt sykehus ved siden av eksisterende sykehus i full drift. Største kontrakt på siden.</p>
+ <div class="stat-row">
+ <div><span class="v"><em>160</em> MNOK</span><span class="l">Kontrakt</span></div>
+ <div><span class="v">3 200 m²</span><span class="l">Kontorbygg BTA</span></div>
+ <div><span class="v">7 år</span><span class="l">Riggdrift</span></div>
+ </div>
+ </div>
+ </a>
+
+ <!-- 04 — BEKKELAGET KIRKE (antikvarisk) -->
+ <a href="prosjekter/bekkelaget-kirke.html" class="p-card"
+    data-cat="antikvarisk kirker"
+    data-name="Bekkelaget Kirke Oslo Harald Bødtker steinkirke">
+ <img src="assets/bekkelaget-kirke.jpg" alt="Bekkelaget kirke">
+ <span class="live-pill"><span class="dot"></span>Levert · 2012</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Antikvarisk · Kirke</span>
+ <h3>Bekkelaget Kirke</h3>
+ <p class="sub">Steinkirke fra 1920-tallet, tegnet av Harald Bødtker. Tak &amp; fasade.</p>
+ </div>
+ </a>
+
+ <!-- 05 — FROGNER KIRKE (antikvarisk) -->
+ <a href="prosjekter/frogner-kirke.html" class="p-card"
+    data-cat="antikvarisk kirker"
+    data-name="Frogner Kirke Oslo Ivar Næss granitt kobber">
+ <img src="assets/frogner-kirke.jpg" alt="Frogner kirke">
+ <span class="live-pill"><span class="dot"></span>Levert · 2016–17</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Antikvarisk · Granitt &amp; kobber</span>
+ <h3>Frogner Kirke</h3>
+ <p class="sub">Tegnet av Ivar Næss, 1907. 11,6 MNOK · 2016–2017.</p>
+ </div>
+ </a>
+
+ <!-- 06 — FREDRIKSTAD DOMKIRKE (antikvarisk, wide) -->
+ <a href="prosjekter/fredrikstad-domkirke.html" class="p-card is-wide"
+    data-cat="antikvarisk kirker"
+    data-name="Fredrikstad Domkirke Waldemar Lühr fyrlykt nygotisk tårn">
+ <img src="assets/fredrikstad-domkirke.jpg" alt="Fredrikstad Domkirke">
+ <span class="live-pill"><span class="dot"></span>Levert · 2014–16</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Antikvarisk · Tak &amp; mørtelfuger</span>
+ <h3>Fredrikstad Domkirke</h3>
+ <p class="sub">Eneste kirke i landet med fyrlykt i tårnet. Tegnet av Waldemar Lühr, 1880-tallet. 24 MNOK · 2014–2016.</p>
+ </div>
+ </a>
+
+ <!-- 07 — URANIENBORG KIRKE (antikvarisk) -->
+ <a href="prosjekter/uranienborg-kirke.html" class="p-card"
+    data-cat="antikvarisk kirker"
+    data-name="Uranienborg Kirke Balthazar Lange Oslo tegl murverk">
+ <img src="assets/uranienborg-kirke.jpg" alt="Uranienborg kirke">
+ <span class="live-pill"><span class="dot"></span>Levert · 2007–10</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Antikvarisk · Murverk &amp; tegl</span>
+ <h3>Uranienborg Kirke</h3>
+ <p class="sub">1880-tallet, tegnet av Balthazar Lange. 16,5 MNOK · 2007–2010.</p>
+ </div>
+ </a>
+
+ <!-- 08 — KRÅKSTAD KIRKE (antikvarisk) -->
+ <a href="prosjekter/krakstad-kirke.html" class="p-card"
+    data-cat="antikvarisk kirker"
+    data-name="Kråkstad Kirke trekirke Østlandet fredet">
+ <img src="assets/krakstad-kirke.jpg" alt="Kråkstad kirke">
+ <span class="live-pill"><span class="dot"></span>Levert · 2017 · Fredet</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Antikvarisk · Trekirke</span>
+ <h3>Kråkstad Kirke</h3>
+ <p class="sub">Antikvarisk tak- og tårnarbeid på trekirke utenfor Oslo.</p>
+ </div>
+ </a>
+
+ <!-- 09 — FREDRIKSTAD INFANTERIKASERNE (antikvarisk, wide) -->
+ <a href="prosjekter/fredrikstad-infanterikaserne.html" class="p-card is-wide"
+    data-cat="antikvarisk museum"
+    data-name="Fredrikstad Infanterikaserne Forsvarsbygg Gamlebyen 1788 fredet militær">
+ <img src="assets/fredrikstad-infanterikaserne.jpg" alt="Fredrikstad Infanterikaserne">
+ <span class="live-pill"><span class="dot"></span>Levert · 2013–15 · Fredet</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Antikvarisk · Forsvarsbygg · Fredet 1788</span>
+ <h3>Fredrikstad Infanterikaserne</h3>
+ <p class="sub">Et av de flotteste vi har av militær arkitektur i Norge — sentralt på torget i Gamlebyen. 23,5 MNOK · 2013–2015.</p>
+ </div>
+ </a>
+
+ <!-- 10 — HOLMENKOLLEN (rigg) -->
+ <a href="prosjekter/holmenkollen.html" class="p-card"
+    data-cat="rigg"
+    data-name="Holmenkollen Oslo kommune Idrettsetaten ski VM 2010 høyspent">
+ <img src="assets/rigg/tile-holmenkollen.jpg" alt="Holmenkollen — riggentreprise">
+ <span class="live-pill"><span class="dot"></span>Levert · 2008–2011</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Rigg &amp; drift · Oslo kommune</span>
+ <h3>Holmenkollen</h3>
+ <p class="sub">Ytre sikring, adgangskontroll, lysmaster og snøproduksjonsanlegg. Beredskap under prøve-VM 2010. 57,5 MNOK.</p>
+ </div>
+ </a>
+
+ <!-- 11 — CAMPUS ÅS (rigg) -->
+ <a href="prosjekter/campus-aas.html" class="p-card"
+    data-cat="rigg"
+    data-name="Campus Ås Statsbygg byggherrerigg veterinær NMBU">
+ <img src="assets/rigg/tile-campusaas.jpg" alt="Campus Ås — byggherrerigg og drift">
+ <span class="live-pill"><span class="dot"></span>Levert · 2015–2020</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Rigg &amp; drift · Statsbygg</span>
+ <h3>Campus Ås</h3>
+ <p class="sub">Byggherrerigg — ytre sikring, adgangskontroll, veier, plasser, prov­strøm. 43 MNOK.</p>
+ </div>
+ </a>
+
+ <!-- 12 — KALNES / ØSTFOLD SYKEHUS (rigg, wide) -->
+ <a href="prosjekter/kalnes.html" class="p-card is-wide"
+    data-cat="rigg sykehus"
+    data-name="Østfold Sykehus Kalnes Helse Sør-Øst Sarpsborg byggherrerigg">
+ <img src="assets/rigg/tile-kalnes.jpg" alt="Østfold Sykehus / Kalnes — rigg og drift">
+ <span class="live-pill"><span class="dot"></span>Levert · 2012–2015</span>
+ <span class="arrow-pill" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+ </span>
+ <div class="body">
+ <span class="meta-pill"><span class="marker"></span>Rigg &amp; drift · Prosjekt nytt Østfoldsykehus</span>
+ <h3>Østfold Sykehus — Kalnes</h3>
+ <p class="sub">Byggherrens fasiliteter, brannvern og rømningsveier i nybygget, ytre sikring og kameraovervåkning, og daglig riggedrift. 125 MNOK.</p>
+ </div>
+ </a>
+
+ </div>
+
+ <div class="no-results" id="no-results" hidden>
+ <h3>Ingen treff</h3>
+ <p>Vi fant ingen prosjekter på det filteret. Prøv et annet søk eller velg «Alle» igjen.</p>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- CONTEXT BAND -->
+ <section class="context-band" data-theme="light">
+ <div class="wrap context-grid">
+ <div>
+ <span class="eyebrow">Etablert i Oslo</span>
+ <h2 style="margin-top:14px">Et fagmiljø som har <em>levert siden 1992</em>.</h2>
+ <p>
+   Vi tar oppdrag for store eiendomsbesittere, det offentlige og selvstendige
+   eiendomsutviklere. Hver referanse her speiler et samarbeid med Riksantikvaren,
+   Forsvarsbygg, Statsbygg eller Helse Sør-Øst — og et fagmiljø som <em>kjenner faget på dypet</em>.
+ </p>
+ <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap">
+ <a class="btn btn--orange" href="index.html#kontakt">Ta kontakt <span class="arrow">→</span></a>
+ <a class="btn btn--ghost" href="om-oss.html">Mer om oss <span class="arrow">→</span></a>
+ </div>
+ </div>
+ <div class="ctx-stats">
+ <div><span class="num">1992</span><span class="lbl">Etablert i Oslo</span></div>
+ <div><span class="num"><em>~100</em></span><span class="lbl">Håndverkere på topp</span></div>
+ <div><span class="num"><em>32</em>+</span><span class="lbl">År i drift</span></div>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="wrap">
+ <div class="top">
+ <div class="col">
+ <div class="brandlogo">
+ <img src="assets/logo-white.png" alt="">
+ <span class="brand-name" style="color:#fff"><b>Karlsen</b> &amp; Nordseth</span>
+ </div>
+ <div class="pitch">Antikvarisk håndverk siden <em>1992</em> — i Oslo og på Østlandet.</div>
+ </div>
+ <div class="col">
+ <h5>Selskapet</h5>
+ <ul>
+ <li><a href="om-oss.html">Om oss</a></li>
+ <li><a href="prosjekter.html">Prosjekter</a></li>
+ <li><a href="stillinger.html">Stillinger</a></li>
+ <li><a href="baerekraft.html">Bærekraft</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Prosjekter</h5>
+ <ul>
+ <li><a href="prosjekter.html#antikvarisk">Antikvarisk rehabilitering</a></li>
+ <li><a href="prosjekter.html#rigg">Rigg &amp; drift</a></li>
+ <li><a href="prosjekter/historisk-museum.html">Historisk Museum</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Kontakt</h5>
+ <ul>
+ <li><a href="tel:+4767073830">+47 67 07 38 30</a></li>
+ <li><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></li>
+ <li>Org.nr. 985 214 034</li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom">
+ <span>© <span id="yr"></span> Karlsen &amp; Nordseth Entreprenør AS</span>
+ <div class="socials" aria-label="Sosiale medier">
+ <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/project.js" defer></script>
+<script>
+ document.getElementById('yr').textContent = new Date().getFullYear();
+
+ /* ── Filter & search ── */
+ const grid = document.getElementById('proj-grid');
+ const cards = Array.from(grid.querySelectorAll('.p-card'));
+ const filterChips = Array.from(document.querySelectorAll('.filter-chip'));
+ const searchInput = document.getElementById('proj-search');
+ const noResults = document.getElementById('no-results');
+ const metaShown = document.getElementById('meta-shown');
+ const metaTotal = document.getElementById('meta-total');
+
+ const countBy = (pred) => cards.filter(pred).length;
+ const counts = {
+   all: cards.length,
+   antikvarisk: countBy(c => (c.dataset.cat||'').split(' ').includes('antikvarisk')),
+   rigg: countBy(c => (c.dataset.cat||'').split(' ').includes('rigg')),
+   kirker: countBy(c => (c.dataset.cat||'').split(' ').includes('kirker')),
+   live: countBy(c => (c.dataset.cat||'').split(' ').includes('live')),
+ };
+ for (const k of Object.keys(counts)) {
+   const el = document.getElementById('count-' + k);
+   if (el) el.textContent = counts[k];
+ }
+ metaTotal.textContent = cards.length;
+
+ let activeFilter = 'all';
+ const fold = (s) => (s||'').toString().toLowerCase()
+   .replace(/æ/g,'ae').replace(/ø/g,'o').replace(/å/g,'a');
+
+ const applyFilter = () => {
+   const q = fold(searchInput.value.trim());
+   let shown = 0;
+   for (const card of cards) {
+     const cat = (card.dataset.cat || '').split(' ');
+     const inCat = activeFilter === 'all' || cat.includes(activeFilter);
+     const inQuery = !q || fold((card.dataset.name||'') + ' ' + card.textContent).includes(q);
+     const visible = inCat && inQuery;
+     card.classList.toggle('is-hidden', !visible);
+     if (visible) shown++;
+   }
+   metaShown.textContent = shown;
+   noResults.hidden = shown !== 0;
+ };
+
+ const setFilter = (f, {updateHash = true} = {}) => {
+   activeFilter = f;
+   filterChips.forEach(c => {
+     const active = c.dataset.filter === f;
+     c.classList.toggle('is-active', active);
+     c.setAttribute('aria-selected', active ? 'true' : 'false');
+   });
+   if (updateHash) {
+     const target = (f === 'all') ? ' ' : '#' + f;
+     history.replaceState(null, '', target);
+   }
+   applyFilter();
+ };
+
+ filterChips.forEach(chip => {
+   chip.addEventListener('click', () => setFilter(chip.dataset.filter));
+ });
+ searchInput.addEventListener('input', applyFilter);
+
+ // Press "/" to focus search
+ window.addEventListener('keydown', (e) => {
+   if (e.key === '/' && document.activeElement !== searchInput) {
+     e.preventDefault();
+     searchInput.focus();
+     searchInput.select();
+   }
+ });
+
+ // Deep-link via URL hash: prosjekter.html#antikvarisk / #rigg / #kirker / #live
+ const validFilters = new Set(filterChips.map(c => c.dataset.filter));
+ const initial = (location.hash || '').replace('#','').toLowerCase();
+ if (initial && validFilters.has(initial)) {
+   setFilter(initial, {updateHash:false});
+ } else {
+   applyFilter();
+ }
+
+ // React to back/forward navigation across hash changes
+ window.addEventListener('hashchange', () => {
+   const h = (location.hash || '').replace('#','').toLowerCase();
+   setFilter(validFilters.has(h) ? h : 'all', {updateHash:false});
+ });
+</script>
+<script>
+(function(){
+ var btn=document.querySelector(".menu-btn");
+ var header=document.getElementById("siteHeader");
+ if(!btn||!header)return;
+ btn.setAttribute("aria-expanded","false");
+ var closeMenu=function(){
+  header.classList.remove("is-menu-open");
+  document.body.classList.remove("is-menu-open");
+  btn.setAttribute("aria-expanded","false");
+ };
+ var toggleMenu=function(){
+  var isOpen=header.classList.toggle("is-menu-open");
+  document.body.classList.toggle("is-menu-open",isOpen);
+  btn.setAttribute("aria-expanded",isOpen?"true":"false");
+ };
+ btn.addEventListener("click",function(e){e.stopPropagation();toggleMenu();});
+ document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",closeMenu);});
+ document.querySelectorAll(".drawer-close").forEach(function(b){b.addEventListener("click",closeMenu);});
+ document.addEventListener("click",function(e){if(!header.contains(e.target))closeMenu();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});
+ window.addEventListener("resize",function(){if(window.innerWidth>920)closeMenu();});
+})();
+</script>
+</body>
+</html>

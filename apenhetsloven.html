@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Åpenhetsloven — Karlsen &amp; Nordseth Entreprenør</title>
+<meta name="description" content="Retningslinjer for arbeid med Åpenhetsloven hos Karlsen &amp; Nordseth — aktsomhetsvurderinger, kartlegging av leverandørkjeden og redegjørelser fra 2022, 2023 og 2024.">
+<meta property="og:title" content="Åpenhetsloven | Karlsen &amp; Nordseth">
+<meta property="og:image" content="assets/baerekraft/lov.png">
+<link rel="icon" href="assets/logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/project.css?v=2">
+
+<style>
+.intro-band{padding:96px 0 56px;background:var(--paper)}
+.intro-band h2 em{color:var(--orange-2);font-style:italic}
+.intro-band .lede{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.2rem,1.5vw,1.5rem);line-height:1.45;color:var(--ink);max-width:46ch;margin-top:24px}
+.intro-band p{color:var(--ink-2);font-size:1.02rem;line-height:1.7;margin:18px 0 0;max-width:62ch}
+.intro-band p em{font-style:italic;color:var(--orange-2)}
+
+.plan-band{padding:96px 0;background:var(--paper);border-top:1px solid var(--line)}
+.plan-rows{display:flex;flex-direction:column;gap:0;margin-top:48px}
+.plan-row{
+ display:grid;grid-template-columns:240px 1fr;gap:48px;
+ padding:36px 0;border-top:1px solid var(--line);align-items:start;
+ scroll-margin-top:120px;
+}
+.plan-row:last-child{border-bottom:1px solid var(--line)}
+.plan-row .p-num{font-family:var(--serif);font-style:italic;color:var(--orange);font-size:1.05rem;margin-bottom:6px}
+.plan-row .p-label{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.plan-row .p-h{font-family:var(--serif);font-size:1.55rem;font-weight:500;color:var(--ink);line-height:1.18;margin:0 0 14px}
+.plan-row .p-h em{color:var(--orange-2);font-style:italic}
+.plan-row p{color:var(--ink-2);font-size:1rem;line-height:1.7;margin:0 0 14px;max-width:62ch}
+.plan-row p:last-child{margin-bottom:0}
+.plan-row p em{font-style:italic;color:var(--orange-2)}
+.plan-row ol{margin:8px 0 14px;padding:0 0 0 22px;color:var(--ink-2);font-size:1rem;line-height:1.7;max-width:62ch}
+.plan-row ol li{margin:8px 0}
+.plan-row ol li em{font-style:italic;color:var(--orange-2)}
+.plan-row ul{margin:8px 0 14px;padding:0 0 0 20px;color:var(--ink-2);font-size:1rem;line-height:1.7;max-width:62ch}
+.plan-row ul li{margin:6px 0}
+.plan-row ul li em{font-style:italic;color:var(--orange-2)}
+@media (max-width:920px){.plan-row{grid-template-columns:1fr;gap:14px;padding:28px 0}}
+
+.docs-band{padding:96px 0;background:#0E2238;color:rgba(244,239,232,.96)}
+.docs-band h2{color:#fff}
+.docs-band h2 em{color:#FFA663;font-style:italic}
+.docs-band .lede{color:rgba(244,239,232,.96);font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.4vw,1.4rem);line-height:1.45;max-width:50ch;margin-top:18px}
+.docs-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start;margin-top:48px}
+.docs-text p{font-size:1.02rem;line-height:1.7;color:#E8E1D3;margin:0 0 16px;max-width:54ch}
+.docs-text p em{font-style:italic;color:var(--sand)}
+.docs-card{padding:36px 36px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--paper);border-radius:var(--r-md);display:flex;flex-direction:column;gap:14px}
+.docs-card h3{color:#fff;font-size:1.4rem;font-weight:500}
+.docs-card h3 em{color:#FFA663;font-style:italic}
+.docs-card .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.12)}
+.docs-card .row:first-of-type{border-top:0;padding-top:4px}
+.docs-card .lbl{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#fff}
+.docs-card .dl{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:500;border:1px solid rgba(255,166,99,.55);padding:7px 14px;border-radius:999px;transition:background .25s, color .25s}
+.docs-card .dl:hover{background:var(--orange);color:#fff}
+@media (max-width:920px){.docs-grid{grid-template-columns:1fr;gap:36px}}
+
+.page-hero{position:relative;isolation:isolate;min-height:min(72vh, 720px);display:grid;color:#fff;padding:140px 0 56px;overflow:hidden;background:#0F1B2E}
+.page-hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url('assets/baerekraft/lov-hero.webp') center 35%/cover no-repeat}
+.page-hero::after{
+ content:"";position:absolute;inset:0;z-index:-1;
+ background:
+   linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.22) 22%, rgba(0,0,0,.04) 40%, rgba(0,0,0,.40) 75%, rgba(0,0,0,.85) 92%, rgba(0,0,0,.95) 100%),
+   linear-gradient(95deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.45) 35%, rgba(0,0,0,.10) 65%, rgba(0,0,0,0) 90%);
+}
+.page-hero .crumbs{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(255,255,255,.78);display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.page-hero .crumbs a{color:inherit;border-bottom:1px solid transparent;transition:border-color .2s}
+.page-hero .crumbs a:hover{border-color:rgba(255,255,255,.6)}
+.page-hero .crumbs .sep{opacity:.5}
+.page-hero h1{max-width:22ch;color:#fff;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.page-hero h1 em{font-style:italic;font-weight:500}
+.page-hero .lede{max-width:60ch;color:rgba(255,255,255,.86);font-size:clamp(1rem,1.15vw,1.13rem);line-height:1.55;margin-top:24px}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Hopp til innhold</a>
+
+<header class="site-header" id="siteHeader">
+ <div class="wrap nav">
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo brand-logo--dark" src="assets/logo-white.png" alt="Karlsen &amp; Nordseth Entreprenør">
+ <img class="brand-logo brand-logo--light" src="assets/logo.png" alt="" aria-hidden="true">
+ </a>
+ <nav class="nav-links" aria-label="Hovedmeny">
+ <div class="drawer-header">
+ <button class="drawer-close" type="button" aria-label="Lukk meny">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+ <line x1="6" y1="6" x2="18" y2="18"/>
+ <line x1="6" y1="18" x2="18" y2="6"/>
+ </svg>
+ </button>
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo" src="assets/logo.png" alt="Karlsen &amp; Nordseth Entreprenør" draggable="false">
+ </a>
+ <span class="drawer-spacer" aria-hidden="true"></span>
+ </div>
+ <a href="index.html">Hjem</a>
+ <a href="prosjekter.html">Prosjekter</a>
+ <a href="om-oss.html">Om oss</a>
+ <a href="baerekraft.html" class="is-current">Bærekraft</a>
+ <a href="etikkogansvar.html">Etikk og ansvar</a>
+ <a href="stillinger.html">Stillinger</a>
+ </nav>
+ <div class="nav-cta">
+ <a class="nav-phone" href="tel:+4767073830">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ +47 67 07 38 30
+ </a>
+ <a class="btn" href="index.html#kontakt">Kontakt <span class="arrow">→</span></a>
+ <button class="menu-btn" aria-label="Åpne meny">Meny</button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- HERO -->
+ <section class="page-hero" data-theme="dark">
+ <div class="wrap">
+ <div class="crumbs">
+ <a href="index.html">Hjem</a><span class="sep">·</span>
+ <a href="baerekraft.html">Bærekraft</a><span class="sep">·</span>
+ <span>Åpenhetsloven</span>
+ </div>
+ <span class="eyebrow" style="color:rgba(255,255,255,.78)">Åpenhetsloven</span>
+ <h1 style="margin-top:18px">Retningslinjer for arbeid med <em>Åpenhetsloven</em>.</h1>
+ <p class="lede">
+   Lov om virksomheters åpenhet og arbeid med grunnleggende menneskerettigheter og
+   anstendige arbeidsforhold ble innført <em>01.07.22</em>.
+ </p>
+ </div>
+ </section>
+
+ <!-- INNLEDNING -->
+ <section class="intro-band" data-theme="light">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow">Innledning</span>
+ <h2 style="margin-top:14px">Lovens <em>formål</em>.</h2>
+ <p class="lede">
+   Lovens formål er å fremme virksomheters respekt for grunnleggende menneskerettigheter
+   og anstendige arbeidsforhold i forbindelse med produksjon av varer og levering av
+   tjenester, og sikre <em>allmennheten tilgang til informasjon</em> om hvordan
+   virksomheter håndterer negative konsekvenser for grunnleggende menneskerettigheter
+   og anstendige arbeidsforhold.
+ </p>
+ <p>
+   Vårt arbeide bygger på OECD sine retningslinjer for flernasjonale selskaper, som er
+   anbefalinger for å fremme ansvarlig næringsliv. De retter forventninger om at
+   bedrifter skal bidra til blant annet å bevare miljøet, respektere menneskerettigheter,
+   ivareta arbeidstakerrettigheter, unngå korrupsjon og smøring. Det forventes videre at
+   bedrifter gjennomfører <em>aktsomhetsvurderinger</em> for å kartlegge, forebygge,
+   begrense og gjøre rede for hvordan de håndterer konsekvenser av sin virksomhet.
+ </p>
+ <p>
+   Karlsen &amp; Nordseth Entreprenør AS (heretter kalt KNE) jobber allerede med disse
+   temaene gjennom vårt arbeide både med påsekontroll av leverandører, helse, miljø og
+   sikkerhet samt miljøarbeid.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- PLAN -->
+ <section class="plan-band" data-theme="light">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow">Plan for arbeid med Åpenhetsloven</span>
+ <h2 style="margin-top:14px">Arbeidet med Åpenhetsloven er grovt sett <em>organisert</em> i følgende arbeidsfaser.</h2>
+ </div>
+
+ <div class="plan-rows reveal">
+
+ <div class="plan-row">
+ <div>
+ <div class="p-num">— 01</div>
+ <div class="p-label">Forankring</div>
+ </div>
+ <div>
+ <div class="p-h">Styret har det <em>overordnede</em> ansvaret.</div>
+ <p>
+   Styret har det overordnede ansvaret for å forankre og sikre etterlevelse av
+   Åpenhetsloven. Dette innebærer et overordnet ansvar for at det er etablert nødvendige
+   rutiner og tiltak.
+ </p>
+ <p>
+   For å sikre overholdelse av loven skal det gjennomføres jevnlig gjennomgang av
+   relevante interne og eksterne dokumenter og systemer sammen med øvrige dokumenter
+   i KNE sitt KS-system. Dette inkluderer både eksisterende dokumenter og dokumenter
+   som skal utarbeides; <em>policy for ansvarlig næringsliv, etiske retningslinjer,
+   leverandørerklæring, innkjøpspolicy og risikostyring</em> mv.
+ </p>
+ </div>
+ </div>
+
+ <div class="plan-row">
+ <div>
+ <div class="p-num">— 02</div>
+ <div class="p-label">Egen virksomhet</div>
+ </div>
+ <div>
+ <div class="p-h">Kartlegging og vurdering av <em>negativ påvirkning</em>.</div>
+ <p>
+   Forhold som skal vurderes i egen virksomhet er anstendige arbeidsforhold som
+   <em>helse, miljø og sikkerhet, likestilling og diskriminering, klima og miljø,
+   personvern og forretningspraksis</em> i hele organisasjonen.
+ </p>
+ <p>
+   <strong>Tiltak.</strong> Tiltak som iverksettes skal ha utgangspunkt i faktiske
+   forhold og vesentlig risiko ut fra funn i punktet over. Eksempler på dette kan være:
+   HMS plan, personalhåndbok, likestillingspolicy, avfallsplan, medarbeidersamtaler og
+   etiske retningslinjer.
+ </p>
+ </div>
+ </div>
+
+ <div class="plan-row">
+ <div>
+ <div class="p-num">— 03</div>
+ <div class="p-label">Leverandørkjeden</div>
+ </div>
+ <div>
+ <div class="p-h">Kartlegging av <em>leverandørkjeden</em>, steg for steg.</div>
+ <p>Kartlegging av leverandørkjeden består av følgende steg:</p>
+ <ol>
+ <li><em>Klassifisere</em> leverandører basert på leverandørtype, geografi, omsetning og miljøsertifisering.</li>
+ <li><em>Dialog</em> med prosjektledere som jobber med leverandørene for å avdekke mistanke om risiko.</li>
+ <li><em>Vurdering og kartlegging</em> av risiko for faktiske og mulige negative konsekvenser for menneskerettigheter og anstendige arbeidsforhold ut fra resultatene i steg 1 og 2.</li>
+ </ol>
+ <p>
+   <strong>Tiltak.</strong> Tiltak som iverksettes skal ha utgangspunkt i faktiske
+   forhold og vesentlig risiko ut fra funn i punktet over. Det skal utarbeides egne
+   rutiner for:
+ </p>
+ <ul>
+ <li>Dialog med leverandører gjennom møter og e-post samt stille krav.</li>
+ <li>Innhente signatur på <em>leverandørerklæring</em>.</li>
+ <li>Innhenting av bakgrunnsopplysninger for nye leverandører.</li>
+ <li>Gjennomføre kontroll av <em>lønns- og arbeidsvilkår</em>.</li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="plan-row">
+ <div>
+ <div class="p-num">— 04</div>
+ <div class="p-label">Overvåking</div>
+ </div>
+ <div>
+ <div class="p-h">Overvåking, gjennomføring og <em>resultater</em>.</div>
+ <p>
+   Avvik skal følges opp og håndteres i henhold til interne retningslinjer. Mindre avvik
+   kan gjenopprettes ved krav om <em>retting, opplæring/veiledning</em> eller utarbeidelse
+   av handlingsplan for å rette opp identifiserte mangler.
+ </p>
+ <p>
+   Dersom brudd ikke rettes opp kan gradvise sanksjoner som <em>økonomisk trekk, stans
+   i arbeid eller avslutning av kontrakten</em> gjennomføres.
+ </p>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- DOCS / REDEGJØRELSER -->
+ <section class="docs-band" id="kontakt" data-theme="dark">
+ <div class="wrap">
+ <div class="reveal" style="max-width:780px">
+ <span class="eyebrow" style="color:rgba(244,239,232,.55)">Kontakt oss</span>
+ <h2 style="margin-top:14px">Last ned våre redegjørelser for <em>aktsomhetsvurderingen</em>.</h2>
+ </div>
+ <div class="docs-grid reveal">
+ <div class="docs-text">
+ <p>
+   Klager eller informasjonsforespørsler om vårt arbeide med å sikre grunnleggende
+   menneskerettigheter og anstendige arbeidsforhold kan sendes til
+   <a href="mailto:post@karlsen-nordseth.no?subject=Åpenhetsloven" style="color:var(--orange);border-bottom:1px solid rgba(248,128,56,.4)">post@karlsen-nordseth.no</a>.
+   Skriv gjerne <em>«åpenhetsloven»</em> i emnefeltet.
+ </p>
+ </div>
+ <div class="docs-card">
+ <h3>Aktsomhets­<em>vurdering</em>.</h3>
+ <div class="row"><span class="lbl">Redegjørelse 2024</span><a class="dl" href="mailto:post@karlsen-nordseth.no?subject=Aktsomhetsvurdering%202024">Last ned</a></div>
+ <div class="row"><span class="lbl">Redegjørelse 2023</span><a class="dl" href="mailto:post@karlsen-nordseth.no?subject=Aktsomhetsvurdering%202023">Last ned</a></div>
+ <div class="row"><span class="lbl">Redegjørelse 2022</span><a class="dl" href="mailto:post@karlsen-nordseth.no?subject=Aktsomhetsvurdering%202022">Last ned</a></div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="wrap">
+ <div class="top">
+ <div class="col">
+ <div class="brandlogo">
+ <img src="assets/logo-white.png" alt="">
+ <span class="brand-name" style="color:#fff"><b>Karlsen</b> &amp; Nordseth</span>
+ </div>
+ <div class="pitch">Antikvarisk håndverk siden <em>1992</em> — i Oslo og på Østlandet.</div>
+ </div>
+ <div class="col">
+ <h5>Selskapet</h5>
+ <ul>
+ <li><a href="om-oss.html">Om oss</a></li>
+ <li><a href="prosjekter.html">Prosjekter</a></li>
+ <li><a href="stillinger.html">Stillinger</a></li>
+ <li><a href="baerekraft.html">Bærekraft</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Ansvar</h5>
+ <ul>
+ <li><a href="miljoarbeid.html">Miljøarbeid</a></li>
+ <li><a href="mangfold.html">Mangfold</a></li>
+ <li><a href="apenhetsloven.html">Åpenhetsloven</a></li>
+ <li><a href="etikkogansvar.html">Etikk og ansvar</a></li>
+ <li><a href="personvernerklaering.html">Personvernerklæring</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Kontakt</h5>
+ <ul>
+ <li><a href="tel:+4767073830">+47 67 07 38 30</a></li>
+ <li><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></li>
+ <li>Org.nr. 985 214 034</li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom">
+ <span>© <span id="yr"></span> Karlsen &amp; Nordseth Entreprenør AS</span>
+ <div class="socials" aria-label="Sosiale medier">
+ <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/project.js" defer></script>
+<script>
+(function(){
+ var btn=document.querySelector(".menu-btn");
+ var header=document.getElementById("siteHeader");
+ if(!btn||!header)return;
+ btn.setAttribute("aria-expanded","false");
+ var closeMenu=function(){
+  header.classList.remove("is-menu-open");
+  document.body.classList.remove("is-menu-open");
+  btn.setAttribute("aria-expanded","false");
+ };
+ var toggleMenu=function(){
+  var isOpen=header.classList.toggle("is-menu-open");
+  document.body.classList.toggle("is-menu-open",isOpen);
+  btn.setAttribute("aria-expanded",isOpen?"true":"false");
+ };
+ btn.addEventListener("click",function(e){e.stopPropagation();toggleMenu();});
+ document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",closeMenu);});
+ document.querySelectorAll(".drawer-close").forEach(function(b){b.addEventListener("click",closeMenu);});
+ document.addEventListener("click",function(e){if(!header.contains(e.target))closeMenu();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});
+ window.addEventListener("resize",function(){if(window.innerWidth>920)closeMenu();});
+})();
+</script>
+</body>
+</html>

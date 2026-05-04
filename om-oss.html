@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Om oss — Karlsen &amp; Nordseth Entreprenør</title>
+<meta name="description" content="Karlsen &amp; Nordseth Entreprenør — ledende byggentreprenør innen antikvarisk rehabilitering, riggentrepriser og nybygg i Oslo og på Østlandet. Etablert 1992.">
+<meta property="og:title" content="Om oss | Karlsen &amp; Nordseth">
+<meta property="og:image" content="assets/om-oss/hero-poster.jpg">
+<link rel="icon" href="assets/logo.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/project.css?v=2">
+
+<style>
+/* ───── Om oss ───── */
+.intro-band{padding:96px 0 56px;background:var(--paper)}
+.intro-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:start}
+.intro-grid .kicker .eyebrow{margin-bottom:14px}
+.intro-grid h2 em{color:var(--orange-2);font-style:italic}
+.intro-grid p{color:var(--ink-2);font-size:1.08rem;line-height:1.7}
+.intro-grid p + p{margin-top:18px}
+@media (max-width:920px){.intro-grid{grid-template-columns:1fr;gap:36px}}
+
+.pillars-band{padding:48px 0 120px;background:var(--paper)}
+.pillars-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.pillar{
+ display:flex;flex-direction:column;
+ background:#fff;border-radius:var(--r-md);border:1px solid var(--line);
+ overflow:hidden;
+ transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+}
+.pillar:hover{transform:translateY(-3px);box-shadow:0 32px 64px -28px rgba(0,0,0,.25)}
+/* Photo at the top — generous and editorial */
+.pillar .photo{
+ position:relative;aspect-ratio:4/3;overflow:hidden;background:#0F1B2E;
+}
+.pillar .photo img{
+ width:100%;height:100%;object-fit:cover;display:block;
+ transition:transform .9s cubic-bezier(.2,.8,.2,1), filter .35s ease;
+}
+.pillar:hover .photo img{transform:scale(1.04);filter:saturate(1.08)}
+/* Optional small icon overlay in the corner — kept the original PNGs as a
+   subtle badge so the photo + concept reinforce each other. */
+.pillar .photo .badge{
+ position:absolute;top:14px;left:14px;
+ width:48px;height:48px;border-radius:999px;
+ background:rgba(255,255,255,.94);backdrop-filter:blur(6px);
+ display:inline-flex;align-items:center;justify-content:center;
+ padding:10px;
+ box-shadow:0 8px 18px -8px rgba(0,0,0,.4);
+}
+.pillar .photo .badge img{width:100%;height:100%;object-fit:contain;display:block;transition:none;filter:none}
+.pillar .photo .badge img:hover{transform:none}
+.pillar .body{padding:36px 32px}
+.pillar .num{font-family:var(--serif);font-style:italic;color:var(--orange);font-size:.95rem;display:block;margin-bottom:10px}
+.pillar h4{font-size:1.55rem;font-weight:500;line-height:1.1}
+.pillar h4 em{color:var(--orange-2);font-style:italic}
+.pillar p{color:var(--muted);font-size:1rem;line-height:1.65;margin:16px 0 0}
+@media (max-width:920px){.pillars-grid{grid-template-columns:1fr;gap:18px}}
+
+/* Warm-cream editorial band — softer rhythm than dark+orange */
+.story-strip{padding:96px 0;background:var(--paper-2);color:var(--ink)}
+.story-strip .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.story-strip h2{color:var(--ink);font-weight:400}
+.story-strip h2 em{color:var(--orange-2);font-style:italic}
+.story-strip .eyebrow{color:var(--muted)}
+.story-strip p{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:18px 0 0;max-width:48ch}
+.story-strip p em{font-style:italic;color:var(--orange-2)}
+.story-strip .stat-side{
+ display:grid;grid-template-columns:1fr 1fr;gap:24px 32px;
+ padding:36px;background:rgba(255,255,255,.5);border:1px solid rgba(21,17,13,.08);
+ border-radius:var(--r-md);
+}
+.story-strip .stat-side > div{display:flex;flex-direction:column;gap:6px}
+.story-strip .stat-side .num{font-family:var(--serif);font-size:1.85rem;color:var(--ink);line-height:1;font-weight:400}
+.story-strip .stat-side .num em{color:var(--orange-2);font-style:italic}
+.story-strip .stat-side .lbl{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.story-strip .stat-side .lbl small{color:var(--muted)}
+@media (max-width:920px){.story-strip .wrap{grid-template-columns:1fr;gap:36px}}
+
+/* Page hero with video */
+.page-hero{
+ position:relative;isolation:isolate;
+ min-height:100vh;height:100vh;
+ display:grid;
+ grid-template-rows: 1.6fr auto 1fr;   /* anchors content at the golden-ratio sweet spot, ~62% from top */
+ color:#fff;
+ padding:140px 0 100px;
+ overflow:hidden;
+}
+.page-hero .hero-bg{
+ position:absolute;inset:0;z-index:-2;
+ width:100%;height:100%;object-fit:cover;object-position:center 30%;
+ transform:scale(1.04);
+}
+.page-hero::after{
+ content:"";position:absolute;inset:0;z-index:-1;
+ background:
+   linear-gradient(180deg,
+     rgba(0,0,0,.65) 0%,
+     rgba(0,0,0,.30) 18%,
+     rgba(0,0,0,.05) 36%,
+     rgba(0,0,0,.45) 70%,
+     rgba(0,0,0,.85) 100%);
+}
+.page-hero-inner{grid-row:2;display:flex;flex-direction:column;gap:24px}
+/* override the global 1440px wrap on the hero — text was sitting too close to centre on wide screens */
+.page-hero .wrap{max-width:min(1720px, 96vw);padding-inline:clamp(28px, 4vw, 88px)}
+.page-hero .crumbs{
+ font-family:var(--serif);font-style:italic;font-size:1rem;
+ color:rgba(255,255,255,.78);display:flex;gap:10px;align-items:center;
+}
+.page-hero .crumbs a{color:inherit;border-bottom:1px solid transparent;transition:border-color .2s}
+.page-hero .crumbs a:hover{border-color:rgba(255,255,255,.6)}
+.page-hero .crumbs .sep{opacity:.5}
+.page-hero h1{max-width:26ch;color:#fff;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.page-hero h1 .em{font-style:italic;font-weight:500;color:#fff}
+.page-hero .lede{
+ max-width:62ch;color:rgba(255,255,255,.92);
+ font-size:clamp(1.05rem,1.2vw,1.18rem);line-height:1.55;
+ font-family:var(--serif);font-style:italic;font-weight:300;
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Hopp til innhold</a>
+
+<header class="site-header" id="siteHeader">
+ <div class="wrap nav">
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo brand-logo--dark" src="assets/logo-white.png" alt="Karlsen &amp; Nordseth Entreprenør">
+ <img class="brand-logo brand-logo--light" src="assets/logo.png" alt="" aria-hidden="true">
+ </a>
+ <nav class="nav-links" aria-label="Hovedmeny">
+ <div class="drawer-header">
+ <button class="drawer-close" type="button" aria-label="Lukk meny">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+ <line x1="6" y1="6" x2="18" y2="18"/>
+ <line x1="6" y1="18" x2="18" y2="6"/>
+ </svg>
+ </button>
+ <a class="brand" href="index.html" aria-label="Karlsen &amp; Nordseth Entreprenør — forsiden">
+ <img class="brand-logo" src="assets/logo.png" alt="Karlsen &amp; Nordseth Entreprenør" draggable="false">
+ </a>
+ <span class="drawer-spacer" aria-hidden="true"></span>
+ </div>
+ <a href="index.html">Hjem</a>
+ <a href="prosjekter.html">Prosjekter</a>
+ <a href="om-oss.html" class="is-current">Om oss</a>
+ <a href="baerekraft.html">Bærekraft</a>
+ <a href="etikkogansvar.html">Etikk og ansvar</a>
+ <a href="stillinger.html">Stillinger</a>
+ </nav>
+ <div class="nav-cta">
+ <a class="nav-phone" href="tel:+4767073830">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ +47 67 07 38 30
+ </a>
+ <a class="btn" href="index.html#kontakt">Kontakt <span class="arrow">→</span></a>
+ <button class="menu-btn" aria-label="Åpne meny">Meny</button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- HERO with video -->
+ <section class="page-hero" data-theme="dark">
+ <video class="hero-bg" autoplay muted loop playsinline preload="metadata"
+        poster="assets/om-oss/hero-poster.jpg" aria-hidden="true">
+ <source src="assets/om-oss/videos/hero.mp4" type="video/mp4">
+ </video>
+ <div class="wrap page-hero-inner">
+ <div class="crumbs">
+ <a href="index.html">Hjem</a><span class="sep">·</span>
+ <span>Om oss</span>
+ </div>
+ <span class="eyebrow no-rule" style="color:rgba(255,255,255,.78)">Etablert 1992 — Oslo &amp; Østlandet</span>
+ <h1>Tunge løft, <span class="em">lette</span> føtter.</h1>
+ <p class="lede">
+   En mellomstor entreprenør med fokus på antikvarisk rehabilitering, riggentrepriser og nybygg.
+   Vi jobber bevisst mot store eiendomsbesittere, det offentlige og selvstendige eiendomsutviklere.
+ </p>
+ </div>
+ <a class="hero-scroll" href="#hvem" aria-label="Bla videre">
+ <span>Bla videre</span>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+ </a>
+ </section>
+
+ <!-- INTRO -->
+ <section class="intro-band" id="hvem" data-theme="light">
+ <div class="wrap intro-grid reveal">
+ <div class="kicker">
+ <span class="eyebrow">Hvem vi er</span>
+ <h2 style="margin-top:14px">Spesialister på å bevare <em>det som er verdt å bevare</em>.</h2>
+ </div>
+ <div>
+ <p>
+   Karlsen &amp; Nordseth Entreprenør AS er en ledende byggentreprenør innen
+   rehabilitering, riggentrepriser og nybygg i Oslo og det sentrale østlandsområdet.
+   Vi er spesialister på <em>antikvarisk rehabilitering</em> og har lang erfaring innen
+   fasaderehabilitering, takarbeid og rigg og drift av byggeplasser.
+ </p>
+ <p>
+   Våre kunder er store eiendomsbesittere, boligsameier og offentlig eiendomsforvaltning.
+   Vårt mål er å være en mellomstor entreprenør med fokus på antikvarisk rehabilitering,
+   riggentrepriser og nybygg — og å arbeide bevisst mot store eiendomsbesittere og det offentlige,
+   i tillegg til <em>eiendomsutvikling i egen regi</em>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- THREE PILLARS -->
+ <section class="pillars-band" data-theme="light">
+ <div class="wrap">
+ <div class="pillars-grid reveal">
+ <article class="pillar">
+ <div class="photo">
+ <img src="assets/om-oss/bygge%20historie.webp" alt="Håndverkere som bevarer norsk arkitektur"
+      onerror="this.style.opacity='.4';this.style.background='var(--paper-2)';this.alt='Bilde kommer'">
+ </div>
+ <div class="body">
+ <span class="num">— 01</span>
+ <h4>Bygge <em>historie</em>.</h4>
+ <p>
+   Vi ønsker å bevare uttrykket i norske bygg og å være en sentral del av å videreføre
+   arven av norsk arkitektur. Vi søker å ha ekspertise i et felt hvor detaljnivå og dyp
+   kunnskap om fortidens byggemetoder er avgjørende.
+ </p>
+ </div>
+ </article>
+
+ <article class="pillar">
+ <div class="photo">
+ <img src="assets/om-oss/sustainable.webp" alt="Rehabilitering som klimavalg — gamle materialer brukt på nytt"
+      onerror="this.style.opacity='.4';this.style.background='var(--paper-2)';this.alt='Bilde kommer'">
+ </div>
+ <div class="body">
+ <span class="num">— 02</span>
+ <h4>Lavt <em style="color:var(--verdigris)">klima-avtrykk</em>.</h4>
+ <p>
+   Ved å rehabilitere det gamle tar man ofte et bedre valg fra et klimaperspektiv.
+   Mengden avfall og behov for nytt materiell er langt mindre. Vi gjør også en
+   satsning for å ha et lavt klima-avtrykk som bedrift.
+ </p>
+ </div>
+ </article>
+
+ <article class="pillar">
+ <div class="photo">
+ <img src="assets/om-oss/sporty.webp" alt="Ansatte i fysisk aktivitet — en del av bedriftskulturen"
+      onerror="this.style.opacity='.4';this.style.background='var(--paper-2)';this.alt='Bilde kommer'">
+ </div>
+ <div class="body">
+ <span class="num">— 03</span>
+ <h4>Lette på <em>føttene</em>.</h4>
+ <p>
+   I ledelsen har vi troen på at et aktivt liv gir glade dager. Vi vil fortsette å
+   være med på idrettsarrangementer som bedrift — fysisk aktivitet er en del av kulturen.
+ </p>
+ </div>
+ </article>
+ </div>
+ </div>
+ </section>
+
+ <!-- STORY STRIP -->
+ <section class="story-strip" data-theme="light">
+ <div class="wrap">
+ <div>
+ <span class="eyebrow">Etablert i Oslo</span>
+ <h2 style="margin-top:14px">Et mellomstort fagmiljø<br>med <em>lange tradisjoner</em>.</h2>
+ <p>
+   Selskapet ble stiftet i 1992 og er et firma med mange års erfaring med
+   <em>antikvarisk rehabilitering</em> i Oslo og på Østlandet. Vi tar oppdrag for
+   store eiendomsbesittere, det offentlige og eiendomsutviklere.
+ </p>
+ </div>
+ <div class="stat-side">
+ <div><span class="num">1992</span><span class="lbl">Etablert</span></div>
+ <div><span class="num">Oslo</span><span class="lbl">Hovedkontor</span></div>
+ <div><span class="num"><em>~100</em></span><span class="lbl">Håndverkere på topp</span></div>
+ <div><span class="num"><em>274</em> MNOK</span><span class="lbl">Omsetning <small style="font-size:.6rem;letter-spacing:.04em;text-transform:none">— gjennomsnitt siste 5 år</small></span></div>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="cta-band" id="kontakt">
+ <div class="wrap cta-grid">
+ <div>
+ <span class="eyebrow" style="color:rgba(244,239,232,.55)">Kontakt</span>
+ <h2 style="margin-top:14px">Ser du etter en <em>entreprenør</em>?</h2>
+ <p>
+   Eller en spennende ny arbeidsplass? Ta kontakt med Karlsen &amp; Nordseth Entreprenør
+   for å lære mer.
+ </p>
+ <div class="actions" style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap">
+ <a class="btn btn--orange" href="index.html#kontakt">Ta kontakt <span class="arrow">→</span></a>
+ <a class="btn" style="background:#fff;color:var(--ink)" href="prosjekter.html">Se prosjekter <span class="arrow">→</span></a>
+ </div>
+ </div>
+ <div class="meta">
+ <div class="row"><span class="lbl">Telefon</span><span class="val"><a href="tel:+4767073830">+47 67 07 38 30</a></span></div>
+ <div class="row"><span class="lbl">E-post</span><span class="val"><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></span></div>
+ <div class="row"><span class="lbl">Org.nr.</span><span class="val">985 214 034</span></div>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="wrap">
+ <div class="top">
+ <div class="col">
+ <div class="brandlogo">
+ <img src="assets/logo-white.png" alt="">
+ <span class="brand-name" style="color:#fff"><b>Karlsen</b> &amp; Nordseth</span>
+ </div>
+ <div class="pitch">Antikvarisk håndverk siden <em>1992</em> — i Oslo og på Østlandet.</div>
+ </div>
+ <div class="col">
+ <h5>Selskapet</h5>
+ <ul>
+ <li><a href="om-oss.html">Om oss</a></li>
+ <li><a href="prosjekter.html">Prosjekter</a></li>
+ <li><a href="stillinger.html">Stillinger</a></li>
+ <li><a href="baerekraft.html">Bærekraft</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Tjenester</h5>
+ <ul>
+ <li><a href="index.html#tjenester">Antikvarisk rehabilitering</a></li>
+ <li><a href="index.html#tjenester">Riggentrepriser</a></li>
+ <li><a href="index.html#tjenester">Tak &amp; fasade</a></li>
+ <li><a href="index.html#tjenester">Nybygg</a></li>
+ </ul>
+ </div>
+ <div class="col">
+ <h5>Kontakt</h5>
+ <ul>
+ <li><a href="tel:+4767073830">+47 67 07 38 30</a></li>
+ <li><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></li>
+ <li>Org.nr. 985 214 034</li>
+ </ul>
+ </div>
+ </div>
+ <div class="bottom">
+ <span>© <span id="yr"></span> Karlsen &amp; Nordseth Entreprenør AS</span>
+ <div class="socials" aria-label="Sosiale medier">
+ <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+ <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+ <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<script src="assets/project.js" defer></script>
+<script>
+(function(){
+ var btn=document.querySelector(".menu-btn");
+ var header=document.getElementById("siteHeader");
+ if(!btn||!header)return;
+ btn.setAttribute("aria-expanded","false");
+ var closeMenu=function(){
+  header.classList.remove("is-menu-open");
+  document.body.classList.remove("is-menu-open");
+  btn.setAttribute("aria-expanded","false");
+ };
+ var toggleMenu=function(){
+  var isOpen=header.classList.toggle("is-menu-open");
+  document.body.classList.toggle("is-menu-open",isOpen);
+  btn.setAttribute("aria-expanded",isOpen?"true":"false");
+ };
+ btn.addEventListener("click",function(e){e.stopPropagation();toggleMenu();});
+ document.querySelectorAll(".nav-links a").forEach(function(a){a.addEventListener("click",closeMenu);});
+ document.querySelectorAll(".drawer-close").forEach(function(b){b.addEventListener("click",closeMenu);});
+ document.addEventListener("click",function(e){if(!header.contains(e.target))closeMenu();});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});
+ window.addEventListener("resize",function(){if(window.innerWidth>920)closeMenu();});
+})();
+</script>
+</body>
+</html>
