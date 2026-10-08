@@ -4,12 +4,8 @@
 #
 #   ./dev.sh
 #
-# Starts voice_server.py (static files + xAI proxy) on port 9999 and prints
+# Starts voice_server.py (static file server) on port 9999 and prints
 # the URL. Set PORT env var to override (e.g. `PORT=4567 ./dev.sh`).
-#
-# voice_server.py serves the static HTML/CSS/JS in this folder AND exposes
-# the API endpoints the AI panel needs (/api/voice-token, /api/chat, /api/brain).
-# Running plain `python -m http.server` will return 501 on those routes.
 # ─────────────────────────────────────────────────────────────────────────────
 set -e
 cd "$(dirname "$0")"

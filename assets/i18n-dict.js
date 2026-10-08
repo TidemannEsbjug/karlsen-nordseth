@@ -237,21 +237,8 @@ window.KNE_I18N = {
   "LinkedIn": "LinkedIn",
   "Facebook": "Facebook",
   "Instagram": "Instagram",
-
-  /* ───── AI assistant (voice-agent.js) ───── */
-  "Spør AI": "Ask AI",
-  "AI-assistent": "AI assistant",
-  "Karlsen &amp; Nordseth Entreprenør AI Assistent":
-   "Karlsen &amp; Nordseth Entreprenør AI Assistant",
-  "Lytter…": "Listening…",
   "Lukk": "Close",
-  "Slå på stemme": "Turn on voice",
-  "Slå av stemme": "Turn off voice",
-  "Spør om et prosjekt, fag eller stilling…":
-   "Ask about a project, trade or job…",
-  "Skriv et spørsmål": "Write a question",
-  "Send": "Send",
-  "eller": "or"
+  "Send": "Send"
  },
 
  /* ============================================================
@@ -471,20 +458,7 @@ window.KNE_I18N = {
   "LinkedIn": "LinkedIn",
   "Facebook": "Facebook",
   "Instagram": "Instagram",
-
-  /* ───── AI assistant (voice-agent.js) ───── */
-  "Spør AI": "Zapytaj AI",
-  "AI-assistent": "Asystent AI",
-  "Karlsen &amp; Nordseth Entreprenør AI Assistent":
-   "Asystent AI Karlsen &amp; Nordseth Entreprenør",
-  "Lytter…": "Słucham…",
   "Lukk": "Zamknij",
-  "Slå på stemme": "Włącz głos",
-  "Slå av stemme": "Wyłącz głos",
-  "Spør om et prosjekt, fag eller stilling…":
-   "Zapytaj o projekt, branżę lub ofertę pracy…",
-  "Skriv et spørsmål": "Napisz pytanie",
-  "Send": "Wyślij",
-  "eller": "lub"
+  "Send": "Wyślij"
  }
 };

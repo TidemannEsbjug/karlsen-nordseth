@@ -77,7 +77,6 @@ a.btn,
 .chip,
 .filter-chip,
 .smart-chip,
-.ai-toggle,
 .send-btn,
 .trade-tile,
 .brandlogo img,
@@ -377,7 +376,7 @@ section[data-theme]{scroll-margin-top:140px}
  overflow:hidden;
 }
 .smart-search-row{
- display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:14px;
+ display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
  padding:10px 10px 10px 22px;
 }
 .smart-search-row .sicon{width:18px;height:18px;color:var(--muted);flex-shrink:0}
@@ -386,23 +385,6 @@ section[data-theme]{scroll-margin-top:140px}
  background:transparent;border:0;outline:0;width:100%;min-width:0;padding:14px 0;
 }
 .smart-search-row input::placeholder{color:var(--muted)}
-.smart-search-row .ai-toggle{
- display:inline-flex;align-items:center;gap:8px;
- padding:9px 14px 9px 12px;border-radius:999px;
- background:var(--paper);color:var(--ink);
- border:1px solid var(--line);
- font-size:.86rem;font-weight:500;
- transition:background .2s, border-color .2s, color .2s;
-}
-.smart-search-row .ai-toggle .dot{
- width:18px;height:18px;border-radius:999px;
- background:linear-gradient(135deg, var(--orange) 0%, var(--orange-2) 100%);
- display:inline-flex;align-items:center;justify-content:center;color:#fff;
-}
-.smart-search-row .ai-toggle .dot svg{width:10px;height:10px}
-.smart-search-row .ai-toggle:hover{border-color:var(--ink)}
-.smart-search-row .ai-toggle.is-on{background:#0F1B2E;color:#fff;border-color:var(--ink)}
-.smart-search-row .ai-toggle.is-on .dot{background:var(--orange)}
 .smart-search-row .send-btn{
  width:46px;height:46px;border-radius:999px;
  background:var(--orange);color:#fff;
@@ -470,32 +452,6 @@ section[data-theme]{scroll-margin-top:140px}
 .sr-row .pill.t-Kapittel{background:rgba(248,128,56,.16);color:var(--orange-2)}
 .sr-row .pill.t-Fag{background:rgba(63,122,111,.14);color:#2c5d54}
 .sr-row .pill.t-Faktum{background:rgba(21,17,13,.08);color:var(--ink)}
-
-/* AI chat mode — replaces results with an inline panel */
-.smart-ai{
- display:none;
- padding:18px 22px 18px;
- border-top:1px solid var(--line);
- background:linear-gradient(180deg, var(--paper) 0%, #fff 100%);
-}
-.smart-search.is-ai-mode .smart-results{display:none}
-.smart-search.is-ai-mode .smart-ai{display:block}
-.smart-ai .ai-msgs{
- display:flex;flex-direction:column;gap:12px;
- max-height:260px;overflow-y:auto;padding:4px 2px;
-}
-.ai-msg{
- padding:11px 14px;border-radius:14px;font-size:.95rem;line-height:1.5;
- max-width:82%;
-}
-.ai-msg.u{align-self:flex-end;background:#0F1B2E;color:#fff;border-bottom-right-radius:4px}
-.ai-msg.a{align-self:flex-start;background:#fff;color:var(--ink);border:1px solid var(--line);border-bottom-left-radius:4px}
-.ai-msg.a em{font-style:italic;color:var(--orange-2)}
-.smart-ai .ai-foot{
- display:flex;justify-content:space-between;align-items:center;margin-top:14px;
- font-size:.78rem;color:var(--muted);
-}
-.smart-ai .ai-foot a{color:var(--ink);border-bottom:1px solid var(--line)}
 
 /* ───── Section navigator (visual chapter picker — image→section) ───── */
 .section-nav{
@@ -998,12 +954,8 @@ section[data-theme]{scroll-margin-top:140px}
  <div class="smart-search-row">
  <svg class="sicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
  <input id="proj-q" type="search" autocomplete="off" spellcheck="false"
-        placeholder="Søk i prosjektet eller spør AI: «hvor mye kobber gikk med?»"
-        aria-label="Søk i prosjektet eller spør AI">
- <button class="ai-toggle" id="ai-toggle" type="button" aria-pressed="false">
- <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>
- Spør AI
- </button>
+        placeholder="Søk i prosjektet: «hvor mye kobber gikk med?»"
+        aria-label="Søk i prosjektet">
  <button class="send-btn" id="proj-send" type="button" aria-label="Send">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
  </button>
@@ -1021,17 +973,6 @@ section[data-theme]{scroll-margin-top:140px}
  <!-- Search results panel -->
  <div class="smart-results" id="smartResults" hidden></div>
 
- <!-- AI chat panel -->
- <div class="smart-ai" id="smartAi">
- <div class="ai-msgs" id="aiMsgs">
- <div class="ai-msg a">Hei. Spør om hva som helst i dette prosjektet — fra <em>antall blyglassfag</em> til hvordan vi løste <em>skallsikring</em> mens museet var i drift.</div>
- <div class="ai-msg a" style="background:rgba(248,128,56,.08);border:1px solid rgba(248,128,56,.25);color:var(--muted,#6C645B);font-size:12.5px;font-style:italic">⚠ Demo — denne AI-en er ikke koblet til, så svarene er ikke aktive.</div>
- </div>
- <div class="ai-foot">
- <span>Drevet av sammendrag fra prosjektets sider. For samtale, prøv også <a href="#" id="open-voice">talegjengivelse</a>.</span>
- <a href="#" id="back-to-search" style="border:none;color:var(--orange-2)">← Tilbake til søk</a>
- </div>
- </div>
  </div>
  </div>
 
@@ -1669,7 +1610,7 @@ section[data-theme]{scroll-margin-top:140px}
  </div>
 </footer>
 
-<!-- ── PROJECT KNOWLEDGE BASE — chapters + facts the search/AI use ── -->
+<!-- ── PROJECT KNOWLEDGE BASE — chapters + facts the search uses ── -->
 <script type="application/json" id="kb-chapters">
 [
  {"id":"oppsummering","num":"01","type":"Kapittel","title":"Oppsummering","tags":["status","kontrakt","kunde","henrik bull","art nouveau","tullinløkka","112,5 mnok","100 håndverkere","2017","2019"],
@@ -1729,7 +1670,7 @@ section[data-theme]{scroll-margin-top:140px}
    '.menu-btn',
    '.btn', 'a.btn', 'button',
    '.chip', '.filter-chip', '.smart-chip',
-   '.ai-toggle', '.send-btn', '.trade-tile',
+   '.send-btn', '.trade-tile',
    '.lang-switcher', '.lang-switcher *',
    '.lang-flag'
  ].join(',');
@@ -1803,10 +1744,8 @@ section[data-theme]{scroll-margin-top:140px}
  window.addEventListener('resize', updateProgress);
 
  /* ════════════════════════════════════════════════════════════════
-    INTELLIGENT SEARCH + AI
+    INTELLIGENT SEARCH
     Local, scoped to this project. Mixes chapter content + facts.
-    AI mode answers questions from the same KB so you don't need a
-    backend just to demo the feature.
     ════════════════════════════════════════════════════════════════ */
 
  const KB_CHAPTERS = JSON.parse(document.getElementById('kb-chapters').textContent);
@@ -1885,13 +1824,8 @@ section[data-theme]{scroll-margin-top:140px}
  // Elements
  const ss = document.getElementById('smartSearch');
  const inp = document.getElementById('proj-q');
- const aiBtn = document.getElementById('ai-toggle');
  const sendBtn = document.getElementById('proj-send');
  const resultsEl = document.getElementById('smartResults');
- const aiPanel = document.getElementById('smartAi');
- const aiMsgs = document.getElementById('aiMsgs');
- const backBtn = document.getElementById('back-to-search');
- const openVoiceLink = document.getElementById('open-voice');
 
  const TYPE_LABEL = { Kapittel:'Kapitler', Fag:'Fag', Faktum:'Fakta' };
  const TYPE_ORDER = ['Kapittel','Faktum','Fag'];
@@ -1900,11 +1834,10 @@ section[data-theme]{scroll-margin-top:140px}
  const openResults  = () => { resultsEl.hidden = false; requestAnimationFrame(() => resultsEl.classList.add('is-open')); };
 
  const doSearch = (q) => {
-   if (ss.classList.contains('is-ai-mode')) return;
    if (!q.trim()) { closeResults(); return; }
    const items = rank(q);
    if (!items.length) {
-     resultsEl.innerHTML = `<div class="sr-section"><div style="color:var(--muted);padding:8px">Ingen treff på <b>"${escapeHtml(q)}"</b>. Prøv f.eks. <i>kobber</i>, <i>blyglass</i> eller <i>3D-scan</i> — eller spør AI.</div></div>`;
+     resultsEl.innerHTML = `<div class="sr-section"><div style="color:var(--muted);padding:8px">Ingen treff på <b>"${escapeHtml(q)}"</b>. Prøv f.eks. <i>kobber</i>, <i>blyglass</i> eller <i>3D-scan</i>.</div></div>`;
      openResults();
      return;
    }
@@ -1935,40 +1868,6 @@ section[data-theme]{scroll-margin-top:140px}
    openResults();
  };
 
- // AI: tiny local "answer engine" — picks best chapter, returns summary + jump link.
- const aiAsk = (q) => {
-   appendMsg('u', q);
-   inp.value = '';
-   const items = rank(q);
-   const top = items[0];
-   if (!top) {
-     appendMsg('a', `Det fant jeg ikke i prosjektet. Prøv f.eks. <em>kobber</em>, <em>blyglass</em>, <em>3D-scan</em> eller <em>rigg</em> — eller ring oss på <a href="tel:+4767073830">+47 67 07 38 30</a>.`);
-     return;
-   }
-   const ch = top.type === 'Kapittel' ? top : KB_CHAPTERS.find(c => c.id === top.section);
-   const fact = top.type === 'Faktum' ? top : null;
-   const factsForCh = KB_FACTS.filter(f => f.section === (ch ? ch.id : top.section));
-   let answer = '';
-   if (fact) {
-     answer = `<b>${fact.title}</b>. ${escapeHtml(fact.summary)}`;
-   } else if (ch) {
-     const teaser = ch.body.split('. ').slice(0, 2).join('. ') + '.';
-     answer = escapeHtml(teaser);
-   }
-   if (ch) {
-     const factPills = factsForCh.slice(0,3).map(f => `<a href="#${ch.id}" style="color:var(--orange-2)">${f.title.replace(/&amp;/g,'&')}</a>`).join(' · ');
-     answer += `<div style="margin-top:10px;font-size:.84rem;color:var(--muted)">→ <a href="#${ch.id}" data-target="${ch.id}" class="ai-jump" style="color:var(--ink);border-bottom:1px solid var(--orange)">Hopp til <em>${ch.title}</em></a>${factPills ? ' &nbsp;·&nbsp; ' + factPills : ''}</div>`;
-   }
-   appendMsg('a', answer);
- };
- const appendMsg = (role, html) => {
-   const div = document.createElement('div');
-   div.className = 'ai-msg ' + role;
-   div.innerHTML = html;
-   aiMsgs.appendChild(div);
-   aiMsgs.scrollTop = aiMsgs.scrollHeight;
- };
-
  // Search input handler
  let tId;
  inp.addEventListener('input', () => {
@@ -1976,67 +1875,34 @@ section[data-theme]{scroll-margin-top:140px}
    const v = inp.value;
    tId = setTimeout(() => doSearch(v), 70);
  });
- inp.addEventListener('focus', () => { if (inp.value.trim() && !ss.classList.contains('is-ai-mode')) doSearch(inp.value); });
+ inp.addEventListener('focus', () => { if (inp.value.trim()) doSearch(inp.value); });
  inp.addEventListener('keydown', (e) => {
    if (e.key === 'Escape') { closeResults(); inp.blur(); }
    if (e.key === 'Enter') {
      e.preventDefault();
-     if (ss.classList.contains('is-ai-mode')) {
-       if (inp.value.trim()) aiAsk(inp.value);
-     } else {
-       const first = resultsEl.querySelector('.sr-row');
-       if (first) first.click();
-     }
+     const first = resultsEl.querySelector('.sr-row');
+     if (first) first.click();
    }
  });
-
- // AI toggle
- aiBtn.addEventListener('click', () => {
-   const on = !ss.classList.contains('is-ai-mode');
-   ss.classList.toggle('is-ai-mode', on);
-   aiBtn.classList.toggle('is-on', on);
-   aiBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-   if (on) {
-     closeResults();
-     inp.placeholder = 'Spør AI om hva du vil — f.eks. «hvor mye kobber gikk med?»';
-     inp.focus();
-   } else {
-     inp.placeholder = 'Søk i prosjektet eller spør AI: «hvor mye kobber gikk med?»';
-     if (inp.value.trim()) doSearch(inp.value);
-   }
- });
- backBtn.addEventListener('click', (e) => { e.preventDefault(); aiBtn.click(); });
 
  // Send button
  sendBtn.addEventListener('click', () => {
    if (!inp.value.trim()) { inp.focus(); return; }
-   if (ss.classList.contains('is-ai-mode')) aiAsk(inp.value);
-   else {
-     const first = resultsEl.querySelector('.sr-row');
-     if (first) first.click();
-   }
+   const first = resultsEl.querySelector('.sr-row');
+   if (first) first.click();
  });
 
  // Suggestion chips
  document.querySelectorAll('.smart-chip').forEach(chip => {
    chip.addEventListener('click', () => {
      inp.value = chip.dataset.q;
-     if (ss.classList.contains('is-ai-mode')) aiAsk(inp.value);
-     else { inp.focus(); doSearch(inp.value); }
+     inp.focus(); doSearch(inp.value);
    });
  });
 
- // Click outside closes results (but not AI panel)
+ // Click outside closes results
  document.addEventListener('click', (e) => {
    if (!ss.contains(e.target)) closeResults();
- });
-
- // Voice link → click the existing voice agent pill if it exists
- openVoiceLink.addEventListener('click', (e) => {
-   e.preventDefault();
-   const pill = document.querySelector('.kne-va-pill');
-   if (pill) pill.click();
-   else appendMsg('a','Talegjengivelse er ikke aktiv i denne ruten — bruk søket eller kontakt oss direkte.');
  });
 
  // ⌘K / Ctrl+K to focus search
