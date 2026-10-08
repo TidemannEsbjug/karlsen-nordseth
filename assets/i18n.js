@@ -149,9 +149,8 @@
 
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
 
-    // Notify other modules (e.g. the voice-agent, which builds its UI text
-    // dynamically and needs to re-render state labels / system prompts when
-    // the user picks a different flag).
+    // Notify other modules that build UI text dynamically and need to
+    // re-render when the user picks a different flag.
     try {
       document.dispatchEvent(new CustomEvent('kne:langchange', { detail: { lang: lang } }));
     } catch (e) { /* old browsers — ignore */ }

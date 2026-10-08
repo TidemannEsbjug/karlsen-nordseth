@@ -14,7 +14,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="voice-agent.css?v=7">
 <link rel="stylesheet" href="assets/i18n.css?v=7">
 
 <style>
@@ -1061,20 +1060,7 @@ body.is-searching .hero-scroll{
  pointer-events:none;
 }
 
-/* AI-modus — eyebrow, h1, ingress, chips fader ut slik at AI-panelet kan
- ta over samme området som søkeresultatene gjør. Søkefeltet og "eller"
- holdes synlige — brukeren skal kunne søke parallelt. */
 .hero-inner{position:relative}
-body.is-aiing .hero-eyebrow,
-body.is-aiing .hero h1,
-body.is-aiing .hero-sub,
-body.is-aiing .hero-chips,
-body.is-aiing .hero-pills,
-body.is-aiing .hero-scroll{
- opacity:0;
- transform:translateY(-12px);
- pointer-events:none;
-}
 
 /* ========== Mobile polish ========== */
 
@@ -1154,24 +1140,8 @@ body.is-aiing .hero-scroll{
  .hero-chips{
  justify-content:center;
  }
- .hero-search-row{
- justify-content:center;
- align-items:center;
- margin-left:auto;
- margin-right:auto;
- }
- .hero-search-row > .kne-va-wrap{
- width:100%;
- justify-content:center;
- }
- /* AI-pillen får samme bredde som søkefeltet over */
- .hero-search-row > .kne-va-wrap > .kne-va-pill{
- width:100%;
- box-sizing:border-box;
- justify-content:center;
- }
  /* Hero-search beholder full bredde, men sentreres */
- .hero-search-row .hero-search{
+ .hero-search{
  margin-left:auto;
  margin-right:auto;
  }
@@ -1194,16 +1164,6 @@ body.is-aiing .hero-scroll{
  transform:none;
  border-radius:14px;
  box-shadow:0 26px 60px -18px rgba(0,0,0,.45);
- }
-}
-
-/* AI-modus på mobil: skjul søkefeltet + "eller" slik at AI-pillen kan
-   gli opp og ta over plassen. AI-pillen beholder samme bredde som
-   søkefeltet hadde — ikke smalere, ikke bredere. */
-@media (max-width:720px){
- body.is-aiing .hero-search,
- body.is-aiing .kne-va-or{
- display:none;
  }
 }
 
@@ -1233,12 +1193,6 @@ body.is-aiing .hero-scroll{
  .hero-call:hover{background:var(--orange-2);transform:translateY(-1px)}
  .hero-call:active{transform:translateY(0)}
  .hero-call svg{width:18px;height:18px;flex:none}
- /* Når AI-modus er på, skjul også "Ring oss" så panelet får ren plass */
- body.is-aiing .hero-call{
- opacity:0;
- transform:translateY(-12px);
- pointer-events:none;
- }
 }
 
 </style>
@@ -2384,9 +2338,6 @@ body.is-aiing .hero-scroll{
  });
  })();
 </script>
-
-<!-- AI-assistent (xAI realtime voice). Pillen monteres ved siden av søkefeltet i hero. -->
-<script src="voice-agent.js?v=7" defer></script>
 
 <!-- i18n: dictionary first, then engine. Engine reads window.KNE_I18N on init.
      The ?v= query string is a cache-bust — bump the version when you edit
