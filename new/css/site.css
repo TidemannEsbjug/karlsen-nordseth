@@ -525,7 +525,7 @@ html:not(.js) .hero-cap{color:#fff}
 /* ==========================================================================
    Prosjektliste
    ========================================================================== */
-.work{padding-bottom:clamp(96px,16vh,180px)}
+.work{padding-top:clamp(96px,16vh,180px);padding-bottom:clamp(96px,16vh,180px)}
 .work-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px 48px;margin-bottom:clamp(32px,5vh,56px)}
 .work-head .t-statement{max-width:18em}
 .work-filter{display:flex;flex-wrap:wrap;gap:8px}
