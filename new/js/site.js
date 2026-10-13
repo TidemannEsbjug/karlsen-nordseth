@@ -466,52 +466,18 @@
   }, { rootMargin: '60% 0px' }).observe(story);
 
   /* ------------------------------------------------------------------
-     Footer: ordmerket fyller bredden, bokstavene reiser seg inn
+     Footer: KNEs logo over hele bredden reiser seg inn mens man scroller.
+     Selve logoen er urørt – bare posisjonen animeres.
      ------------------------------------------------------------------ */
-  const fm = $('#ftrMark');
-  let fmLetters = [];
-  let fmAmp = null;
-  let fmIn = null;
-  if (fm) {
-    fmIn = document.createElement('span');
-    fmIn.className = 'fm-in';
-    while (fm.firstChild) fmIn.appendChild(fm.firstChild);
-    fm.appendChild(fmIn);
-    $$('.fm-word', fmIn).forEach((w) => {
-      const txt = w.textContent;
-      w.textContent = '';
-      for (const ch of txt) {
-        const s = document.createElement('span');
-        s.className = 'fm-l';
-        s.textContent = ch;
-        w.appendChild(s);
-      }
-    });
-    fmLetters = $$('.fm-l', fmIn);
-    fmAmp = $('.fm-amp', fmIn);
-  }
-  function fitMark() {
-    if (!fm) return;
-    fm.style.fontSize = '100px';
-    const cs = getComputedStyle(fm);
-    const avail = fm.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-    const w = fmIn.getBoundingClientRect().width;
-    if (w > 0) fm.style.fontSize = `${Math.floor((100 * avail) / w * 0.995)}px`;
-  }
+  const ftrLogo = $('#ftrLogo');
+  const ftrLogoImg = ftrLogo ? ftrLogo.querySelector('img') : null;
   function footerFrame() {
-    if (!fm || reduce) return;
-    const r = fm.getBoundingClientRect();
+    if (!ftrLogoImg || reduce) return;
+    const r = ftrLogo.getBoundingClientRect();
     if (r.top > vh + 50 || r.bottom < -50) return;
-    // 0 når merket dukker opp nederst, 1 når det står helt inne (sidens bunn)
-    const q = clamp((vh - r.top) / r.height, 0, 1);
-    const L = fmLetters.length;
-    fmLetters.forEach((l, i) => {
-      const t = easeOut(clamp(q * 1.7 - (i / L) * 0.7, 0, 1));
-      l.style.transform = `translate3d(0, ${((1 - t) * 105).toFixed(1)}%, 0)`;
-    });
-    const a = easeOut(clamp(q * 1.4 - 0.3, 0, 1));
-    fmAmp.style.transform = `rotate(${(-38 * (1 - a)).toFixed(1)}deg) scale(${(0.35 + 0.65 * a).toFixed(3)})`;
-    fmAmp.style.opacity = a.toFixed(3);
+    // 0 når logoen dukker opp nederst, 1 når den står helt inne
+    const q = easeOut(clamp((vh - r.top) / (r.height * 0.9), 0, 1));
+    ftrLogoImg.style.transform = `translate3d(0, ${((1 - q) * 100).toFixed(2)}%, 0)`;
   }
 
   /* ------------------------------------------------------------------
@@ -540,7 +506,6 @@
     if (vw !== lastW || mqDesktop.matches) {
       lastW = vw;
       measureHero();
-      fitMark();
       measureMarquee();
     }
     schedule();
@@ -719,11 +684,10 @@
      ------------------------------------------------------------------ */
   $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
   measureHero();
-  fitMark();
   applyMotion();
   frame();
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => { measureHero(); fitMark(); measureMarquee(); schedule(); });
+    document.fonts.ready.then(() => { measureHero(); measureMarquee(); schedule(); });
   }
-  addEventListener('load', () => { measureMarquee(); fitMark(); });
+  addEventListener('load', () => { measureMarquee(); });
 })();
