@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Karlsen &amp; Nordseth Entreprenør – Antikvarisk rehabilitering i Oslo</title>
+<meta name="description" content="Entreprenør for antikvarisk rehabilitering, tak og fasade, og rigg og drift i Oslo og på Østlandet. Kirker, museer og fredede bygg siden 1992.">
+<meta name="theme-color" content="#F5F3EF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karlsen &amp; Nordseth Entreprenør">
+<meta property="og:description" content="Med lidenskap for antikvariske bygg. Antikvarisk rehabilitering, tak og fasade, rigg og drift i Oslo og på Østlandet siden 1992.">
+<meta property="og:image" content="media/hero.jpg">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preload" as="font" type="font/woff2" href="fonts/schibsted-grotesk-latin.woff2" crossorigin>
+<link rel="preload" as="image" href="media/hero.webp" media="(min-width: 760px)">
+<link rel="preload" as="image" href="media/hero-960.webp" media="(max-width: 759px)">
+
+<script>
+  /* Kjøres før første tegning: JS-klasse, og hopp over introen etter første visning i økten */
+  (function (d) {
+    d.classList.add('js');
+    try { if (sessionStorage.getItem('kne-intro')) d.classList.add('intro-seen'); } catch (e) {}
+  })(document.documentElement);
+</script>
+<link rel="stylesheet" href="js/vendor/lenis.css">
+<link rel="stylesheet" href="css/site.css?v=2">
+</head>
+
+<body>
+<a class="skip" href="#main">Hopp til innhold</a>
+
+<!-- Intro: ren CSS-animasjon som rydder seg selv bort, også uten JS -->
+<div class="intro-load" id="introLoad" aria-hidden="true">
+  <div class="il-word">
+    <span class="il-mask"><span class="il-txt">Karlsen</span></span>
+    <span class="il-amp">&amp;</span>
+    <span class="il-mask"><span class="il-txt">Nordseth</span></span>
+  </div>
+  <div class="il-meta">
+    <span class="il-mask"><span class="il-txt">Antikvarisk rehabilitering</span></span>
+    <span class="il-mask"><span class="il-txt">Oslo og Østlandet siden 1992</span></span>
+  </div>
+</div>
+
+<!-- ============ Header ============ -->
+<header class="hdr" id="hdr" data-tone="paper">
+  <a class="hdr-logo" href="./" aria-label="Karlsen &amp; Nordseth Entreprenør, forsiden">
+    <img class="logo-ink" src="media/logo-ink.png" alt="" width="384" height="124">
+    <img class="logo-white" src="media/logo-white.png" alt="" width="384" height="124">
+  </a>
+  <div class="hdr-right">
+    <a class="hdr-phone" href="tel:+4767073830">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span class="long">+47 67 07 38 30</span><span class="short">Ring</span>
+    </a>
+    <button class="hdr-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="bars" aria-hidden="true"><i></i><i></i></span>
+      <span data-label>Meny</span>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <div class="menu-inner wrap">
+    <nav aria-label="Hovedmeny">
+      <ul class="menu-links">
+        <li><a href="../prosjekter.html">Prosjekter</a></li>
+        <li><a href="../om-oss.html">Om oss</a></li>
+        <li><a href="../baerekraft.html">Bærekraft</a></li>
+        <li><a href="../etikkogansvar.html">Etikk og ansvar</a></li>
+        <li><a href="../stillinger.html">Stillinger</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="menu-side">
+      <p class="t-label">Telefon</p>
+      <a href="tel:+4767073830">+47 67 07 38 30</a>
+      <p class="t-label">E-post</p>
+      <a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a>
+      <p class="t-label">Org.nr.</p>
+      <p>985 214 034</p>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" id="hero" aria-label="Introduksjon">
+    <div class="hero-sticky" id="heroSticky">
+      <div class="hero-media" id="heroMedia">
+        <div class="zoom" id="heroZoom">
+          <picture>
+            <source media="(max-width: 759px)" srcset="media/hero-960.webp">
+            <img src="media/hero.webp" alt="" fetchpriority="high" width="1600" height="900">
+          </picture>
+          <video id="heroVideo" data-src="media/hero.mp4" data-src-small="media/hero-960.mp4"
+                 muted loop playsinline preload="auto" aria-hidden="true"></video>
+        </div>
+        <div class="hero-shade" id="heroShade"></div>
+      </div>
+
+      <h1 class="hero-tag" id="heroTag">
+        Antikvarisk rehabilitering, tak og fasade, rigg og drift.
+        <span class="tone">Oslo og Østlandet siden 1992.</span>
+      </h1>
+
+      <p class="hero-title" id="heroTitle" aria-hidden="true">
+        Karlsen &amp; Nordseth. <span class="tone">Med lidenskap for antikvariske bygg.</span>
+      </p>
+
+      <div class="hero-cap" id="heroCap">
+        <div class="cap-row">
+          <span class="cap-num"><span id="capNum">01</span>/04</span>
+          <span class="cap-title" id="capTitle">Fredrikstad Domkirke</span>
+        </div>
+        <div class="cap-sub" id="capSub">Skifertak, tårn og spir i kobber, 2014–2016</div>
+        <div class="cap-foot">
+          <div class="cap-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <button class="motion-btn" type="button" data-motion-toggle aria-pressed="false">
+            <svg class="i-pause" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".6" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".6" fill="currentColor"/></svg>
+            <svg class="i-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8a.6.6 0 0 0 .9.5l7-4.4a.6.6 0 0 0 0-1L3.9 1.1a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>
+            <span data-label>Pause</span><span class="sr-only"> video på siden</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Mosaikk ============ -->
+  <section class="mosaic" aria-labelledby="mosaic-h">
+    <div class="mosaic-grid">
+      <div class="mcol" data-speed="0.16">
+        <div class="tile unmask"><video data-src="media/m-spir.mp4" poster="media/m-spir.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div>
+        <div class="tile tile--sq unmask"><img src="media/img/m-ugle.webp" alt="Utskåret ugle i sandstein på fasaden til Historisk Museum" loading="lazy" width="1481" height="634"></div>
+        <div class="tile tile--land unmask"><video data-src="media/m-kobber.mp4" poster="media/m-kobber.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div>
+      </div>
+      <div class="mcol" data-speed="-0.1">
+        <div class="tile tile--land unmask"><img src="media/img/m-tak.webp" alt="Blikkenslagere på kobbertaket under stillastaket" loading="lazy" width="1481" height="634"></div>
+        <div class="tile unmask"><video data-src="media/m-leica.mp4" poster="media/m-leica.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div>
+        <div class="tile tile--land unmask"><img src="media/img/m-blyglass.webp" alt="Restaurert blyglassfelt holdes opp mot lyset" loading="lazy" width="1481" height="635"></div>
+      </div>
+      <div class="mcenter">
+        <h2 class="t-statement mosaic-title rv" id="mosaic-h">
+          Skifer, kobber, tegl og blyglass.
+          <span class="tone">Vi bruker materialene og metodene byggene ble reist med.</span>
+        </h2>
+        <a class="link mosaic-cta rv" href="#fagomrader">Se hva vi gjør
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2.5v11M3 8.5l5 5 5-5"/></svg>
+        </a>
+      </div>
+      <div class="mcol" data-speed="-0.06">
+        <div class="tile tile--land unmask"><video data-src="media/m-pensel.mp4" poster="media/m-pensel.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div>
+        <div class="tile unmask"><img src="media/img/m-forgylling.webp" alt="Granittfigur med nyrestaurert forgylling" loading="lazy" width="1481" height="870"></div>
+        <div class="tile tile--sq unmask"><video data-src="media/m-skann.mp4" poster="media/m-skann.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div>
+      </div>
+      <div class="mcol" data-speed="0.2">
+        <div class="tile unmask"><img src="media/img/m-nedlop.webp" alt="Nytt nedløp og rennekum i kobber" loading="lazy" width="1481" height="870"></div>
+        <div class="tile tile--land unmask"><video data-src="media/m-merking.mp4" poster="media/m-merking.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div>
+        <div class="tile tile--sq unmask"><img src="media/img/m-taarn.webp" alt="Håndverkere ved et kobbertårn på taket av Historisk Museum" loading="lazy" width="1481" height="635"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Materialer – løpende bånd ============ -->
+  <section class="materials" aria-labelledby="mat-h">
+    <h2 class="sr-only" id="mat-h">Materialer vi jobber med</h2>
+    <ul class="sr-only">
+      <li>Kobber</li><li>Tegl</li><li>Blyglass</li><li>Kalkmørtel</li><li>Sandstein</li><li>Tre</li><li>Bladgull</li><li>Granitt</li>
+    </ul>
+    <div class="mq" id="mq" aria-hidden="true">
+      <div class="mq-track" id="mqTrack">
+        <div class="mq-set">
+          <span class="mq-item">Kobber<img class="mq-pill" src="media/img/mat-kobber.webp" alt="" width="560" height="320" loading="lazy"></span>
+          <span class="mq-item">Tegl<img class="mq-pill" src="media/img/mat-tegl.webp" alt="" width="560" height="320" loading="lazy"></span>
+          <span class="mq-item">Blyglass<img class="mq-pill" src="media/img/mat-blyglass.webp" alt="" width="560" height="320" loading="lazy"></span>
+          <span class="mq-item">Kalkmørtel<img class="mq-pill" src="media/img/mat-kalk.webp" alt="" width="560" height="320" loading="lazy"></span>
+          <span class="mq-item">Sandstein<img class="mq-pill" src="media/img/mat-sandstein.webp" alt="" width="560" height="320" loading="lazy"></span>
+          <span class="mq-item">Tre<img class="mq-pill" src="media/img/mat-tre.webp" alt="" width="560" height="320" loading="lazy"></span>
+          <span class="mq-item">Bladgull<img class="mq-pill" src="media/img/mat-bladgull.webp" alt="" width="560" height="320" loading="lazy"></span>
+          <span class="mq-item">Granitt<img class="mq-pill" src="media/img/mat-granitt.webp" alt="" width="560" height="320" loading="lazy"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Om oss ============ -->
+  <section class="intro" id="om-oss" aria-labelledby="intro-h">
+    <div class="wrap split">
+      <p class="t-label">Om oss</p>
+      <div>
+        <h2 class="t-statement" data-scrub id="intro-h">
+          Vi er en mellomstor entreprenør fra Oslo.
+          <span class="tone">Kundene våre er store eiendomsbesittere, boligsameier og offentlige byggherrer, og ofte er jobben å ta vare på noe som ikke kan erstattes.</span>
+        </h2>
+        <div class="intro-foot rv">
+          <p class="body">Vi har spesialisert oss på et fagfelt der detaljene og kunnskap om eldre byggemetoder avgjør resultatet, og vi vil være med på å føre norsk byggeskikk videre.</p>
+          <a class="btn btn--ghost" href="../om-oss.html">Mer om oss
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Fagområder ============ -->
+  <section class="services" id="fagomrader" aria-labelledby="fag-h">
+    <div class="wrap svc-intro">
+      <h2 class="t-label" id="fag-h">Fagområder</h2>
+      <a class="t-label" href="../prosjekter.html">Alle prosjekter</a>
+    </div>
+
+    <article class="svc" id="antikvarisk" aria-labelledby="svc1-h">
+      <div class="svc-inner">
+        <div class="svc-head">
+          <h3 class="t-giant blur-in" id="svc1-h">Antikvarisk<br>rehabilitering</h3>
+          <span class="svc-num">01/03</span>
+        </div>
+        <div class="svc-body">
+          <p>Fredede og verneverdige bygg restaureres med kalkmørtel, skifer, kobber, tre og blyglass. På de viktigste byggene prøver vi ut løsningene i piloter som godkjennes av antikvariske myndigheter.</p>
+          <a class="link" href="../prosjekter.html#antikvarisk">Antikvariske prosjekter
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+        <div class="svc-media unmask">
+          <video data-src="media/s-antikvarisk.mp4" poster="media/s-antikvarisk.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span class="svc-tag">Vinduer fra Historisk Museum på verksted</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc" id="tak-og-fasade" aria-labelledby="svc2-h">
+      <div class="svc-inner">
+        <div class="svc-head">
+          <h3 class="t-giant blur-in" id="svc2-h">Tak og<br>fasade</h3>
+          <span class="svc-num">02/03</span>
+        </div>
+        <div class="svc-body">
+          <p>Skifer- og kobbertekking, takrenner, piper og beslag. Fuging, puss og utskifting av tegl og naturstein. Blikkenslagere, murere og tømrere jobber side om side på stillaset.</p>
+          <a class="link" href="../prosjekter/historisk-museum.html">Se taket på Historisk Museum
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+        <div class="svc-media unmask">
+          <video data-src="media/s-takfasade.mp4" poster="media/s-takfasade.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span class="svc-tag">Spekking og kobberarbeid</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc" id="rigg" aria-labelledby="svc3-h">
+      <div class="svc-inner">
+        <div class="svc-head">
+          <h3 class="t-giant blur-in" id="svc3-h">Rigg og<br>drift</h3>
+          <span class="svc-num">03/03</span>
+        </div>
+        <div class="svc-body">
+          <p>Byggherrerigg og drift for sykehus, museer og store anlegg. Adgangskontroll, sikring, brakker og logistikk, fra etablering til ferdigstillelse.</p>
+          <a class="link" href="../prosjekter.html#rigg">Riggprosjekter
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+        <div class="svc-media unmask">
+          <video data-src="media/s-rigg.mp4" poster="media/s-rigg.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span class="svc-tag">Skallsikring inne i museet, i drift</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <div class="wrap svc-note">
+    <p>Vi tar også nybygg. <span class="tone">Som total- og generalentreprenør, der detaljkvaliteten teller like mye som fremdriften.</span></p>
+    <a class="link" href="#kontakt">Snakk med oss om prosjektet
+      <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+    </a>
+  </div>
+
+  <!-- ============ Prosjekt i fokus – låst scroll-fortelling ============ -->
+  <section class="story" id="historisk-museum" aria-labelledby="story-h">
+    <div class="story-pin" id="storyPin" data-tone="media">
+      <div class="story-media" aria-hidden="true">
+        <div class="sm is-on"><video data-story data-src="media/case-museum.mp4" poster="media/case-museum.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="sm"><video data-story data-src="media/st-kobber.mp4" poster="media/st-kobber.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="sm"><video data-story data-src="media/st-fuger.mp4" poster="media/st-fuger.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="sm"><video data-story data-src="media/st-vinduer.mp4" poster="media/st-vinduer.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="sm sm--still"><img src="media/img/m-blyglass.webp" alt="" loading="lazy" width="1481" height="635"></div>
+      </div>
+      <div class="story-shade"></div>
+
+      <div class="story-top">
+        <span>Prosjekt i fokus</span>
+        <span>Universitetet i Oslo · 2017–2020 · 112,5 MNOK</span>
+      </div>
+
+      <div class="story-stage">
+        <div class="ch is-on" data-ch="0">
+          <h2 class="t-giant" id="story-h">Historisk<br>Museum</h2>
+          <p class="ch-text">Generalentreprise på et fredet bygg tegnet av Henrik Bull. Tak, fasader og nesten 600 vinduer, mens museet holdt åpent.</p>
+        </div>
+        <div class="ch" data-ch="1">
+          <p class="ch-num"><span class="count" data-to="25" aria-hidden="true">25</span><span class="sr-only">25</span> <span class="unit">tonn</span></p>
+          <p class="ch-text">kobber til takrenner, beslag, utsmykninger og tekking. Hver detalj ble prøvd ut i piloter og godkjent av Riksantikvaren.</p>
+        </div>
+        <div class="ch" data-ch="2">
+          <p class="ch-pre">Over</p>
+          <p class="ch-num"><span class="count" data-to="40" aria-hidden="true">40</span><span class="sr-only">40</span> <span class="unit">km</span></p>
+          <p class="ch-text">fuger krafset ut og spekket på nytt, og over 300 teglstein byttet med spesialbestilt stein fra Tyskland.</p>
+        </div>
+        <div class="ch" data-ch="3">
+          <p class="ch-pre">Nesten</p>
+          <p class="ch-num"><span class="count" data-to="600" aria-hidden="true">600</span><span class="sr-only">600</span></p>
+          <p class="ch-text">vindusrammer restaurert på verksted. Smygene ble 3D-skannet, og nye varevinduer bygget etter hver profil.</p>
+        </div>
+        <div class="ch" data-ch="4">
+          <p class="ch-pre">Rundt</p>
+          <p class="ch-num"><span class="count" data-to="100" aria-hidden="true">100</span><span class="sr-only">100</span></p>
+          <p class="ch-text">blyglassfelt restaurert i et blyglassverksted som ble bygget opp på riggen.</p>
+        </div>
+      </div>
+
+      <div class="story-foot">
+        <div class="story-progress" aria-hidden="true">
+          <span class="sp-num"><span id="storyNum">01</span>/05</span>
+          <span class="sp-bars"><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <a class="btn btn--light" href="../prosjekter/historisk-museum.html">Se <span class="hide-sm">hele </span>prosjektet
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Prosjekter ============ -->
+  <section class="work wrap" id="prosjekter" aria-labelledby="work-h">
+    <div class="work-head">
+      <h2 class="t-statement rv" id="work-h">Utvalgte prosjekter. <span class="tone">Kirker, museer, kaserner og sykehus.</span></h2>
+      <div class="work-filter" role="group" aria-label="Filtrer prosjekter">
+        <button type="button" data-filter="alle" aria-pressed="true">Alle<sup>12</sup></button>
+        <button type="button" data-filter="antikvarisk" aria-pressed="false">Antikvarisk<sup>7</sup></button>
+        <button type="button" data-filter="rigg" aria-pressed="false">Rigg og drift<sup>5</sup></button>
+      </div>
+    </div>
+
+    <ol class="work-list" id="workList">
+      <li data-cat="antikvarisk"><a href="../prosjekter/historisk-museum.html" data-img="media/img/p-historisk-museum.webp">
+        <img class="w-thumb" src="media/img/p-historisk-museum.webp" alt="" loading="lazy" width="1200" height="574">
+        <span class="w-name">Historisk Museum</span><span class="w-type">Antikvarisk</span><span class="w-client">Universitetet i Oslo</span><span class="w-year">2017–2020</span>
+      </a></li>
+      <li data-cat="antikvarisk"><a href="../prosjekter/fredrikstad-domkirke.html" data-img="media/img/p-fredrikstad-domkirke.webp">
+        <img class="w-thumb" src="media/img/p-fredrikstad-domkirke.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Fredrikstad Domkirke</span><span class="w-type">Antikvarisk</span><span class="w-client">Fredrikstad Kirkelige Fellesråd</span><span class="w-year">2014–2016</span>
+      </a></li>
+      <li data-cat="antikvarisk"><a href="../prosjekter/frogner-kirke.html" data-img="media/img/p-frogner-kirke.webp">
+        <img class="w-thumb" src="media/img/p-frogner-kirke.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Frogner kirke</span><span class="w-type">Antikvarisk</span><span class="w-client">Kirkelig fellesråd i Oslo</span><span class="w-year">2016–2017</span>
+      </a></li>
+      <li data-cat="antikvarisk"><a href="../prosjekter/fredrikstad-infanterikaserne.html" data-img="media/img/p-infanterikaserne.webp">
+        <img class="w-thumb" src="media/img/p-infanterikaserne.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Infanterikasernen, Fredrikstad</span><span class="w-type">Antikvarisk</span><span class="w-client">Forsvarsbygg</span><span class="w-year">2013–2015</span>
+      </a></li>
+      <li data-cat="antikvarisk"><a href="../prosjekter/uranienborg-kirke.html" data-img="media/img/p-uranienborg-kirke.webp">
+        <img class="w-thumb" src="media/img/p-uranienborg-kirke.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Uranienborg kirke</span><span class="w-type">Antikvarisk</span><span class="w-client">Kirkelig fellesråd i Oslo</span><span class="w-year">2007–2010</span>
+      </a></li>
+      <li data-cat="antikvarisk"><a href="../prosjekter/bekkelaget-kirke.html" data-img="media/img/p-bekkelaget-kirke.webp">
+        <img class="w-thumb" src="media/img/p-bekkelaget-kirke.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Bekkelaget kirke</span><span class="w-type">Antikvarisk</span><span class="w-client">Kirkelig fellesråd i Oslo</span><span class="w-year">2012</span>
+      </a></li>
+      <li data-cat="antikvarisk"><a href="../prosjekter/krakstad-kirke.html" data-img="media/img/p-krakstad-kirke.webp">
+        <img class="w-thumb" src="media/img/p-krakstad-kirke.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Kråkstad kirke</span><span class="w-type">Antikvarisk</span><span class="w-client">Ski Kirkelige Fellesråd</span><span class="w-year">2017</span>
+      </a></li>
+      <li data-cat="rigg"><a href="../prosjekter/nytt-nasjonalmuseum.html" data-img="media/img/p-nasjonalmuseum.webp">
+        <img class="w-thumb" src="media/img/p-nasjonalmuseum.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Nytt Nasjonalmuseum</span><span class="w-type">Rigg og drift</span><span class="w-client">Statsbygg</span><span class="w-year">2014–2021</span>
+      </a></li>
+      <li data-cat="rigg"><a href="../prosjekter/kalnes.html" data-img="media/img/p-kalnes.webp">
+        <img class="w-thumb" src="media/img/p-kalnes.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Sykehuset Østfold, Kalnes</span><span class="w-type">Rigg og drift</span><span class="w-client">Helse Sør-Øst</span><span class="w-year">2012–2015</span>
+      </a></li>
+      <li data-cat="rigg"><a href="../prosjekter/ahus.html" data-img="media/img/p-ahus.webp">
+        <img class="w-thumb" src="media/img/p-ahus.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Akershus universitetssykehus</span><span class="w-type">Rigg og drift</span><span class="w-client">Helse Sør-Øst</span><span class="w-year">2004–2011</span>
+      </a></li>
+      <li data-cat="rigg"><a href="../prosjekter/holmenkollen.html" data-img="media/img/p-holmenkollen.webp">
+        <img class="w-thumb" src="media/img/p-holmenkollen.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Holmenkollen</span><span class="w-type">Rigg og drift</span><span class="w-client">Oslo kommune</span><span class="w-year">2008–2011</span>
+      </a></li>
+      <li data-cat="rigg"><a href="../prosjekter/campus-aas.html" data-img="media/img/p-campus-aas.webp">
+        <img class="w-thumb" src="media/img/p-campus-aas.webp" alt="" loading="lazy" width="1200" height="800">
+        <span class="w-name">Campus Ås</span><span class="w-type">Rigg og drift</span><span class="w-client">Statsbygg</span><span class="w-year">2015–2020</span>
+      </a></li>
+    </ol>
+
+    <a class="btn btn--ghost work-more" href="../prosjekter.html">Hele referanselisten
+      <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+    </a>
+  </section>
+
+  <!-- ============ Oppdragsgivere ============ -->
+  <section class="clients" aria-labelledby="clients-h">
+    <div class="wrap clients-head">
+      <h2 class="t-statement" data-scrub id="clients-h">
+        Byggene holder ofte åpent mens vi jobber.
+        <span class="tone">Museer med publikum, sykehus med pasienter og kirker med gudstjenester, på den andre siden av stillasduken.</span>
+      </h2>
+    </div>
+    <div class="clients-media unmask" id="clientsMedia" data-tone="media">
+      <video data-src="media/oppdrag.mp4" poster="media/oppdrag.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <div class="clients-over">
+        <p class="t-label" id="clients-lbl">Blant oppdragsgiverne våre</p>
+        <ul class="client-names" id="clientNames" aria-labelledby="clients-lbl">
+          <li class="is-on">Universitetet i Oslo</li>
+          <li>Statsbygg</li>
+          <li>Forsvarsbygg</li>
+          <li>Helse Sør-Øst</li>
+          <li>Kirkelig fellesråd i Oslo</li>
+          <li>Oslo kommune</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Stillinger ============ -->
+  <section class="careers wrap" id="stillinger" aria-labelledby="careers-h">
+    <div class="careers-grid">
+      <div class="careers-copy">
+        <p class="t-label">Stillinger</p>
+        <h2 class="t-statement rv" id="careers-h">
+          Vi ansetter fagfolk.
+          <span class="tone">Blikkenslagere, taktekkere, tømrere, murere og lærlinger som vil jobbe på bygg som betyr noe.</span>
+        </h2>
+        <p class="body rv">Du får varierte oppdrag, gode lønnsbetingelser og kolleger som er stolte av faget. Vi stiller også lag i løp og idrettsarrangementer, fordi vi tror et aktivt liv gir glade dager.</p>
+        <div class="actions rv">
+          <a class="btn" href="../stillinger.html">Ledige stillinger
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="mailto:post@karlsen-nordseth.no?subject=%C3%85pen%20s%C3%B8knad">Send åpen søknad</a>
+        </div>
+      </div>
+      <div class="careers-media unmask">
+        <video data-src="media/lag.mp4" poster="media/lag.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Bærekraft ============ -->
+  <section class="sus" id="baerekraft" aria-labelledby="sus-h">
+    <div class="wrap split">
+      <p class="t-label">Bærekraft</p>
+      <div>
+        <h2 class="t-statement" data-scrub id="sus-h">
+          Det mest bærekraftige bygget er det som allerede står.
+          <span class="tone">Rehabilitering gir mindre avfall og krever færre nye materialer enn å rive og bygge nytt.</span>
+        </h2>
+        <ul class="sus-list rv">
+          <li><strong>Miljøfyrtårn</strong><span>Vi måler klimaavtrykket vårt i Miljøfyrtårns rapporteringsverktøy.</span></li>
+          <li><strong>Fossilfritt innen 2030</strong><span>Målet er en bilpark uten fossile kjøretøy.</span></li>
+          <li><strong>Fornybar strøm</strong><span>Strøm med opprinnelsesgaranti og investering i fornybar energi i driftslokalene.</span></li>
+          <li><strong>Ingen sosial dumping</strong><span>Vi følger opp arbeidsforholdene i hele leverandørkjeden.</span></li>
+        </ul>
+        <a class="link" href="../baerekraft.html">Les om bærekraft
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Kontakt ============ -->
+  <section class="contact" id="kontakt" aria-labelledby="kontakt-h">
+    <div class="wrap">
+      <div class="contact-head">
+        <h2 class="contact-title rv" id="kontakt-h">Ta kontakt. <span class="tone">Vi svarer innen én arbeidsdag.</span></h2>
+        <a class="orb" href="mailto:post@karlsen-nordseth.no" data-magnetic>
+          <span class="orb-in">Skriv til oss
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 8h11M8.5 3l5 5-5 5"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-big" href="tel:+4767073830"><span class="t-label">Telefon</span><span class="big">+47 67 07 38 30</span></a>
+        <a class="contact-big" href="mailto:post@karlsen-nordseth.no"><span class="t-label">E-post</span><span class="big">post@karlsen-nordseth.no</span></a>
+        <p class="contact-note">Ser du etter en entreprenør til et prosjekt, eller en ny arbeidsplass? Ring eller send en e-post, så tar vi det derfra.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="ftr" id="ftr">
+  <div class="wrap ftr-top">
+    <div class="ftr-brand">
+      <img src="media/logo-ink.png" alt="Karlsen &amp; Nordseth Entreprenør AS" width="384" height="124" loading="lazy">
+      <p>Antikvarisk rehabilitering, tak og fasade, rigg og drift. Oslo og Østlandet siden 1992.</p>
+    </div>
+    <nav class="ftr-col" aria-labelledby="f1">
+      <h2 id="f1">Selskapet</h2>
+      <ul>
+        <li><a href="../prosjekter.html">Prosjekter</a></li>
+        <li><a href="../om-oss.html">Om oss</a></li>
+        <li><a href="../stillinger.html">Stillinger</a></li>
+      </ul>
+    </nav>
+    <nav class="ftr-col" aria-labelledby="f2">
+      <h2 id="f2">Ansvar</h2>
+      <ul>
+        <li><a href="../baerekraft.html">Bærekraft</a></li>
+        <li><a href="../miljoarbeid.html">Miljøarbeid</a></li>
+        <li><a href="../mangfold.html">Mangfold</a></li>
+        <li><a href="../etikkogansvar.html">Etikk og ansvar</a></li>
+        <li><a href="../apenhetsloven.html">Åpenhetsloven</a></li>
+        <li><a href="../personvernerklaering.html">Personvernerklæring</a></li>
+      </ul>
+    </nav>
+    <div class="ftr-col">
+      <h2>Kontakt</h2>
+      <ul>
+        <li><a href="tel:+4767073830">+47 67 07 38 30</a></li>
+        <li><a href="mailto:post@karlsen-nordseth.no">post@karlsen-nordseth.no</a></li>
+        <li>Org.nr. 985 214 034</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap ftr-bottom">
+    <span>© <span data-year>2026</span> Karlsen &amp; Nordseth Entreprenør AS</span>
+    <a class="link" href="#hero">Til toppen</a>
+  </div>
+  <div class="ftr-mark" id="ftrMark" aria-hidden="true"><span class="fm-word">Karlsen</span><span class="fm-amp">&amp;</span><span class="fm-word">Nordseth</span></div>
+</footer>
+
+<div class="work-preview" id="workPreview" aria-hidden="true"><img alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACw="></div>
+
+<script src="js/vendor/lenis.min.js" defer></script>
+<script src="js/site.js?v=2" defer></script>
+</body>
+</html>
