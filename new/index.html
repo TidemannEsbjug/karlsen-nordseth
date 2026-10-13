@@ -15,7 +15,6 @@
 <link rel="preload" as="font" type="font/woff2" href="fonts/schibsted-grotesk-latin.woff2" crossorigin>
 <link rel="preload" as="image" href="media/hero.webp" media="(min-width: 760px)">
 <link rel="preload" as="image" href="media/hero-960.webp" media="(max-width: 759px)">
-<link rel="preload" as="image" href="media/logo-dark-1200.webp">
 
 <script>
   /* Kjøres før første tegning: JS-klasse, og hopp over introen etter første visning i økten */
@@ -25,7 +24,7 @@
   })(document.documentElement);
 </script>
 <link rel="stylesheet" href="js/vendor/lenis.css">
-<link rel="stylesheet" href="css/site.css?v=4">
+<link rel="stylesheet" href="css/site.css?v=5">
 </head>
 
 <body>
@@ -33,8 +32,10 @@
 
 <!-- Intro: ren CSS-animasjon som rydder seg selv bort, også uten JS -->
 <div class="intro-load" id="introLoad" aria-hidden="true">
-  <div class="il-logo">
-    <img src="media/logo-dark-1200.webp" alt="" width="1200" height="353">
+  <div class="il-word">
+    <span class="il-mask"><span class="il-txt">Karlsen</span></span>
+    <span class="il-amp">&amp;</span>
+    <span class="il-mask"><span class="il-txt">Nordseth</span></span>
   </div>
   <div class="il-meta">
     <span class="il-mask"><span class="il-txt">Antikvarisk rehabilitering</span></span>

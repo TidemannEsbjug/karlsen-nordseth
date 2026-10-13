@@ -15,8 +15,16 @@
   src:url(../fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
+/* Bare «&» fra Cormorant Garamond Bold Italic – brukes i introen */
+@font-face{
+  font-family:"KNE Ampersand";font-style:italic;font-weight:700;font-display:block;
+  src:url(../fonts/cormorant-ampersand.woff2) format("woff2");
+  unicode-range:U+26;
+}
+
 /* ---------- Tokens ---------- */
 :root{
+  --amp:"KNE Ampersand", "Cormorant Garamond", Georgia, serif;
   --paper:#F5F3EF;
   --paper-2:#EAE7E1;
   --ink:#121110;
@@ -742,14 +750,20 @@ html:not(.js) .hero-cap{color:#fff}
   pointer-events:none;
 }
 .js.intro-seen .intro-load,.js .intro-load.is-skipped{display:none}
-/* KNEs logo reiser seg opp bak en maske */
-.il-logo{
-  width:min(80vw, 780px);overflow:hidden;
+.il-word{
+  display:flex;align-items:baseline;
+  font-size:clamp(2.3rem, 9.4vw, 10.5rem);line-height:1;letter-spacing:-.055em;font-weight:500;
   animation:ilLift .95s cubic-bezier(.76,0,.24,1) 1.3s forwards;
 }
-.il-logo img{display:block;width:100%;height:auto;transform:translateY(104%);animation:ilUp 1s var(--ease) .1s forwards}
 .il-mask{display:inline-block;overflow:hidden;padding:0 .02em .08em;margin-bottom:-.08em}
 .il-txt{display:inline-block;transform:translateY(108%);animation:ilUp .9s var(--ease) .1s forwards}
+.il-word .il-mask:last-child .il-txt{animation-delay:.2s}
+.il-amp{
+  font-family:var(--amp);font-style:italic;font-weight:700;letter-spacing:0;
+  font-size:1.2em;line-height:.6;color:var(--orange);margin:0 .06em;
+  display:inline-block;opacity:0;transform:scale(.3) rotate(-24deg);
+  animation:ilAmp 1s var(--ease) .32s forwards;
+}
 .il-meta{
   display:flex;justify-content:space-between;gap:24px;width:100%;
   font-size:var(--fs-small);font-weight:500;color:var(--muted);
@@ -761,6 +775,7 @@ html:not(.js) .hero-cap{color:#fff}
 .il-meta .il-txt{animation-delay:.45s}
 .il-meta .il-mask:last-child .il-txt{animation-delay:.52s}
 @keyframes ilUp{to{transform:none}}
+@keyframes ilAmp{to{opacity:1;transform:none}}
 @keyframes ilLift{to{transform:translateY(-6vh)}}
 @keyframes ilOut{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
 
